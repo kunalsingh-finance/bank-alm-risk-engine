@@ -1,6 +1,6 @@
 # Validation record
 
-Date: October 2, 2026. Scope: version 1.0, the Regions Bank December 2025 public research case, its aggregate reference, historical calibration, challenge scenarios and editable Excel case. Technical checks establish source consistency and implementation behavior; they do not establish a bank forecast or customer-behavior model.
+Date: October 2, 2026 (America/New_York); release verification continued into October 3 UTC. Scope: version 1.0, the Regions Bank December 2025 public research case, its aggregate reference, historical calibration, challenge scenarios and editable Excel case. Technical checks establish source consistency and implementation behavior; they do not establish a bank forecast or customer-behavior model.
 
 ## Source controls
 
@@ -13,9 +13,11 @@ Date: October 2, 2026. Scope: version 1.0, the Regions Bank December 2025 public
 
 ## Numerical and failure tests
 
-`python -m unittest discover -s tests -v`: **80 tests passed**.
+`python -m unittest discover -s tests -v`: **86 tests passed**.
 
-Coverage includes analytical bond/swap prices, dated accruals and locked fixing, terminal settlement, principal conservation, deposit withdrawals, exhausted funding, prefunding, sale PNL, rate floors, input rejection and unchanged inputs. The original eight zero-hedge results remain exactly equal to the v1 fixture.
+Coverage includes analytical bond/swap prices, dated accruals and locked fixing, terminal settlement, principal conservation, deposit withdrawals, exhausted funding, prefunding, sale PNL, rate floors, input rejection and unchanged inputs. The original eight zero-hedge results match the unchanged v1 fixture within $0.0001 for monetary fields; other fields remain exact. Implicit and explicit zero-hedge dispatch remain exactly equal on the same host.
+
+Linux publication checks exposed last-bit differences from Windows in native exponential calculations. Curve replay allows absolute roundoff of at most 1e-14 in decimal zero rates and 1e-10 bp in the derived published-yield error. Source hashes, metadata, fitted parameters and tenors remain exact, and replay never rewrites pinned inputs. Dedicated tests accept one-ULP differences while rejecting changes beyond these bounds, material rate changes, altered metadata, invalid types and nonfinite values. Release input and artifact hashes still require byte-for-byte equality.
 
 The extended tests cover cash operating expenses versus noncash credit losses, unpaid expense liabilities, reset-versus-maturity behavior, per-band principal/loss/sale conservation, pledge inventory, prohibited encumbered sales and retained principal as unspendable restricted cash. Full-to-compact gzip roundtrips preserve all aggregate accounts and authoritative per-band detail. Frozen-policy challenge tests preserve selection, retain failures and reject altered cash paths. Calibration tests cover constrained estimates, rank deficiency, missing observations, chronology and denominator/day-count scope.
 
@@ -36,7 +38,7 @@ Meaningful tampering tests alter balances, derivative marks, collateral, coupons
 
 ## Release and dashboard
 
-The final `python -S scripts/build_report.py` and `python -S scripts/verify_release.py` both passed. Build start: **2026-10-02 16:14:25 UTC**. Manifest SHA-256: `d2cf6dbe493b9fe07a6f5a9c479b446ee8fb872e51de31fd3af27cfb9be07770`. The CLI checks current input/code hashes, artifact hashes, source replay, full/compact equivalence, selected-policy consistency, saved research summaries and all four audit groups.
+The final `python -S scripts/build_report.py` and `python -S scripts/verify_release.py` both passed. Build start: **2026-10-03 02:39:31 UTC**. Manifest SHA-256: `96dbdd26a26dacd5af25440cb5e6286d125cebccea1097ebea635c13d24f6d8c`. The CLI checks current input/code hashes, artifact hashes, source replay, full/compact equivalence, selected-policy consistency, saved research summaries and all four audit groups.
 
 `node scripts/check_report.cjs` passed for both primary and reference reports. It covers escaping, selection, chart and ledger rendering, data-download logic and fail-closed output. Chrome verification of the final v3 report confirmed selected/reference switching while preserving the falling-rate scenario, $4.31bn versus $4.76bn bank NII, $1.80bn required/posted collateral, negative $1.74bn modeled earnings, 13 opening/monthly events with 31 displayed account columns, and updated cost/restricted-cash labels. The downloaded combined-case CSV contains 13 events and 69 fields; 884 numeric cells exactly match the saved scenario within 1e-5 USD. The browser download-event listener timed out, but the actual downloaded file was found and independently validated.
 
@@ -48,7 +50,7 @@ The separate live case does not run the full engine. Fixed engine imports includ
 
 The final production workbook passed rebuild/recalculation, input edits/restoration, **102 independent numeric comparisons**, all **2,103 cached formulas** without errors, seven-sheet coverage and one native-chart binding check. Twelve current preview ranges covering every tab were visually inspected. The final independent XML check was rerun successfully against the saved XLSX. Artifact Tool recalculation was tested; native Microsoft Excel application behavior was not separately exercised.
 
-Workbook SHA-256: `570508234a506561e0f3fe16f62ee3d5b22d7f09e190df78631cfe0a01e24dd1`. Imported analysis SHA-256: `8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a`. Both align with the final manifest above. The adjacent `workbook_previews/independent_validation.json` records those hashes and checks; `validation.json` records edit/recalculation outcomes. Obsolete previews and the exporter inspection sidecar were removed.
+Workbook SHA-256: `90a391872aea7e6e0759e5c5b2f32132a3856ab023bec5036964e09d59258d64`. Imported analysis SHA-256: `8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a`. Both align with the final manifest above. The adjacent `workbook_previews/independent_validation.json` records those hashes and checks; `validation.json` records edit/recalculation outcomes. Obsolete previews and the exporter inspection sidecar were removed.
 
 ## Interpretation
 

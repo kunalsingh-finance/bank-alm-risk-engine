@@ -7,6 +7,7 @@ import hashlib
 import html
 import io
 import json
+import math
 from pathlib import Path
 from typing import Any
 
@@ -40,6 +41,47 @@ def fingerprint(root: Path = ROOT) -> dict[str, str]:
     return {path.relative_to(root).as_posix(): digest(path) for path in sorted(paths)}
 
 
+def _exact_json_equal(saved: Any, rebuilt: Any) -> bool:
+    """Compare metadata without Python's bool/int or int/float equivalence."""
+    if type(saved) is not type(rebuilt):
+        return False
+    if isinstance(saved, dict):
+        return saved.keys() == rebuilt.keys() and all(_exact_json_equal(saved[key], rebuilt[key]) for key in saved)
+    if isinstance(saved, list):
+        return len(saved) == len(rebuilt) and all(_exact_json_equal(a, b) for a, b in zip(saved, rebuilt))
+    if isinstance(saved, float) and not (math.isfinite(saved) and math.isfinite(rebuilt)):
+        return False
+    return saved == rebuilt
+
+
+def _curve_replay_matches(saved: dict, rebuilt: dict) -> bool:
+    """Allow native math-library roundoff only in the two derived curve fields.
+
+    Source hashes, fitted parameters, tenors and every other field remain exact.
+    The absolute rate tolerance is 1e-10 basis points; neither tolerance scales
+    with the value. This comparison never changes the pinned model inputs.
+    """
+    derived = {"zero_rates", "max_published_zero_error_bps"}
+    if type(saved) is not dict or type(rebuilt) is not dict or saved.keys() != rebuilt.keys() or not derived <= saved.keys():
+        return False
+    if not _exact_json_equal({k: v for k, v in saved.items() if k not in derived}, {k: v for k, v in rebuilt.items() if k not in derived}):
+        return False
+
+    def close(a: Any, b: Any, tolerance: float) -> bool:
+        if type(a) not in (int, float) or type(b) not in (int, float):
+            return False
+        try:
+            return math.isfinite(a) and math.isfinite(b) and math.isclose(a, b, rel_tol=0.0, abs_tol=tolerance)
+        except OverflowError:
+            return False
+
+    rates, replayed_rates = saved["zero_rates"], rebuilt["zero_rates"]
+    if type(rates) is not list or type(replayed_rates) is not list or len(rates) != len(replayed_rates):
+        return False
+    return (all(close(a, b, 1e-14) for a, b in zip(rates, replayed_rates))
+            and close(saved["max_published_zero_error_bps"], rebuilt["max_published_zero_error_bps"], 1e-10))
+
+
 def validate_sources(root: Path = ROOT) -> tuple[dict, dict]:
     from scripts.fetch_bank_data import build_snapshot
     from scripts.prepare_curve import prepare
@@ -51,7 +93,7 @@ def validate_sources(root: Path = ROOT) -> tuple[dict, dict]:
         raise ValueError("Normalized bank snapshot differs from its verified FDIC source replay")
     curve = read_json(root / "data/processed/curve.json")
     reconstructed = prepare(snapshot["as_of"], write=False, root=root)
-    if curve != reconstructed:
+    if not _curve_replay_matches(curve, reconstructed):
         raise ValueError("Normalized curve differs from its verified Federal Reserve source replay")
     if digest(root / "data/raw/fed_curve/selected_observation.json") != curve["selected_observation_sha256"]:
         raise ValueError("Saved Federal Reserve observation does not match the curve")

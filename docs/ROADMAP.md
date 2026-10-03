@@ -5,7 +5,7 @@ Version 1.0 delivers the planned public-data research application. The original 
 | Stage | Delivered evidence |
 | --- | --- |
 | Public balance sheet and curve | Pinned FDIC legal-entity snapshot, Federal Reserve curve, exact accounting/source replay, monthly ledgers, stress scenarios, reverse stress and local dashboard. |
-| Hedge and funding decisions | Dated swaps, locked fixing, collateral segregation, closeout, 30 policy candidates, independent ledger reconstruction and exact v1 regression preservation. |
+| Hedge and funding decisions | Dated swaps, locked fixing, collateral segregation, closeout, 30 policy candidates, independent ledger reconstruction and v1 regression preservation within $0.0001 cross-platform monetary tolerance. |
 | Historical calibration | 44 quarters, 36-quarter training / eight-quarter holdout, constrained lagged beta, benchmarks and uncertainty. Weak holdout performance remains visible and the fit is not promoted. Exact publication dates remain explicitly unavailable, with evidence of the authenticated FFIEC service needed to obtain submission dates. |
 | Broader cash-flow coverage | 26 sourced maturity/repricing bands, 52 modeled segments, encumbrance limits, separate operating/credit costs, curve and behavioral challenges, conservative pledged-principal retention case. |
 | Interview delivery | Editable and recalculated Excel case, primary and reference reports, decision memo, five-minute walkthrough with eight Q&As, case study, reproducible launch and completion audit. |

@@ -1,6 +1,7 @@
 """Independent release and failure-behavior checks on pinned public inputs."""
 import copy
 import json
+import math
 from pathlib import Path
 import shutil
 import tempfile
@@ -8,9 +9,62 @@ import unittest
 from unittest.mock import patch
 
 from bank_alm.engine import run_analysis
-from bank_alm.pipeline import ROOT, build, read_json, validate_sources
+from bank_alm.pipeline import ROOT, _curve_replay_matches, build, read_json, validate_sources
 from bank_alm.verification import audit_saved_analysis
 from scripts.fetch_bank_data import validate_snapshot
+
+
+class CurveReplayTests(unittest.TestCase):
+    def setUp(self):
+        self.curve = read_json(ROOT / "data/processed/curve.json")
+
+    def test_one_ulp_derived_roundoff_is_accepted(self):
+        changed = copy.deepcopy(self.curve)
+        changed["zero_rates"] = [math.nextafter(rate, math.inf) for rate in changed["zero_rates"]]
+        changed["max_published_zero_error_bps"] = math.nextafter(changed["max_published_zero_error_bps"], math.inf)
+        self.assertNotEqual(changed, self.curve)
+        self.assertTrue(_curve_replay_matches(changed, self.curve))
+        self.assertTrue(_curve_replay_matches(self.curve, changed))
+
+    def test_derived_drift_beyond_absolute_tolerances_is_rejected(self):
+        for field, delta in (("zero_rates", 2e-14), ("zero_rates", 1e-4), ("max_published_zero_error_bps", 2e-10)):
+            with self.subTest(field=field, delta=delta):
+                changed = copy.deepcopy(self.curve)
+                if field == "zero_rates":
+                    changed[field][0] += delta
+                else:
+                    changed[field] += delta
+                self.assertFalse(_curve_replay_matches(changed, self.curve))
+
+    def test_metadata_parameters_tenors_and_schema_remain_exact(self):
+        changes = [
+            ("source_sha256", "0" * 64),
+            ("schema_version", True),
+            ("schema_version", 1.0),
+            ("tenors_years", [math.nextafter(self.curve["tenors_years"][0], math.inf)] + self.curve["tenors_years"][1:]),
+            ("parameters", {**self.curve["parameters"], "BETA0": math.nextafter(self.curve["parameters"]["BETA0"], math.inf)}),
+            ("validation_tolerance_bps", math.nextafter(self.curve["validation_tolerance_bps"], math.inf)),
+        ]
+        for field, value in changes:
+            with self.subTest(field=field, value=value):
+                changed = copy.deepcopy(self.curve)
+                changed[field] = value
+                self.assertFalse(_curve_replay_matches(changed, self.curve))
+        for changed in ({**self.curve, "extra": None}, {k: v for k, v in self.curve.items() if k != "source"}, {**self.curve, "zero_rates": self.curve["zero_rates"][:-1]}):
+            self.assertFalse(_curve_replay_matches(changed, self.curve))
+
+    def test_invalid_derived_types_and_nonfinite_values_are_rejected(self):
+        for field in ("zero_rates", "max_published_zero_error_bps"):
+            for value in (True, False, None, "0.036", math.nan, math.inf, -math.inf, 10 ** 1000):
+                with self.subTest(field=field, value=value):
+                    changed = copy.deepcopy(self.curve)
+                    if field == "zero_rates":
+                        changed[field][0] = value
+                    else:
+                        changed[field] = value
+                    self.assertFalse(_curve_replay_matches(changed, self.curve))
+                    self.assertFalse(_curve_replay_matches(self.curve, changed))
+                    self.assertFalse(_curve_replay_matches(changed, changed))
 
 
 class SourceAndReleaseTests(unittest.TestCase):
@@ -44,6 +98,24 @@ class SourceAndReleaseTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "SHA-256"):
                 validate_sources(root)
 
+    def test_curve_roundoff_is_accepted_without_rewriting_pinned_inputs(self):
+        with tempfile.TemporaryDirectory(prefix="bank_alm_curve_") as folder:
+            root = Path(folder)
+            shutil.copytree(ROOT / "data", root / "data")
+            path = root / "data/processed/curve.json"
+            changed = copy.deepcopy(self.curve)
+            changed["zero_rates"][0] = math.nextafter(changed["zero_rates"][0], math.inf)
+            changed["max_published_zero_error_bps"] = math.nextafter(changed["max_published_zero_error_bps"], math.inf)
+            path.write_text(json.dumps(changed), encoding="utf-8")
+            pinned_bytes = path.read_bytes()
+            _, accepted = validate_sources(root)
+            self.assertEqual(accepted, changed)
+            self.assertEqual(path.read_bytes(), pinned_bytes)
+            changed["zero_rates"][0] += 1e-4
+            path.write_text(json.dumps(changed), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Normalized curve differs"):
+                validate_sources(root)
+
     def test_independent_saved_ledger_audit(self):
         result = audit_saved_analysis(self.analysis, self.snapshot, self.assumptions)
         self.assertTrue(result["passed"])
@@ -57,7 +129,7 @@ class SourceAndReleaseTests(unittest.TestCase):
             for field, expected in scenario.items():
                 if field != "id":
                     with self.subTest(scenario=scenario["id"], field=field):
-                        self.assertAlmostEqual(saved[scenario["id"]][field], expected, delta=1.0)
+                        self.assertAlmostEqual(saved[scenario["id"]][field], expected, delta=0.0001)
 
     def test_saved_flow_tampering_is_detected(self):
         changed = copy.deepcopy(self.analysis)

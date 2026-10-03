@@ -1,6 +1,6 @@
 # Model methodology
 
-The primary case combines reported Regions Bank balances and maturity/repricing bands with explicit cash-flow assumptions, business-cost overlays and hypothetical funding/hedge policies. It estimates sensitivity to rates and requested withdrawals. It is not the bank's internal ALM model, a net-income forecast, a regulatory compliance assessment or an execution recommendation. The original aggregate case remains a separately labeled comparison with exact regression fixtures.
+The primary case combines reported Regions Bank balances and maturity/repricing bands with explicit cash-flow assumptions, business-cost overlays and hypothetical funding/hedge policies. It estimates sensitivity to rates and requested withdrawals. It is not the bank's internal ALM model, a net-income forecast, a regulatory compliance assessment or an execution recommendation. The original aggregate case remains a separately labeled comparison against unchanged regression fixtures, with $0.0001 monetary tolerance for cross-platform rounding.
 
 ## Legal entity, sources and reporting scope
 

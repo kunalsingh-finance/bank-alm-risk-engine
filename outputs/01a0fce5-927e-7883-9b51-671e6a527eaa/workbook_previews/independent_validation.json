@@ -6,7 +6,9 @@
   "fixed_events": 3224,
   "sheet_count": 7,
   "native_charts": 1,
-  "workbook_sha256": "570508234a506561e0f3fe16f62ee3d5b22d7f09e190df78631cfe0a01e24dd1",
-  "manifest_sha256": "d2cf6dbe493b9fe07a6f5a9c479b446ee8fb872e51de31fd3af27cfb9be07770",
-  "analysis_sha256": "8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a"
+  "workbook_sha256": "90a391872aea7e6e0759e5c5b2f32132a3856ab023bec5036964e09d59258d64",
+  "manifest_sha256": "96dbdd26a26dacd5af25440cb5e6286d125cebccea1097ebea635c13d24f6d8c",
+  "analysis_sha256": "8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a",
+  "built_at_utc": "2026-10-03T02:39:31.153535+00:00",
+  "economic_metrics_unchanged": true
 }

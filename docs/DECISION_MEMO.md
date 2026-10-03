@@ -72,7 +72,7 @@ The historical deposit-cost fit does not resolve this uncertainty. It uses **44 
 
 ## Keep the original case separate
 
-The preserved aggregate v2 comparison selected **6% prefunding and a 5% hedge**, with 22/30 feasible candidates and 24/30 broader challenges passing. It excluded the current cost overlays and sourced segment inventory. Its larger positive earnings are not directly comparable with the current objective. The original zero-hedge numerical fixture remains exact; that is regression evidence, not support for treating the earlier strategy as the current choice.
+The preserved aggregate v2 comparison selected **6% prefunding and a 5% hedge**, with 22/30 feasible candidates and 24/30 broader challenges passing. It excluded the current cost overlays and sourced segment inventory. Its larger positive earnings are not directly comparable with the current objective. Results match the unchanged original zero-hedge fixture within $0.0001 for cross-platform monetary rounding; that is regression evidence, not support for treating the earlier strategy as the current choice.
 
 The final primary audit independently checks **248 saved paths and 1,637,045 numerical comparisons**, with maximum accounting residual below **$0.0001**. This establishes arithmetic consistency of the saved results. It does not establish actual coupons, borrower behavior, funding access, execution liquidity, SOFR hedge pricing or intramonth cash sufficiency. Later retrieved source vintages also prevent a publication-time historical-backtest claim.
 

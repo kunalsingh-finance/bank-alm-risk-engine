@@ -1,14 +1,14 @@
 {
   "schema_version": 3,
   "status": "verified_build",
-  "built_at_utc": "2026-10-02T16:14:25.410713+00:00",
+  "built_at_utc": "2026-10-03T02:39:31.153535+00:00",
   "input_hashes": {
     "bank_alm/__init__.py": "2607a4b6a847a10dbebc61566edf79ebcf9bd7e9c7fac4ad720bb4bb580c6912",
     "bank_alm/calibration.py": "569c6cfbc35fef20df678a75d66ff67619ebdc6100ad3b3e66e4a91af795876f",
     "bank_alm/engine.py": "eca39fed174107a72ce7a67424eb178db041f296550d69ccf4201fc6083207cb",
     "bank_alm/evidence_report.py": "daa8d0f549118e07d456621772fad9669f64449c90f13e33cf8ed7f7ac5ebb8f",
     "bank_alm/numerics.py": "fba35697bfd45d81647204132af1d756c4581d60e9e2b987bc784daf7b56de0e",
-    "bank_alm/pipeline.py": "8ab5f0cb54be94fb6d992de8a59fc77b5216073428f202b30245e93c61fc73dc",
+    "bank_alm/pipeline.py": "444046e4d2c2c5c77307b250e616f8df32ea993087a2ff2e6c18c6147145a182",
     "bank_alm/report.py": "cbc7c270d745409fb7797f18579a0a1973c6a40a8c1ffa690a7a2cd859f8c1a5",
     "bank_alm/report_template.html": "37084b8e039dbddd697394cd686e1036831256b9f4056d9aa14c65e219fba48c",
     "bank_alm/research.py": "d9989ef2847a1dd637cf35680e9667b6fa071de4b268c450491fe4190d29f090",
@@ -74,17 +74,17 @@
   },
   "artifact_hashes": {
     "analysis.json": "8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a",
-    "analysis_full.json.gz": "2b82fe97243c80db8a880014d698ffed26aa2af191e7af7593d7f2439706d30a",
+    "analysis_full.json.gz": "c23d1edfa4af7d53ddfb008327aa01d199fc5a2b7977b0b851c22eff8aba2abd",
     "reference_analysis.json": "cb148041d8af86c0b1ad5986757f2665f3e08c523feede6e2891691e1d4290bc",
-    "reference_analysis_full.json.gz": "140cb1a5ec588169dcb07daf4c04c893a0c07624ec23990ddd37c4b075ff50bd",
+    "reference_analysis_full.json.gz": "7091873d4f4f2fa0b75851acd8744dff03ed206d6f7af6ecfc0a90b26fd72e2d",
     "robustness.json": "ce4228a00eaa6a896652da37ac670f63f06abc3268ef07c1dbcf16bb76caa21c",
-    "robustness_full.json.gz": "1fcfdf488d1c43f80dfb8447f9539aa8654c640edbb0a31425ee9cff0a6150ce",
+    "robustness_full.json.gz": "b306ad130b2c7641c2497dec15d032290ae49fbc864b351cef485634642362be",
     "research_evidence.json": "8a0824f368471296f115fb81d6a6a2454d41d2d50fb5bfa435355d8dc963ff56",
     "calibration.json": "0f8e108467dce503f1a85dd484406815b4ae47d883633f30689fb439f15ded4f",
     "maturity_profile.json": "f9857f5d61ceccc9bb3dfb57be6c39cb87d0298ccf360be54a0aeac87f2cae6b",
     "historical_data.csv": "4b08433deed70af87265a8334420b1007e988749279874c4f7236d398bcefdb5",
     "robustness_summary.csv": "3262f70afea903680213bc20998e859575fd8806b1af308442c2ae258780e88e",
-    "provenance.json": "9c3cd96efa130bad95ea15630bca61c4eacefea712e6dc5d81f90c06d38dcbf2",
+    "provenance.json": "2bf73726d369a811568126d98fcfc71b1680c72e997b14442697d0008c1161dc",
     "scenario_summary.csv": "d8dbb23e41b4e316d1e582451aa85e19a4ee0d82f11217cee1fb3c451687e6e2",
     "monthly_ledgers.csv": "82ad9ddb241e1bbbbf209c83474368da30382f29d0dc33be19c2f32052d5d723",
     "policy_comparison.csv": "f093896088cc5da91598d66e35ae1165ee04b558b462e84acb01542f1cbd6323",
@@ -94,8 +94,8 @@
     "independent_audit.json": "a938db86702b8e4e6d2649a749e7a98222850b960ccdbf0455e2fc14d4ad1864",
     "reference_audit.json": "ea550f5f6f664b07789eaeda89bd2e64b6318cd2d43bb95212a58f5e8f8d6697",
     "robustness_audit.json": "143343876ec5889e7157016babbff5803ed79e57481fb8d765a9c33bb7b62350",
-    "report.html": "8e9e6a6ffb1da5842451cde4434ea302059672e49f6b1863fff2325417c66023",
-    "reference_report.html": "2dd101a64fc09d32276d9e80d9ae567179b1aebbf7bef00376e87b43e09cb033"
+    "report.html": "34876abdfd2635aac2b8439d014ab4f423aabee2ebea6777e3e33d1a20b018ae",
+    "reference_report.html": "d60522f5532236d70d92751bf0383220202244335999ec8a8ae28dcb929de4e4"
   },
   "technical_check_count": 20
 }

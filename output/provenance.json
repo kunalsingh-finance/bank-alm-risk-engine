@@ -1,5 +1,5 @@
 {
-  "built_at_utc": "2026-10-02T16:14:25.410713+00:00",
+  "built_at_utc": "2026-10-03T02:39:31.153535+00:00",
   "bank_as_of": "2025-12-31",
   "curve_as_of": "2025-12-31",
   "legal_entity": "FDIC-insured bank and its consolidated subsidiaries; not the bank holding company",
@@ -79,7 +79,7 @@
     "bank_alm/engine.py": "eca39fed174107a72ce7a67424eb178db041f296550d69ccf4201fc6083207cb",
     "bank_alm/evidence_report.py": "daa8d0f549118e07d456621772fad9669f64449c90f13e33cf8ed7f7ac5ebb8f",
     "bank_alm/numerics.py": "fba35697bfd45d81647204132af1d756c4581d60e9e2b987bc784daf7b56de0e",
-    "bank_alm/pipeline.py": "8ab5f0cb54be94fb6d992de8a59fc77b5216073428f202b30245e93c61fc73dc",
+    "bank_alm/pipeline.py": "444046e4d2c2c5c77307b250e616f8df32ea993087a2ff2e6c18c6147145a182",
     "bank_alm/report.py": "cbc7c270d745409fb7797f18579a0a1973c6a40a8c1ffa690a7a2cd859f8c1a5",
     "bank_alm/report_template.html": "37084b8e039dbddd697394cd686e1036831256b9f4056d9aa14c65e219fba48c",
     "bank_alm/research.py": "d9989ef2847a1dd637cf35680e9667b6fa071de4b268c450491fe4190d29f090",
