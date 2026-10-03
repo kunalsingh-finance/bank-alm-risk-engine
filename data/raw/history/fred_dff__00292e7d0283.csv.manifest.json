@@ -1,0 +1,11 @@
+{
+  "source_id": "fred_dff",
+  "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF&cosd=2014-01-01&coed=2025-12-31",
+  "final_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF&cosd=2014-01-01&coed=2025-12-31",
+  "retrieved_at_utc": "2026-10-02T15:43:23.769907+00:00",
+  "http_status": 200,
+  "content_type": "application/csv",
+  "bytes": 70149,
+  "sha256": "00292e7d0283d7e64ab6c728859b52cb48d87287d48c3fabdf8765a7b994f96b",
+  "local_path": "data/raw/history/fred_dff__00292e7d0283.csv"
+}

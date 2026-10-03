@@ -1,0 +1,12 @@
+{
+  "source_id": "fdic_regions_identity",
+  "publisher": "Federal Deposit Insurance Corporation",
+  "source_url": "https://api.fdic.gov/banks/institutions?filters=CERT%3A12368&fields=CERT%2CNAME%2CCITY%2CSTALP%2CACTIVE%2CCHRTAGNT%2CREGAGNT%2CDATEUPDT%2CNAMEHCR&limit=2&format=json",
+  "final_url": "https://api.fdic.gov/banks/institutions?filters=CERT%3A12368&fields=CERT%2CNAME%2CCITY%2CSTALP%2CACTIVE%2CCHRTAGNT%2CREGAGNT%2CDATEUPDT%2CNAMEHCR&limit=2&format=json",
+  "retrieved_at_utc": "2026-10-02T14:29:43.509966+00:00",
+  "http_status": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "a4f83028371d472a8c75ce947fb1402e692dcbb355fb9faee8370a3aca8c19ec",
+  "bytes": 468,
+  "local_path": "data/raw/fdic_regions_identity__a4f83028371d.json"
+}

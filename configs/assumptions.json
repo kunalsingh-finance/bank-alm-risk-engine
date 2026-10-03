@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "classification": "Research assumptions; no claim these reflect Regions Bank internal positions or behavioral models.",
+  "horizon_months": 12,
+  "cash": {"floor_fraction_assets": 0.015, "yield_spread": 0.0025},
+  "securities": {"coupon": 0.035, "maturity_years": 5.0, "sale_cap_fraction": 0.8},
+  "loans": {"fixed_fraction": 0.6, "fixed_coupon": 0.058, "floating_coupon": 0.069, "maturity_years": 5.0, "floating_reset_lag_months": 1, "discount_spread": 0.015, "prepayment_cpr": 0.08, "prepayment_rate_sensitivity": 12.0, "maximum_cpr": 0.4},
+  "deposits": {"interest_rate": 0.022, "beta": 0.5, "repricing_lag_months": 2, "minimum_interest_rate": 0.0, "noninterest_maturity_years": 3.0, "interest_maturity_years": 2.0},
+  "funding": {"initial_coupon": 0.046, "initial_maturity_years": 2.0, "initial_repricing_beta": 1.0, "discount_spread": 0.01, "incremental_spread": 0.018, "incremental_cap_fraction_assets": 0.1, "prefunding_maturity_years": 3.0},
+  "constraints": {"maximum_eve_loss_fraction_equity": 0.25},
+  "hedge": {"type": "pay_fixed_receive_floating", "tenor_months": 60, "initial_margin_fraction": 0.02, "transaction_fee_bps": 1.0, "collateral_convention": "Hypothetical bilateral collateralized-to-market with zero VM threshold, segregated received collateral, no reuse, and curve-implied ACT365F proxy remuneration; not actual cleared settlement.", "closeout_month": 12},
+  "runoff_monthly_weights": [0.45, 0.2, 0.1, 0.05, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025],
+  "scenarios": [
+    {"id": "parallel_up", "name": "Parallel +200 bp", "description": "Immediate persistent parallel increase; no extra deposit withdrawals.", "shape": "parallel", "shock_bps": 200, "deposit_runoff_fraction": 0.0},
+    {"id": "parallel_down", "name": "Parallel -200 bp", "description": "Immediate persistent parallel decrease with deposit-rate floor and prepayment response.", "shape": "parallel", "shock_bps": -200, "deposit_runoff_fraction": 0.0},
+    {"id": "steepener", "name": "Curve steepener", "description": "Short zero rates decrease while long zero rates increase under an exponential research shape.", "shape": "steepener", "deposit_runoff_fraction": 0.0},
+    {"id": "flattener", "name": "Curve flattener", "description": "Short zero rates increase while long zero rates decrease under an exponential research shape.", "shape": "flattener", "deposit_runoff_fraction": 0.0},
+    {"id": "short_up", "name": "Short-rate increase", "description": "A +250 bp origin shock decays exponentially with tenor.", "shape": "short_up", "deposit_runoff_fraction": 0.0},
+    {"id": "short_down", "name": "Short-rate decrease", "description": "A -250 bp origin shock decays exponentially with tenor.", "shape": "short_down", "deposit_runoff_fraction": 0.0},
+    {"id": "combined_run", "name": "Rates up + deposit runoff", "description": "Parallel +200 bp and 45% requested deposit runoff, with 45% of that runoff requested in month one.", "shape": "parallel", "shock_bps": 200, "deposit_runoff_fraction": 0.45}
+  ],
+  "policy_grid": {"prefunding_fractions_assets": [0.0, 0.03, 0.06], "funding_orders": ["borrow_first", "sell_first"], "hedge_fractions_assets": [0.0, 0.05, 0.10, 0.15, 0.20], "evaluation_scenario_ids": ["parallel_up", "parallel_down", "steepener", "flattener", "short_up", "short_down", "combined_run"]},
+  "reverse_stress": {"parallel_shocks_bps": [0, 100, 200, 300, 400], "deposit_runoff_fractions": [0.0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9]},
+  "sensitivity": {"deposit_betas": [0.25, 0.5, 0.75], "deposit_maturity_years": [1.0, 2.0, 4.0], "prepayment_cprs": [0.0, 0.08, 0.2]},
+  "notes": [
+    "All rates, tenors, reset lags, loan mixes, prepayment parameters, funding availability, and risk limits here are assumed, not measured bank facts.",
+    "Net loans are treated as one performing exposure and split into assumed fixed and floating pools; credit losses and allowance movements are excluded.",
+    "Existing loan scheduled principal and prepayments run off into cash; no new business, replacement assets, or distributions are modeled.",
+    "Bank NII, securities sale PNL and the disclosed hedge earnings are retained in equity. Operating expenses, taxes, non-swap fees, credit losses and OCI are excluded; the stated swap transaction fee is included.",
+    "The zero curve is continuous; instrument coupons and the stated cash/funding index conventions are simple annual rates. Cash index is exp(z(0.25)*0.25)-1 divided by 0.25.",
+    "Rate shocks are research shapes inspired by common ALM analysis, not calibrated Basel supervisory scenarios.",
+    "Deposit maturities represent level principal amortization of modeled stable balances; scenario runoff instead accelerates the designated fraction to immediate repayment in the EVE calculation.",
+    "Prefunding adds equal cash and fixed-rate term debt at the base curve index plus spread before the shock. Reactive funding reprices with the shocked index. Both consume the same total incremental funding cap.",
+    "Security sales are limited to 80% of opening book and priced by shocked PV divided by base PV for the remaining assumed cash flows. The reported accounting basis of the aggregate securities balance is not reclassified.",
+    "Risk limits and feasible-policy outcomes are portfolio research choices, not regulatory or bank-specific conclusions.",
+    "Swap trades enter at base-curve par before the instantaneous shock. The first floating fixing is held fixed across scenarios. Later floating coupons and discounting use one Treasury proxy curve; this is not a market SOFR hedge valuation.",
+    "Swap initial margin and posted variation margin are assets funded from free cash, earning the disclosed curve-implied collateral remuneration. Received variation margin is fully segregated with an equal return liability, unavailable for deposits or other payments.",
+    "The 12-month objective includes bank NII, accrued net swap coupons, posted-collateral interest, securities sale PNL, terminal swap closeout at fair value and the upfront transaction fee. Intermediate derivative marks affect equity but are not counted again on closeout.",
+    "Cash settlement prioritizes accrued payment obligations, initial margin, variation margin, then withdrawal requests. Unfunded margin or unpaid obligations remain historical breaches even if later cured. All cash raising shares the original common borrowing/sale caps."
+  ]
+}

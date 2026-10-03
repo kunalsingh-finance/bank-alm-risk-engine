@@ -1,0 +1,92 @@
+{
+  "source_records": [
+    {
+      "source_id": "fdic_history",
+      "source_url": "https://api.fdic.gov/banks/financials?filters=CERT%3A12368+AND+REPDTE%3A%5B20141231+TO+20251231%5D&fields=CERT%2CRSSDID%2CNAMEFULL%2CREPDTE%2CASSET%2CAVASSET%2CASSET2%2CERNAST%2CERNAST2%2CDEP%2CDEPIDOM%2CDEPIFOR%2CDEPI%2CDEPNI%2CEDEP%2CEDEPDOM%2CEDEPDOMQ%2CEDEPFOR%2CEDEPFORQ%2CINTINC%2CEINTEXP%2CNIM%2CNIMQ%2CNONII%2CNONIIQ%2CNONIX%2CNONIXQ%2CELNATR%2CNTLNLS%2CNTLNLSQ%2CLNLSGR%2CLNLSGR2%2CID%2CDATEUPDT&sort_by=REPDTE&sort_order=ASC&limit=100&format=json",
+      "final_url": "https://api.fdic.gov/banks/financials?filters=CERT%3A12368+AND+REPDTE%3A%5B20141231+TO+20251231%5D&fields=CERT%2CRSSDID%2CNAMEFULL%2CREPDTE%2CASSET%2CAVASSET%2CASSET2%2CERNAST%2CERNAST2%2CDEP%2CDEPIDOM%2CDEPIFOR%2CDEPI%2CDEPNI%2CEDEP%2CEDEPDOM%2CEDEPDOMQ%2CEDEPFOR%2CEDEPFORQ%2CINTINC%2CEINTEXP%2CNIM%2CNIMQ%2CNONII%2CNONIIQ%2CNONIX%2CNONIXQ%2CELNATR%2CNTLNLS%2CNTLNLSQ%2CLNLSGR%2CLNLSGR2%2CID%2CDATEUPDT&sort_by=REPDTE&sort_order=ASC&limit=100&format=json",
+      "retrieved_at_utc": "2026-10-02T15:43:23.615739+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 26645,
+      "sha256": "6f4f18b08bd993bdbd24029070b046c76973544c094cdd7c8a3bc695b2b8d327",
+      "local_path": "data/raw/history/fdic_history__6f4f18b08bd9.json"
+    },
+    {
+      "source_id": "fred_dff",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF&cosd=2014-01-01&coed=2025-12-31",
+      "final_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF&cosd=2014-01-01&coed=2025-12-31",
+      "retrieved_at_utc": "2026-10-02T15:43:23.769907+00:00",
+      "http_status": 200,
+      "content_type": "application/csv",
+      "bytes": 70149,
+      "sha256": "00292e7d0283d7e64ab6c728859b52cb48d87287d48c3fabdf8765a7b994f96b",
+      "local_path": "data/raw/history/fred_dff__00292e7d0283.csv"
+    },
+    {
+      "source_id": "fdic_definitions",
+      "source_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+      "final_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+      "retrieved_at_utc": "2026-10-02T15:43:24.534129+00:00",
+      "http_status": 200,
+      "content_type": "text/yaml; charset=UTF-8",
+      "bytes": 616633,
+      "sha256": "b257457e4e821d6a0d9f88ffc4e6e0da80e4ccf67fa394cadb21587b50b23d59",
+      "local_path": "data/raw/history/fdic_definitions__b257457e4e82.yaml"
+    },
+    {
+      "source_id": "ffiec_faq",
+      "source_url": "https://cdr.ffiec.gov/public/HelpFiles/FAQ.htm",
+      "final_url": "https://cdr.ffiec.gov/public/HelpFiles/FAQ.htm",
+      "retrieved_at_utc": "2026-10-02T15:43:24.796414+00:00",
+      "http_status": 200,
+      "content_type": "text/html",
+      "bytes": 114631,
+      "sha256": "2ba5dbd3ae57fbdb4b0f6b6cc5cf1f067bf6cc412097525e1b610c640d7a0f6e",
+      "local_path": "data/raw/history/ffiec_faq__2ba5dbd3ae57.html"
+    },
+    {
+      "source_id": "ffiec_bulk_page",
+      "source_url": "https://cdr.ffiec.gov/public/PWS/DownloadBulkData.aspx",
+      "final_url": "https://cdr.ffiec.gov/public/PWS/DownloadBulkData.aspx",
+      "retrieved_at_utc": "2026-10-02T15:43:24.975154+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 26969,
+      "sha256": "b1ada014cba8609e7adb5c94b0df12945e10486a3ed2ffa6cae7dee2cf247c05",
+      "local_path": "data/raw/history/ffiec_bulk_page__b1ada014cba8.html"
+    },
+    {
+      "source_id": "ffiec_pws_info",
+      "source_url": "https://cdr.ffiec.gov/public/HelpFiles/PWSInfo.htm",
+      "final_url": "https://cdr.ffiec.gov/public/HelpFiles/PWSInfo.htm",
+      "retrieved_at_utc": "2026-10-02T15:43:25.181433+00:00",
+      "http_status": 200,
+      "content_type": "text/html",
+      "bytes": 17024,
+      "sha256": "63cae570b6a20089b3f8fc1ab652c22b07f92a5811c97e13fdfdef0d2f5966ee",
+      "local_path": "data/raw/history/ffiec_pws_info__63cae570b6a2.html"
+    },
+    {
+      "source_id": "fred_dff_metadata",
+      "source_url": "https://fred.stlouisfed.org/series/DFF",
+      "final_url": "https://fred.stlouisfed.org/series/DFF",
+      "retrieved_at_utc": "2026-10-02T15:43:25.524917+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 90213,
+      "sha256": "3406b7ea0d3424e1479a1709622ada1fa773bd504dd1c92cf712ee828ed3ef2b",
+      "local_path": "data/raw/history/fred_dff_metadata__3406b7ea0d34.html"
+    },
+    {
+      "source_id": "ffiec_rc_k_instructions",
+      "source_url": "https://www.fdic.gov/system/files/2024-08/2017-03-rc-k.pdf",
+      "final_url": "https://www.fdic.gov/system/files/2024-08/2017-03-rc-k.pdf",
+      "retrieved_at_utc": "2026-10-02T15:47:33.265295+00:00",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 46930,
+      "sha256": "94f26eaea9cb85c3279ad3bba10f8bf81d1efdf29815f5cbd9fac15694b073d6",
+      "local_path": "data/raw/history/ffiec_rc_k_instructions__94f26eaea9cb.pdf"
+    }
+  ]
+}

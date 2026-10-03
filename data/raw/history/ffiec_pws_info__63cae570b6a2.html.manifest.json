@@ -1,0 +1,11 @@
+{
+  "source_id": "ffiec_pws_info",
+  "source_url": "https://cdr.ffiec.gov/public/HelpFiles/PWSInfo.htm",
+  "final_url": "https://cdr.ffiec.gov/public/HelpFiles/PWSInfo.htm",
+  "retrieved_at_utc": "2026-10-02T15:43:25.181433+00:00",
+  "http_status": 200,
+  "content_type": "text/html",
+  "bytes": 17024,
+  "sha256": "63cae570b6a20089b3f8fc1ab652c22b07f92a5811c97e13fdfdef0d2f5966ee",
+  "local_path": "data/raw/history/ffiec_pws_info__63cae570b6a2.html"
+}

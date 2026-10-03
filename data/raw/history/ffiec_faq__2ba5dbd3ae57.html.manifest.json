@@ -1,0 +1,11 @@
+{
+  "source_id": "ffiec_faq",
+  "source_url": "https://cdr.ffiec.gov/public/HelpFiles/FAQ.htm",
+  "final_url": "https://cdr.ffiec.gov/public/HelpFiles/FAQ.htm",
+  "retrieved_at_utc": "2026-10-02T15:43:24.796414+00:00",
+  "http_status": 200,
+  "content_type": "text/html",
+  "bytes": 114631,
+  "sha256": "2ba5dbd3ae57fbdb4b0f6b6cc5cf1f067bf6cc412097525e1b610c640d7a0f6e",
+  "local_path": "data/raw/history/ffiec_faq__2ba5dbd3ae57.html"
+}

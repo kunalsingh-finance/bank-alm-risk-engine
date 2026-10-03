@@ -1,0 +1,21 @@
+# Source-byte checksums must survive checkout on every platform.
+data/raw/** -text
+*.gz -text
+*.py text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+# Apply again after the extension rules: raw JSON/YAML are immutable bytes.
+data/raw/** -text
+# Preserve release fingerprints, including generated JSON/HTML, on every checkout.
+# These files remain readable text; Git must not change their line endings.
+bank_alm/** -text
+scripts/** -text
+configs/** -text
+data/processed/** -text
+output/** -text
+requirements.txt -text
+pyproject.toml -text

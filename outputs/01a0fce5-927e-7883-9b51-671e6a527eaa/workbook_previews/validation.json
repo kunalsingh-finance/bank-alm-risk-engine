@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "metrics": {
+    "case": "Falling rates",
+    "nii_usdm": 5248.2851439006545,
+    "noncash_credit_loss_usdm": 513,
+    "operating_expense_usdm": 4165.999999999999,
+    "case_earnings_usdm": -912.6811325335216,
+    "peak_collateral_usdm": 1801.8078144311282,
+    "minimum_cash_usdm": 19488.178396952204,
+    "funding_gap_usdm": 0,
+    "ending_net_loan_book_usdm": 94053.99999999997,
+    "par_fixed_rate": 0.03702825969752482,
+    "first_fixing": 0.03682198310023924,
+    "opening_swap_value_usdm": -1485.1434830477958,
+    "terminal_closeout_usdm": -1187.3253893283304,
+    "engine_paths": 248,
+    "engine_events": 3224,
+    "analysis_sha256": "8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a",
+    "built_at_utc": "2026-10-02T16:14:25.410713+00:00"
+  },
+  "observations": [
+    {
+      "test": "Higher deposit beta reduces deposit expense in falling rates",
+      "input": "E21",
+      "before": 5248.2851439006545,
+      "after": 5638.170219272457
+    },
+    {
+      "test": "Double hedge notional doubles required collateral",
+      "input": "E39",
+      "before": 1801.8078144311282,
+      "after": 3603.6156288622565
+    },
+    {
+      "test": "Higher noncash credit loss reduces case earnings",
+      "input": "E45",
+      "before": -912.6811325335216,
+      "after": -1345.3511325335214
+    },
+    {
+      "test": "Higher cash operating expense lowers free cash",
+      "input": "E61",
+      "before": 19488.178396952204,
+      "after": 19456.60970212213
+    },
+    {
+      "test": "Base case lowers posted variation margin",
+      "input": "E6",
+      "before": 1801.8078144311282,
+      "after": 314.824
+    }
+  ],
+  "blank_and_zero_inputs_checked": true,
+  "source_actuals_unchanged": true
+}

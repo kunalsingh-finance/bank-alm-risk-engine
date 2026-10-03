@@ -1,0 +1,100 @@
+{
+  "source": "Verified initial ALM release before hedge extension, 2026-10-02",
+  "baseline": {
+    "nii_12m_usd": 4698593133.877357,
+    "eve_usd": 23233158530.995846,
+    "historical_nii_usd": 5059000000,
+    "historical_nii_period": "2025-01-01 through 2025-12-31",
+    "modeled_earnings_usd": 4698593133.877357
+  },
+  "scenarios": [
+    {
+      "id": "baseline",
+      "eve_usd": 23233158530.995846,
+      "delta_eve_usd": 0.0,
+      "nii_12m_usd": 4698593133.877357,
+      "delta_nii_usd": 0.0,
+      "min_cash_usd": 14492854648.103958,
+      "peak_wholesale_funding_usd": 3915000000.0,
+      "securities_sold_usd": 0.0,
+      "realized_sale_pnl_usd": 0.0
+    },
+    {
+      "id": "parallel_up",
+      "eve_usd": 20258474295.520622,
+      "delta_eve_usd": -2974684235.4752235,
+      "nii_12m_usd": 4811503624.002553,
+      "delta_nii_usd": 112910490.12519646,
+      "min_cash_usd": 14356050097.538351,
+      "peak_wholesale_funding_usd": 3915000000.0,
+      "securities_sold_usd": 0.0,
+      "realized_sale_pnl_usd": 0.0
+    },
+    {
+      "id": "parallel_down",
+      "eve_usd": 26323636093.038002,
+      "delta_eve_usd": 3090477562.042156,
+      "nii_12m_usd": 4571889974.449788,
+      "delta_nii_usd": -126703159.42756844,
+      "min_cash_usd": 14671547193.779156,
+      "peak_wholesale_funding_usd": 3915000000.0,
+      "securities_sold_usd": 0.0,
+      "realized_sale_pnl_usd": 0.0
+    },
+    {
+      "id": "steepener",
+      "eve_usd": 22089387620.59125,
+      "delta_eve_usd": -1143770910.4045944,
+      "nii_12m_usd": 4664954131.809562,
+      "delta_nii_usd": -33639002.0677948,
+      "min_cash_usd": 14537839828.377068,
+      "peak_wholesale_funding_usd": 3915000000.0,
+      "securities_sold_usd": 0.0,
+      "realized_sale_pnl_usd": 0.0
+    },
+    {
+      "id": "flattener",
+      "eve_usd": 23982168933.06595,
+      "delta_eve_usd": 749010402.0701027,
+      "nii_12m_usd": 4740314009.341904,
+      "delta_nii_usd": 41720875.46454716,
+      "min_cash_usd": 14439697228.73589,
+      "peak_wholesale_funding_usd": 3915000000.0,
+      "securities_sold_usd": 0.0,
+      "realized_sale_pnl_usd": 0.0
+    },
+    {
+      "id": "short_up",
+      "eve_usd": 22941254179.288162,
+      "delta_eve_usd": -291904351.70768356,
+      "nii_12m_usd": 4830090716.592966,
+      "delta_nii_usd": 131497582.71560955,
+      "min_cash_usd": 14335724019.428333,
+      "peak_wholesale_funding_usd": 3915000000.0,
+      "securities_sold_usd": 0.0,
+      "realized_sale_pnl_usd": 0.0
+    },
+    {
+      "id": "short_down",
+      "eve_usd": 23582078869.243,
+      "delta_eve_usd": 348920338.24715424,
+      "nii_12m_usd": 4548016563.536063,
+      "delta_nii_usd": -150576570.34129333,
+      "min_cash_usd": 14707895921.965015,
+      "peak_wholesale_funding_usd": 3915000000.0,
+      "securities_sold_usd": 0.0,
+      "realized_sale_pnl_usd": 0.0
+    },
+    {
+      "id": "combined_run",
+      "eve_usd": 17798800452.312355,
+      "delta_eve_usd": -5434358078.683491,
+      "nii_12m_usd": 3625414843.7179766,
+      "delta_nii_usd": -1073178290.15938,
+      "min_cash_usd": 2361180000.0,
+      "peak_wholesale_funding_usd": 19656200000.0,
+      "securities_sold_usd": 13757755269.234585,
+      "realized_sale_pnl_usd": -1162179094.8417816
+    }
+  ]
+}

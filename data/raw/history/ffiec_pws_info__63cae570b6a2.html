@@ -1,0 +1,426 @@
+<html>
+
+<!--  /* PWSInfo.htm - Version 1.0 */  -->
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 12 (filtered)">
+<title> </title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman","serif";}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;
+	font-family:"Times New Roman","serif";}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+	<div class=Section1>
+
+		<p class=MsoNormal>
+			<span style='font-size:14.0pt;font-family:"Arial","sans-serif"'>
+				Additional Information about the PDD Public Web Service (PWS)
+			</span>
+		</p>
+
+		<p class=MsoNormal>&nbsp;</p>
+
+		<p class=MsoNormal>
+			<span style='font-family:"Arial","sans-serif"'>
+				The Public Data
+				Distribution (PDD) Public Web Service (PWS) allows a user to automatically
+				retrieve public data contained in the Central Data Repository (CDR) either
+				through the users’ own programs or the programs provided. The user must have an
+				account before proceeding to access the PWS. When the user initially
+				establishes an account, an email will be sent containing the user name,
+				security token, and instructions for using the web service. After a year of
+				inactivity, the account will be removed and the user will have to register
+				again.
+			</span>
+		</p>
+
+		<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+
+		<p class=MsoNormal>
+			<span style='font-family:"Arial","sans-serif"'>
+				Currently,
+				the PWS will allow a limited number of downloads (approximately 2500 per hour).
+				If the download limit has been reached within one hour, the user will have to
+				wait until the next hour to continue with the next download.
+			</span>
+		</p>
+
+		<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+
+		<p class=MsoNormal>
+			<span style='font-family:"Arial","sans-serif"'>
+				Depending on
+				the request, the files are either in Portable Document Format (PDF), Semicolon Delimited Format (SDF),
+				or eXtensible Business Reporting Language (XBRL) format.  SDF text files can be viewed
+				and modified using spreadsheet or database software (e.g., Excel, Access)
+				or with a text editor (e.g., NotePad). XBRL files require an XBRL editor.&nbsp;
+				A taxonomy may have to be downloaded after the XBRL files have been downloaded
+				for a better understanding of the file. The taxonomy may be accessed through
+				the PDD web site.
+			</span>
+		</p>
+
+		<p class=MsoNormal>&nbsp;</p>
+
+		<p class=MsoNormal style='text-autospace:none'>
+			<span style='font-family:"Arial","sans-serif";color:black'>
+				Samples of software to use with the PWS are available by accessing
+				the tab entitled “Software Downloads” under Manage My Web Service Account.
+			</span>
+		</p>
+
+		<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-autospace:none'>
+			<span style='font-family:"Arial","sans-serif";color:black'>
+				When retrieving data for a new reporting cycle, we recommend using the RetrievePanelOfReporters method to first obtain a list
+				of valid banks required to submit for the given reporting period. This method returns a list of ID RSSDs and whether they've
+				already submitted for that period.
+			</span>
+		</p>
+
+		<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-autospace:none'>
+			<span style='font-family:"Arial","sans-serif";color:black'>
+				For subsequent retrievals for a reporting cycle, we recommend incorporating one of the two methods for retrieving a list of banks that have submitted their Call Report since a certain date:
+				<br />
+				RetrieveFilersSinceDate - returns a list of ID RSSDs
+				<br />
+				RetrieveFilersSubmissionDateTime - returns a list of ID RSSDs and the date/time they submitted
+
+			</span>
+		</p>
+
+		<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-autospace:none'>
+			<span style='font-family:"Arial","sans-serif";color:black'>
+				You can find a description, endpoint URL and other information for each of the available REST APIs
+				in the <a href="../Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf" target="_blank">PWS API specification document</a>.
+			</span>
+		</p>
+
+		<!--<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+
+		<p class=MsoNormal>
+			<span style='font-family:"Arial","sans-serif"'>
+				The PWS
+				supports the Simple Object Access Protocol (SOAP) Version 1.1. Error conditions
+				discovered by the PWS will be related back to the client as SOAP Faults. SOAP
+				Faults represent a mechanism for encapsulating and transmitting error
+				information using SOAP messages, and consist of fields that contain information
+				about the error that occurred. Listed below are SOAP Faults that you might
+				receive while using the PWS.
+			</span>
+		</p>
+
+		<p class=MsoNormal>&nbsp;</p>
+
+		<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+			   style='border-collapse:collapse;border:none' summary="table for formatting purposes only">
+			<tr>
+				<th width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<b>
+							<span style='font-family:"Arial","sans-serif"'>
+								SOAP
+								fault code
+							</span><u1:p></u1:p>
+						</b>
+					</p>
+				</th>
+				<th width=341 valign=top style='width:255.55pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<b>
+							<span style='font-family:"Arial","sans-serif"'>
+								SOAP
+								fault string (Description)
+							</span><u1:p></u1:p>
+						</b>
+					</p>
+				</th>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>wsse:UnsupportedSecurityToken<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							An
+							unsupported token was provided<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>wsse:InvalidSecurity<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							An error
+							was discovered processing the &lt;wsse:Security&gt; header.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>wsse:InvalidSecurityToken<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							An invalid
+							security token was provided.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>wsse:FailedAuthentication<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							The
+							security token could not be authenticated or authorized.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>wsse:SecurityTokenUnavailable<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							Referenced
+							security token could not be retrieved.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>Client.UserQuotaExceeded<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							Returned
+							when the user has exceeded the maximum number of retrieval requests as specified
+							in the Supplementary Specification.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>Client.InvalidDataSeriesName<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							Returned
+							when the client application has specified invalid data series name.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>Client.InvalidReportingPeriodEndDate<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							Returned when
+							the client application has specified invalid reporting period end date.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>Client.InvalidFacsimileType<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							Returned
+							when the client application has specified incorrect facsimile type.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>Client.InvalidFIType<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							Returned
+							when the client application has specified invalid FI type.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>Client.InvalidFI<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							Returned
+							when the client application has specified invalid FI ID.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>Server.UnexpectedError<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							Returned
+							when the service encounters a general error that prevents it from completing the
+							request. Sources of such an error could include unavailable database or
+							application error.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width=310 valign=top style='width:232.85pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoBodyText><span style='font-size:10.0pt;font-family:"Courier New"'>Server.FacsimileNotFoundOrUnavailable<u1:p></u1:p></span></p>
+				</td>
+				<td width=341 valign=top style='width:255.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+					<p class=MsoNormal>
+						<span style='font-family:"Arial","sans-serif"'>
+							Returned by
+							a call to RetrieveFacsimile method when all input parameters are valid,
+							however, the facsimile cannot be found in the system. There may be a
+							perfectly valid reason why the facsimile is not found, e.g., the FI has not
+							filed yet or the business rules do not allow the facsimile to be released to
+							the public.<u1:p></u1:p>
+						</span>
+					</p>
+				</td>
+			</tr>
+		</table>
+
+		<p class=MsoNormal>&nbsp;</p>
+
+		<p class=MsoNormal style='text-autospace:none'>
+			<span style='font-family:"Arial","sans-serif";
+color:black'>&nbsp;</span>
+		</p>-->
+
+	</div>
+
+</body>
+
+</html>

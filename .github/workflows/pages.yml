@@ -1,0 +1,69 @@
+name: Publish verified research
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  verify-and-package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify the saved release and source fingerprints
+        run: python -S scripts/verify_release.py
+      - name: Run the model tests
+        run: python -m unittest discover -s tests -q
+      - name: Check both reports and the saved workbook
+        run: |
+          node scripts/check_report.cjs output/report.html
+          node scripts/check_report.cjs output/reference_report.html
+          python -S tests/check_workbook.py
+      - name: Package the verified report without changing its evidence
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib
+          import shutil
+          destination = Path('_site')
+          shutil.copytree('output', destination)
+          shutil.copy2('output/report.html', destination / 'index.html')
+          workbook = Path('outputs/01a0fce5-927e-7883-9b51-671e6a527eaa/Bank_ALM_Case.xlsx')
+          shutil.copy2(workbook, destination / 'Bank_ALM_Case.xlsx')
+          (destination / '.nojekyll').write_text('')
+          assert hashlib.sha256((destination / 'index.html').read_bytes()).digest() == hashlib.sha256(Path('output/report.html').read_bytes()).digest()
+          assert hashlib.sha256((destination / 'Bank_ALM_Case.xlsx').read_bytes()).digest() == hashlib.sha256(workbook.read_bytes()).digest()
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: verify-and-package
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the verified report
+        id: deployment
+        uses: actions/deploy-pages@v4

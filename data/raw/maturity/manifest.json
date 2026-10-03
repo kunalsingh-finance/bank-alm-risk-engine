@@ -1,0 +1,35 @@
+{
+  "schema_version": "maturity-source-manifest-v1",
+  "records": [
+    {
+      "source_id": "fdic_maturity_20251231",
+      "source_url": "https://api.fdic.gov/banks/financials?filters=CERT%3A12368+AND+REPDTE%3A20251231&fields=CERT%2CRSSDID%2CNAMEFULL%2CREPDTE%2CSC%2CLNLS%2CLNLSNET%2CLNLSGR%2CLNLSGRS%2CSC1LES%2CLNATRES%2CLNLSRES%2CUNINC%2CNALNLS%2CNASCDEBT%2CSCEQFV%2CSCEQNFT%2CSCPLEDGE%2CLNPLEDGE%2CNONIX%2CELNATR%2CELNLOS%2CNTLNLS%2CSCNM3LES%2CSCNM3T12%2CSCNM1T3%2CSCNM3T5%2CSCNM5T15%2CSCNMOV15%2CSCPT3LES%2CSCPT3T12%2CSCPT1T3%2CSCPT3T5%2CSCPT5T15%2CSCPTOV15%2CLNOT3LES%2CLNOT3T12%2CLNOT1T3%2CLNOT3T5%2CLNOT5T15%2CLNOTOV15%2CLNRS3LES%2CLNRS3T12%2CLNRS1T3%2CLNRS3T5%2CLNRS5T15%2CLNRSOV15%2CSCO3YLES%2CSCOOV3Y&limit=2&format=json",
+      "final_url": "https://api.fdic.gov/banks/financials?filters=CERT%3A12368+AND+REPDTE%3A20251231&fields=CERT%2CRSSDID%2CNAMEFULL%2CREPDTE%2CSC%2CLNLS%2CLNLSNET%2CLNLSGR%2CLNLSGRS%2CSC1LES%2CLNATRES%2CLNLSRES%2CUNINC%2CNALNLS%2CNASCDEBT%2CSCEQFV%2CSCEQNFT%2CSCPLEDGE%2CLNPLEDGE%2CNONIX%2CELNATR%2CELNLOS%2CNTLNLS%2CSCNM3LES%2CSCNM3T12%2CSCNM1T3%2CSCNM3T5%2CSCNM5T15%2CSCNMOV15%2CSCPT3LES%2CSCPT3T12%2CSCPT1T3%2CSCPT3T5%2CSCPT5T15%2CSCPTOV15%2CLNOT3LES%2CLNOT3T12%2CLNOT1T3%2CLNOT3T5%2CLNOT5T15%2CLNOTOV15%2CLNRS3LES%2CLNRS3T12%2CLNRS1T3%2CLNRS3T5%2CLNRS5T15%2CLNRSOV15%2CSCO3YLES%2CSCOOV3Y&limit=2&format=json",
+      "retrieved_at_utc": "2026-10-02T15:39:00.658179+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "546e6db8c9a7f3e7f8da47fd1c2abbe842f2838e3eb02bbbfe5557741982cace",
+      "bytes": 1508,
+      "local_path": "data/raw/maturity/fdic_maturity_20251231__546e6db8c9a7.json"
+    },
+    {
+      "source_id": "fdic_field_definitions",
+      "source_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+      "final_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+      "retrieved_at_utc": "2026-10-02T15:39:01.798340+00:00",
+      "http_status": 200,
+      "content_type": "text/yaml; charset=UTF-8",
+      "sha256": "b257457e4e821d6a0d9f88ffc4e6e0da80e4ccf67fa394cadb21587b50b23d59",
+      "bytes": 616633,
+      "local_path": "data/raw/maturity/fdic_field_definitions__b257457e4e82.yaml"
+    }
+  ],
+  "download_limitations": [
+    {
+      "source_id": "ffiec_202512_instructions",
+      "source_url": "https://www.ffiec.gov/sites/default/files/data/reporting-forms/FFIEC031_FFIEC041_202512_i.pdf",
+      "status": 403,
+      "note": "Instructions verified through the web research tool; direct PDF byte retrieval unavailable. No PDF hash is claimed. Numerical rebuild depends only on the saved FDIC bytes."
+    }
+  ]
+}

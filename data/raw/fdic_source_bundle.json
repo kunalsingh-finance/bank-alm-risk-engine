@@ -1,0 +1,52 @@
+{
+  "source_records": [
+    {
+      "source_id": "fdic_regions_identity",
+      "publisher": "Federal Deposit Insurance Corporation",
+      "source_url": "https://api.fdic.gov/banks/institutions?filters=CERT%3A12368&fields=CERT%2CNAME%2CCITY%2CSTALP%2CACTIVE%2CCHRTAGNT%2CREGAGNT%2CDATEUPDT%2CNAMEHCR&limit=2&format=json",
+      "final_url": "https://api.fdic.gov/banks/institutions?filters=CERT%3A12368&fields=CERT%2CNAME%2CCITY%2CSTALP%2CACTIVE%2CCHRTAGNT%2CREGAGNT%2CDATEUPDT%2CNAMEHCR&limit=2&format=json",
+      "retrieved_at_utc": "2026-10-02T14:29:43.509966+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "a4f83028371d472a8c75ce947fb1402e692dcbb355fb9faee8370a3aca8c19ec",
+      "bytes": 468,
+      "local_path": "data/raw/fdic_regions_identity__a4f83028371d.json"
+    },
+    {
+      "source_id": "fdic_regions_20251231",
+      "publisher": "Federal Deposit Insurance Corporation",
+      "source_url": "https://api.fdic.gov/banks/financials?filters=CERT%3A12368+AND+REPDTE%3A20251231&fields=CERT%2CRSSDID%2CNAMEFULL%2CREPDTE%2CASSET%2CCHBAL%2CCHBALI%2CSC%2CLNLSNET%2CLNLSGR%2CLIAB%2CEQ%2CEQTOT%2CEQCONSUB%2CDEP%2CDEPDOM%2CDEPFOR%2CDEPI%2CDEPIFOR%2CDEPNI%2CDEPNIFOR%2CFREPO%2CFREPP%2COTHBOR%2COTHBFHLB%2CSUBND%2COA%2CALLOTHL%2CINTINC%2CEINTEXP%2CNIM%2CNIMQ&limit=2&format=json",
+      "final_url": "https://api.fdic.gov/banks/financials?filters=CERT%3A12368+AND+REPDTE%3A20251231&fields=CERT%2CRSSDID%2CNAMEFULL%2CREPDTE%2CASSET%2CCHBAL%2CCHBALI%2CSC%2CLNLSNET%2CLNLSGR%2CLIAB%2CEQ%2CEQTOT%2CEQCONSUB%2CDEP%2CDEPDOM%2CDEPFOR%2CDEPI%2CDEPIFOR%2CDEPNI%2CDEPNIFOR%2CFREPO%2CFREPP%2COTHBOR%2COTHBFHLB%2CSUBND%2COA%2CALLOTHL%2CINTINC%2CEINTEXP%2CNIM%2CNIMQ&limit=2&format=json",
+      "retrieved_at_utc": "2026-10-02T14:29:43.890658+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "7fa0ef18356c75da751dc7035711b14546dc3bba52a49720ea4eebba097d1251",
+      "bytes": 973,
+      "local_path": "data/raw/fdic_regions_20251231__7fa0ef18356c.json"
+    },
+    {
+      "source_id": "fdic_financial_field_definitions",
+      "publisher": "Federal Deposit Insurance Corporation",
+      "source_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+      "final_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+      "retrieved_at_utc": "2026-10-02T14:29:44.626141+00:00",
+      "http_status": 200,
+      "content_type": "text/yaml; charset=UTF-8",
+      "sha256": "b257457e4e821d6a0d9f88ffc4e6e0da80e4ccf67fa394cadb21587b50b23d59",
+      "bytes": 616633,
+      "local_path": "data/raw/fdic_financial_field_definitions__b257457e4e82.yaml"
+    },
+    {
+      "source_id": "fdic_institution_field_definitions",
+      "publisher": "Federal Deposit Insurance Corporation",
+      "source_url": "https://api.fdic.gov/banks/docs/institution_properties.yaml",
+      "final_url": "https://api.fdic.gov/banks/docs/institution_properties.yaml",
+      "retrieved_at_utc": "2026-10-02T14:29:45.147327+00:00",
+      "http_status": 200,
+      "content_type": "text/yaml; charset=UTF-8",
+      "sha256": "6ed1763c66a9e240904a45712b23d825c0f31beaadb6cd0213fc1bf00b2af1b9",
+      "bytes": 94832,
+      "local_path": "data/raw/fdic_institution_field_definitions__6ed1763c66a9.yaml"
+    }
+  ]
+}

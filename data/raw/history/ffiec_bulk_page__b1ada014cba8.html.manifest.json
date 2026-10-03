@@ -1,0 +1,11 @@
+{
+  "source_id": "ffiec_bulk_page",
+  "source_url": "https://cdr.ffiec.gov/public/PWS/DownloadBulkData.aspx",
+  "final_url": "https://cdr.ffiec.gov/public/PWS/DownloadBulkData.aspx",
+  "retrieved_at_utc": "2026-10-02T15:43:24.975154+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "bytes": 26969,
+  "sha256": "b1ada014cba8609e7adb5c94b0df12945e10486a3ed2ffa6cae7dee2cf247c05",
+  "local_path": "data/raw/history/ffiec_bulk_page__b1ada014cba8.html"
+}

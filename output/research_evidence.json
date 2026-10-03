@@ -1,0 +1,589 @@
+{
+  "case_label": "Sourced asset bands, encumbrance and business costs",
+  "decision_context": "The main report includes sourced asset bands, an encumbrance constraint and explicit operating/credit costs. The selected policy meets the selection scenarios; broader challenges remain separate.",
+  "calibration": {
+    "description": "44 quarterly bank observations; fitted persistent-response beta 0.342. The engine retains the 0.5 research beta and includes the estimate in sensitivity.",
+    "fit_description": "Training 2015-03-31 to 2023-12-31; holdout 2024-03-31 to 2025-12-31. No holdout targets enter coefficient fitting.",
+    "holdout_description": "The lagged model's holdout RMSE is 41.46 bp, versus 19.15 bp for train end persistence. This does not support replacing the research assumption with a validated forecast.",
+    "availability_note": "Historical observations are later retrieved vintages. Exact bank-quarter submission/publication timestamps remain unobserved; the documented FFIEC submission service requires an authenticated account. The test conditions on realized policy rates.",
+    "denominator_note": "Deposit expense is converted from YTD to quarterly flow and divided by the mean of adjacent domestic interest-bearing deposit balances. Reported daily/weekly deposit averages were not obtained.",
+    "metric_rows": [
+      [
+        "Training RMSE (bp)",
+        "10.88",
+        "176.63"
+      ],
+      [
+        "Holdout RMSE (bp)",
+        "41.46",
+        "19.15"
+      ],
+      [
+        "Holdout mean error (bp)",
+        "-40.57",
+        "4.71"
+      ]
+    ],
+    "prediction_rows": [
+      [
+        "2024-03-31",
+        "2.300%",
+        "1.824%",
+        "2.138%"
+      ],
+      [
+        "2024-06-30",
+        "2.334%",
+        "1.839%",
+        "2.138%"
+      ],
+      [
+        "2024-09-30",
+        "2.314%",
+        "1.832%",
+        "2.138%"
+      ],
+      [
+        "2024-12-31",
+        "2.070%",
+        "1.769%",
+        "2.138%"
+      ],
+      [
+        "2025-03-31",
+        "1.964%",
+        "1.705%",
+        "2.138%"
+      ],
+      [
+        "2025-06-30",
+        "1.951%",
+        "1.564%",
+        "2.138%"
+      ],
+      [
+        "2025-09-30",
+        "1.973%",
+        "1.494%",
+        "2.138%"
+      ],
+      [
+        "2025-12-31",
+        "1.820%",
+        "1.453%",
+        "2.138%"
+      ]
+    ]
+  },
+  "coverage": {
+    "description": "Official FDIC maturity/repricing bands reconcile to the same bank legal entity and date. They do not reveal every contract's maturity or coupon.",
+    "rows": [
+      [
+        "Reported securities",
+        33894000000
+      ],
+      [
+        "Securities in source bands",
+        33147000000
+      ],
+      [
+        "Equity securities residual",
+        747000000
+      ],
+      [
+        "Reported pledged securities",
+        20926000000
+      ],
+      [
+        "Opening sale-eligible unpledged debt (modeled)",
+        12682194370.685076
+      ],
+      [
+        "Accruing gross loan bands",
+        95425000000
+      ],
+      [
+        "Nonaccrual gross loans",
+        698000000
+      ],
+      [
+        "Allowance",
+        1556000000
+      ],
+      [
+        "Net loans",
+        94567000000
+      ]
+    ],
+    "notes": [
+      "A maturity-or-next-repricing band does not reveal the fixed/floating split or the contractual maturity of floating exposures. Those remain explicit model assumptions.",
+      "Other MBS bands report expected weighted average life, not final contractual maturity. A representative cash-flow reconstruction is an assumption.",
+      "Equity securities and nonaccrual exposures are outside the performing debt band schedule and remain separately identified.",
+      "Public loan bands are gross exposures. Proportional allocation of the total allowance across segments to reproduce net loan book is a modeling bridge, not a reported allowance assignment.",
+      "Pledged securities are reported in aggregate. Proportional allocation of encumbrance across debt bands and exclusion of equity securities from forced sales are additional assumptions. Availability of new borrowing remains separately assumed."
+    ]
+  },
+  "business_costs": {
+    "description": "Noninterest income, taxes, distributions and OCI are outside the modeled earnings objective. Historical provisions are shown as context and are not charged again on top of the credit-loss proxy.",
+    "rows": [
+      [
+        "Starting deposit cost",
+        "1.820%",
+        "2025 Q4 annualized expense / endpoint-average domestic interest-bearing deposits"
+      ],
+      [
+        "Annual operating cost / opening assets",
+        "2.647%",
+        "2025 reported noninterest expense, scaled to opening total assets"
+      ],
+      [
+        "Annual credit-loss rate",
+        "0.542%",
+        "2025 net chargeoffs / opening net loans; applied to monthly beginning net loans, noncash"
+      ],
+      [
+        "Historical noninterest income (excluded)",
+        "$2.441bn",
+        "Not forecast or added to modeled earnings"
+      ]
+    ]
+  },
+  "robustness": {
+    "description": "Each policy is frozen before its challenge results are evaluated. No failing result is used to change its hedge size, funding choice or risk limits.",
+    "summary_rows": [
+      [
+        "Sourced extended case / unseen rate runoff",
+        "prefund_6pct_borrow_first_hedge_10pct",
+        15,
+        5
+      ],
+      [
+        "Sourced extended case / behavioral uncertainty",
+        "prefund_6pct_borrow_first_hedge_10pct",
+        3,
+        3
+      ],
+      [
+        "Sourced extended case / curve model risk",
+        "prefund_6pct_borrow_first_hedge_10pct",
+        3,
+        1
+      ],
+      [
+        "Sourced extended case / asset segment uncertainty",
+        "prefund_6pct_borrow_first_hedge_10pct",
+        4,
+        0
+      ],
+      [
+        "Original aggregate case / unseen rate runoff",
+        "prefund_6pct_borrow_first_hedge_5pct",
+        17,
+        3
+      ],
+      [
+        "Original aggregate case / behavioral uncertainty",
+        "prefund_6pct_borrow_first_hedge_5pct",
+        3,
+        3
+      ],
+      [
+        "Original aggregate case / curve model risk",
+        "prefund_6pct_borrow_first_hedge_5pct",
+        4,
+        0
+      ]
+    ],
+    "case_rows": [
+      [
+        "Sourced extended case: -300 bp / 0% runoff",
+        "Pass",
+        "$-2.690bn",
+        "$1.937bn"
+      ],
+      [
+        "Sourced extended case: -300 bp / 20% runoff",
+        "Pass",
+        "$-2.685bn",
+        "$1.884bn"
+      ],
+      [
+        "Sourced extended case: -300 bp / 40% runoff",
+        "Pass",
+        "$-2.786bn",
+        "$1.832bn"
+      ],
+      [
+        "Sourced extended case: -300 bp / 60% runoff",
+        "requested withdrawals unfunded; cash floor breached",
+        "$-1.412bn",
+        "$1.780bn"
+      ],
+      [
+        "Sourced extended case: -100 bp / 0% runoff",
+        "Pass",
+        "$-0.833bn",
+        "$0.790bn"
+      ],
+      [
+        "Sourced extended case: -100 bp / 20% runoff",
+        "Pass",
+        "$-0.951bn",
+        "$0.282bn"
+      ],
+      [
+        "Sourced extended case: -100 bp / 40% runoff",
+        "Pass",
+        "$-1.196bn",
+        "$-0.226bn"
+      ],
+      [
+        "Sourced extended case: -100 bp / 60% runoff",
+        "requested withdrawals unfunded; cash floor breached",
+        "$-0.951bn",
+        "$-0.734bn"
+      ],
+      [
+        "Sourced extended case: +100 bp / 0% runoff",
+        "Pass",
+        "$0.908bn",
+        "$-0.888bn"
+      ],
+      [
+        "Sourced extended case: +100 bp / 20% runoff",
+        "Pass",
+        "$0.665bn",
+        "$-1.837bn"
+      ],
+      [
+        "Sourced extended case: +100 bp / 40% runoff",
+        "Pass",
+        "$0.267bn",
+        "$-2.785bn"
+      ],
+      [
+        "Sourced extended case: +100 bp / 60% runoff",
+        "requested withdrawals unfunded; cash floor breached",
+        "$-0.621bn",
+        "$-3.734bn"
+      ],
+      [
+        "Sourced extended case: +300 bp / 0% runoff",
+        "Pass",
+        "$2.561bn",
+        "$-2.826bn"
+      ],
+      [
+        "Sourced extended case: +300 bp / 20% runoff",
+        "Pass",
+        "$2.191bn",
+        "$-4.201bn"
+      ],
+      [
+        "Sourced extended case: +300 bp / 40% runoff",
+        "assumed eve loss limit breached",
+        "$1.618bn",
+        "$-5.576bn"
+      ],
+      [
+        "Sourced extended case: +300 bp / 60% runoff",
+        "requested withdrawals unfunded; cash floor breached; assumed eve loss limit breached",
+        "$-0.357bn",
+        "$-6.951bn"
+      ],
+      [
+        "Sourced extended case: Steepener / 40% runoff",
+        "Pass",
+        "$-0.117bn",
+        "$-2.729bn"
+      ],
+      [
+        "Sourced extended case: Flattener / 40% runoff",
+        "Pass",
+        "$-0.598bn",
+        "$-0.438bn"
+      ],
+      [
+        "Sourced extended case: Short Up / 40% runoff",
+        "Pass",
+        "$0.057bn",
+        "$-1.088bn"
+      ],
+      [
+        "Sourced extended case: Short Down / 40% runoff",
+        "Pass",
+        "$-0.982bn",
+        "$-1.748bn"
+      ],
+      [
+        "Sourced extended case: Beta = 0.1",
+        "Pass",
+        "$0.748bn",
+        "$-4.114bn"
+      ],
+      [
+        "Sourced extended case: Beta = 0.9",
+        "assumed eve loss limit breached",
+        "$-0.049bn",
+        "$-4.804bn"
+      ],
+      [
+        "Sourced extended case: Maturity = 1",
+        "Pass",
+        "$0.350bn",
+        "$-4.158bn"
+      ],
+      [
+        "Sourced extended case: Maturity = 5",
+        "assumed eve loss limit breached",
+        "$0.350bn",
+        "$-5.148bn"
+      ],
+      [
+        "Sourced extended case: CPR = 0",
+        "assumed eve loss limit breached",
+        "$-0.271bn",
+        "$-6.409bn"
+      ],
+      [
+        "Sourced extended case: CPR = 0.2",
+        "Pass",
+        "$0.617bn",
+        "$-2.880bn"
+      ],
+      [
+        "Sourced extended case: Treasury proxy +25 bp",
+        "assumed eve loss limit breached",
+        "$0.313bn",
+        "$-4.604bn"
+      ],
+      [
+        "Sourced extended case: Treasury proxy -25 bp",
+        "Pass",
+        "$0.387bn",
+        "$-4.313bn"
+      ],
+      [
+        "Sourced extended case: Sub-one-year rates held at one-year zero",
+        "Pass",
+        "$0.365bn",
+        "$-4.454bn"
+      ],
+      [
+        "Sourced extended case: Linear short-end extension to one day",
+        "Pass",
+        "$0.350bn",
+        "$-4.459bn"
+      ],
+      [
+        "Sourced extended case: Other-loan fixed share 10%",
+        "Pass",
+        "$0.080bn",
+        "$-4.469bn"
+      ],
+      [
+        "Sourced extended case: Other-loan fixed share 40%",
+        "Pass",
+        "$0.570bn",
+        "$-4.439bn"
+      ],
+      [
+        "Sourced extended case: Floating contractual life at least 84 months",
+        "Pass",
+        "$0.304bn",
+        "$-4.482bn"
+      ],
+      [
+        "Sourced extended case: Pledged principal stays restricted as cash collateral",
+        "Pass",
+        "$0.242bn",
+        "$-4.459bn"
+      ],
+      [
+        "Original aggregate case: -300 bp / 0% runoff",
+        "Pass",
+        "$2.864bn",
+        "$2.677bn"
+      ],
+      [
+        "Original aggregate case: -300 bp / 20% runoff",
+        "Pass",
+        "$2.922bn",
+        "$2.698bn"
+      ],
+      [
+        "Original aggregate case: -300 bp / 40% runoff",
+        "Pass",
+        "$3.590bn",
+        "$2.718bn"
+      ],
+      [
+        "Original aggregate case: -300 bp / 60% runoff",
+        "Pass",
+        "$5.786bn",
+        "$2.739bn"
+      ],
+      [
+        "Original aggregate case: -100 bp / 0% runoff",
+        "Pass",
+        "$3.898bn",
+        "$0.899bn"
+      ],
+      [
+        "Original aggregate case: -100 bp / 20% runoff",
+        "Pass",
+        "$3.833bn",
+        "$0.462bn"
+      ],
+      [
+        "Original aggregate case: -100 bp / 40% runoff",
+        "Pass",
+        "$3.808bn",
+        "$0.026bn"
+      ],
+      [
+        "Original aggregate case: -100 bp / 60% runoff",
+        "Pass",
+        "$4.333bn",
+        "$-0.410bn"
+      ],
+      [
+        "Original aggregate case: +100 bp / 0% runoff",
+        "Pass",
+        "$4.868bn",
+        "$-0.895bn"
+      ],
+      [
+        "Original aggregate case: +100 bp / 20% runoff",
+        "Pass",
+        "$4.678bn",
+        "$-1.773bn"
+      ],
+      [
+        "Original aggregate case: +100 bp / 40% runoff",
+        "Pass",
+        "$3.916bn",
+        "$-2.650bn"
+      ],
+      [
+        "Original aggregate case: +100 bp / 60% runoff",
+        "requested withdrawals unfunded; cash floor breached",
+        "$2.721bn",
+        "$-3.528bn"
+      ],
+      [
+        "Original aggregate case: +300 bp / 0% runoff",
+        "Pass",
+        "$5.790bn",
+        "$-2.647bn"
+      ],
+      [
+        "Original aggregate case: +300 bp / 20% runoff",
+        "Pass",
+        "$5.473bn",
+        "$-3.952bn"
+      ],
+      [
+        "Original aggregate case: +300 bp / 40% runoff",
+        "assumed eve loss limit breached",
+        "$3.855bn",
+        "$-5.257bn"
+      ],
+      [
+        "Original aggregate case: +300 bp / 60% runoff",
+        "requested withdrawals unfunded; cash floor breached; assumed eve loss limit breached",
+        "$1.240bn",
+        "$-6.562bn"
+      ],
+      [
+        "Original aggregate case: Steepener / 40% runoff",
+        "Pass",
+        "$3.912bn",
+        "$-2.260bn"
+      ],
+      [
+        "Original aggregate case: Flattener / 40% runoff",
+        "Pass",
+        "$3.866bn",
+        "$-0.714bn"
+      ],
+      [
+        "Original aggregate case: Short Up / 40% runoff",
+        "Pass",
+        "$3.891bn",
+        "$-1.679bn"
+      ],
+      [
+        "Original aggregate case: Short Down / 40% runoff",
+        "Pass",
+        "$3.817bn",
+        "$-0.906bn"
+      ],
+      [
+        "Original aggregate case: Beta = 0.1",
+        "Pass",
+        "$3.726bn",
+        "$-3.894bn"
+      ],
+      [
+        "Original aggregate case: Beta = 0.9",
+        "assumed eve loss limit breached",
+        "$2.930bn",
+        "$-4.584bn"
+      ],
+      [
+        "Original aggregate case: Maturity = 1",
+        "Pass",
+        "$3.328bn",
+        "$-4.016bn"
+      ],
+      [
+        "Original aggregate case: Maturity = 5",
+        "assumed eve loss limit breached",
+        "$3.328bn",
+        "$-4.698bn"
+      ],
+      [
+        "Original aggregate case: CPR = 0",
+        "assumed eve loss limit breached",
+        "$3.236bn",
+        "$-4.737bn"
+      ],
+      [
+        "Original aggregate case: CPR = 0.2",
+        "Pass",
+        "$3.466bn",
+        "$-3.736bn"
+      ],
+      [
+        "Original aggregate case: Treasury proxy +25 bp",
+        "Pass",
+        "$3.297bn",
+        "$-4.383bn"
+      ],
+      [
+        "Original aggregate case: Treasury proxy -25 bp",
+        "Pass",
+        "$3.359bn",
+        "$-4.094bn"
+      ],
+      [
+        "Original aggregate case: Sub-one-year rates held at one-year zero",
+        "Pass",
+        "$3.342bn",
+        "$-4.233bn"
+      ],
+      [
+        "Original aggregate case: Linear short-end extension to one day",
+        "Pass",
+        "$3.328bn",
+        "$-4.239bn"
+      ]
+    ],
+    "notes": [
+      "These are hypothetical unseen combinations and model-assumption challenges, not empirical future bank outcomes.",
+      "When the extended selection grid has no feasible policy, no infeasible diagnostic is promoted for challenge testing. The original aggregate choice is still challenged and explicitly labeled.",
+      "Alternate proxy curves affect projection and discounting and recalibrate hypothetical inception par coupons; they do not value an executed trade with unchanged terms."
+    ]
+  }
+}

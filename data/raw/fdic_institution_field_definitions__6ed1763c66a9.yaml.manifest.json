@@ -1,0 +1,12 @@
+{
+  "source_id": "fdic_institution_field_definitions",
+  "publisher": "Federal Deposit Insurance Corporation",
+  "source_url": "https://api.fdic.gov/banks/docs/institution_properties.yaml",
+  "final_url": "https://api.fdic.gov/banks/docs/institution_properties.yaml",
+  "retrieved_at_utc": "2026-10-02T14:29:45.147327+00:00",
+  "http_status": 200,
+  "content_type": "text/yaml; charset=UTF-8",
+  "sha256": "6ed1763c66a9e240904a45712b23d825c0f31beaadb6cd0213fc1bf00b2af1b9",
+  "bytes": 94832,
+  "local_path": "data/raw/fdic_institution_field_definitions__6ed1763c66a9.yaml"
+}

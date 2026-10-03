@@ -1,0 +1,14 @@
+{
+  "primary": {
+    "passed": true,
+    "audited_cases": 34,
+    "audited_scenario_paths": 136,
+    "max_residual_usd": 6.103515625e-05
+  },
+  "reference": {
+    "passed": true,
+    "audited_cases": 30,
+    "audited_scenario_paths": 120,
+    "max_residual_usd": 9.1552734375e-05
+  }
+}

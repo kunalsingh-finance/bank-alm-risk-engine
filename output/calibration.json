@@ -1,0 +1,1203 @@
+{
+  "schema_version": "bank-alm-deposit-calibration-v1",
+  "bank_name": "Regions Bank",
+  "certificate": 12368,
+  "target": "ACT/365F annualized domestic deposit interest expense / arithmetic mean of previous/current domestic interest-bearing deposit balances",
+  "model_equation": "cost_t = nonnegative_intercept + beta_0*policy_t + beta_1*policy_(t-1) + beta_2*policy_(t-2); betas >= 0 and sum <= 1",
+  "split": {
+    "training_start": "2015-03-31",
+    "training_end": "2023-12-31",
+    "holdout_start": "2024-03-31",
+    "holdout_end": "2025-12-31",
+    "training_quarters": 36,
+    "holdout_quarters": 8,
+    "selection": "Fixed before fitting; no random split, future fill, holdout tuning or refit"
+  },
+  "coefficients": {
+    "intercept_decimal": 0.00018347919236720394,
+    "lag_betas": [
+      0.09900795702984294,
+      0.030857255903657177,
+      0.21167108437898807
+    ],
+    "total_beta": 0.3415362973124882
+  },
+  "static_coefficients": {
+    "intercept_decimal": 0.0005115627240707299,
+    "beta": 0.27164969143611367
+  },
+  "metrics": {
+    "lagged_model": {
+      "train": {
+        "count": 36,
+        "mae_bps": 8.642386676560584,
+        "rmse_bps": 10.878271339017884,
+        "mean_error_bps": -2.906625557525583e-16,
+        "maximum_absolute_error_bps": 37.35673484701059
+      },
+      "holdout": {
+        "count": 8,
+        "mae_bps": 40.5667370799714,
+        "rmse_bps": 41.4607206372374,
+        "mean_error_bps": -40.5667370799714,
+        "maximum_absolute_error_bps": 49.50413029637627
+      }
+    },
+    "static_model": {
+      "train": {
+        "count": 36,
+        "mae_bps": 12.825459727042828,
+        "rmse_bps": 18.94867113913234,
+        "mean_error_bps": -4.814050392888526e-15,
+        "maximum_absolute_error_bps": 63.870752017354384
+      },
+      "holdout": {
+        "count": 8,
+        "mae_bps": 76.87773192349152,
+        "rmse_bps": 77.00942541918343,
+        "mean_error_bps": -76.87773192349152,
+        "maximum_absolute_error_bps": 83.47285591144863
+      }
+    },
+    "train_mean": {
+      "train": {
+        "count": 36,
+        "mae_bps": 32.945607081827944,
+        "rmse_bps": 46.48348181227871,
+        "mean_error_bps": -1.0093777665550382e-14,
+        "maximum_absolute_error_bps": 170.39925965361604
+      },
+      "holdout": {
+        "count": 8,
+        "mae_bps": 165.69327713895083,
+        "rmse_bps": 166.72997834382343,
+        "mean_error_bps": -165.69327713895083,
+        "maximum_absolute_error_bps": 190.0013635477103
+      }
+    },
+    "train_end_persistence": {
+      "train": {
+        "count": 36,
+        "mae_bps": 170.399259653616,
+        "rmse_bps": 176.6256543424338,
+        "mean_error_bps": 170.399259653616,
+        "maximum_absolute_error_bps": 207.27417301286198
+      },
+      "holdout": {
+        "count": 8,
+        "mae_bps": 18.063317141323445,
+        "rmse_bps": 19.151236537492647,
+        "mean_error_bps": 4.705982514665208,
+        "maximum_absolute_error_bps": 31.781281416900647
+      }
+    },
+    "fixed_0_5_beta": {
+      "train": {
+        "count": 36,
+        "mae_bps": 21.05642276070996,
+        "rmse_bps": 27.961673499333664,
+        "mean_error_bps": -5.067425308296563,
+        "maximum_absolute_error_bps": 81.33693286782295
+      },
+      "holdout": {
+        "count": 8,
+        "mae_bps": 27.896599007073917,
+        "rmse_bps": 28.97104950990015,
+        "mean_error_bps": -27.896599007073917,
+        "maximum_absolute_error_bps": 39.95784901788195
+      }
+    }
+  },
+  "predictions": [
+    {
+      "quarter_end": "2015-03-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.0018047152962589953,
+      "lagged_model_prediction": 0.0005151712746360635,
+      "static_model_prediction": 0.0008182250424030537,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.001128888888888889,
+        0.0010130434782608694,
+        0.000891304347826087
+      ],
+      "feature_quarter_ends": [
+        "2015-03-31",
+        "2014-12-31",
+        "2014-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2015-06-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.0017487254563668955,
+      "lagged_model_prediction": 0.0005571039632925777,
+      "static_model_prediction": 0.0008527666771602661,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0012560439560439561,
+        0.001128888888888889,
+        0.0010130434782608694
+      ],
+      "feature_quarter_ends": [
+        "2015-06-30",
+        "2015-03-31",
+        "2014-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2015-09-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.0017136576003881916,
+      "lagged_model_prediction": 0.000594635904700689,
+      "static_model_prediction": 0.0008776992647020136,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.001347826086956522,
+        0.0012560439560439561,
+        0.001128888888888889
+      ],
+      "feature_quarter_ends": [
+        "2015-09-30",
+        "2015-06-30",
+        "2015-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2015-12-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.0016361613481608336,
+      "lagged_model_prediction": 0.0006504264977432697,
+      "static_model_prediction": 0.0009491549444058608,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0016108695652173914,
+        0.001347826086956522,
+        0.0012560439560439561
+      ],
+      "feature_quarter_ends": [
+        "2015-12-31",
+        "2015-09-30",
+        "2015-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2016-03-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.0017131994102827855,
+      "lagged_model_prediction": 0.0008746930615507797,
+      "static_model_prediction": 0.0014889045809518685,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.003597802197802198,
+        0.0016108695652173914,
+        0.001347826086956522
+      ],
+      "feature_quarter_ends": [
+        "2016-03-31",
+        "2015-12-31",
+        "2015-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2016-06-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.0018164302978835357,
+      "lagged_model_prediction": 0.0010011486444319393,
+      "static_model_prediction": 0.0015148754855177388,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0036934065934065936,
+        0.003597802197802198,
+        0.0016108695652173914
+      ],
+      "feature_quarter_ends": [
+        "2016-06-30",
+        "2016-03-31",
+        "2015-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2016-09-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.0019515255724213672,
+      "lagged_model_prediction": 0.0014499720902893857,
+      "static_model_prediction": 0.0015842837338396443,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.003948913043478261,
+        0.0036934065934065936,
+        0.003597802197802198
+      ],
+      "feature_quarter_ends": [
+        "2016-09-30",
+        "2016-06-30",
+        "2016-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2016-12-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.0019655923006748626,
+      "lagged_model_prediction": 0.0015308255031461135,
+      "static_model_prediction": 0.001728966721669748,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.004481521739130434,
+        0.003948913043478261,
+        0.0036934065934065936
+      ],
+      "feature_quarter_ends": [
+        "2016-12-31",
+        "2016-09-30",
+        "2016-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2017-03-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.0022375922105040925,
+      "lagged_model_prediction": 0.001849592972338186,
+      "static_model_prediction": 0.00241009223421868,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.006988888888888889,
+        0.004481521739130434,
+        0.003948913043478261
+      ],
+      "feature_quarter_ends": [
+        "2017-03-31",
+        "2016-12-31",
+        "2016-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2017-06-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.0024478363777225257,
+      "lagged_model_prediction": 0.002285710084400409,
+      "static_model_prediction": 0.0030850704052473627,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.009473626373626374,
+        0.006988888888888889,
+        0.004481521739130434
+      ],
+      "feature_quarter_ends": [
+        "2017-06-30",
+        "2017-03-31",
+        "2016-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2017-09-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.0027542698998224086,
+      "lagged_model_prediction": 0.003097405490988715,
+      "static_model_prediction": 0.003645573403313023,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0004960447402205907,
+      "policy_rates_decimal": [
+        0.011536956521739129,
+        0.009473626373626374,
+        0.006988888888888889
+      ],
+      "feature_quarter_ends": [
+        "2017-09-30",
+        "2017-06-30",
+        "2017-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2017-12-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.002765336068327714,
+      "lagged_model_prediction": 0.003737493809790564,
+      "static_model_prediction": 0.003784055691664694,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0007509360445684191,
+      "policy_rates_decimal": [
+        0.01204673913043478,
+        0.011536956521739129,
+        0.009473626373626374
+      ],
+      "feature_quarter_ends": [
+        "2017-12-31",
+        "2017-09-30",
+        "2017-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2018-03-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.00329779774503376,
+      "lagged_model_prediction": 0.0044298937401312174,
+      "static_model_prediction": 0.0044423337591512945,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0019625664793510265,
+      "policy_rates_decimal": [
+        0.01447,
+        0.01204673913043478,
+        0.011536956521739129
+      ],
+      "feature_quarter_ends": [
+        "2018-03-31",
+        "2017-12-31",
+        "2017-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2018-06-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.003793019065160282,
+      "lagged_model_prediction": 0.004899622073904467,
+      "static_model_prediction": 0.005229908903014919,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0034121818639664125,
+      "policy_rates_decimal": [
+        0.01736923076923077,
+        0.01447,
+        0.01204673913043478
+      ],
+      "feature_quarter_ends": [
+        "2018-06-30",
+        "2018-03-31",
+        "2017-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2018-09-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.004350378718334525,
+      "lagged_model_prediction": 0.005689413545642041,
+      "static_model_prediction": 0.005744067269657002,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.004358544740220592,
+      "policy_rates_decimal": [
+        0.019261956521739128,
+        0.01736923076923077,
+        0.01447
+      ],
+      "feature_quarter_ends": [
+        "2018-09-30",
+        "2018-06-30",
+        "2018-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2018-12-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.005331181397865149,
+      "lagged_model_prediction": 0.0066524984891227,
+      "static_model_prediction": 0.006542481145356188,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0058281099576118975,
+      "policy_rates_decimal": [
+        0.02220108695652174,
+        0.019261956521739128,
+        0.01736923076923077
+      ],
+      "feature_quarter_ends": [
+        "2018-12-31",
+        "2018-09-30",
+        "2018-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2019-03-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.007206433858387775,
+      "lagged_model_prediction": 0.007323694148315922,
+      "static_model_prediction": 0.0070359846463852104,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0067364553682399166,
+      "policy_rates_decimal": [
+        0.024017777777777777,
+        0.02220108695652174,
+        0.019261956521739128
+      ],
+      "feature_quarter_ends": [
+        "2019-03-31",
+        "2018-12-31",
+        "2018-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2019-06-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.008002929726430814,
+      "lagged_model_prediction": 0.007997509827821938,
+      "static_model_prediction": 0.007023990931071011,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.006714379666164215,
+      "policy_rates_decimal": [
+        0.023973626373626374,
+        0.024017777777777777,
+        0.02220108695652174
+      ],
+      "feature_quarter_ends": [
+        "2019-06-30",
+        "2019-03-31",
+        "2018-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2019-09-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.007519995489087061,
+      "lagged_model_prediction": 0.008177535188758156,
+      "static_model_prediction": 0.006466596394596316,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.00568843604456842,
+      "policy_rates_decimal": [
+        0.02192173913043478,
+        0.023973626373626374,
+        0.024017777777777777
+      ],
+      "feature_quarter_ends": [
+        "2019-09-30",
+        "2019-06-30",
+        "2019-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2019-12-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.006303725736295256,
+      "lagged_model_prediction": 0.00756377399477895,
+      "static_model_prediction": 0.004981971776617209,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0029558273489162477,
+      "policy_rates_decimal": [
+        0.016456521739130436,
+        0.02192173913043478,
+        0.023973626373626374
+      ],
+      "feature_quarter_ends": [
+        "2019-12-31",
+        "2019-09-30",
+        "2019-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2020-03-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.005334902135605174,
+      "lagged_model_prediction": 0.006573976048916213,
+      "static_model_prediction": 0.003920617093521739,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0010022917540763038,
+      "policy_rates_decimal": [
+        0.012549450549450551,
+        0.016456521739130436,
+        0.02192173913043478
+      ],
+      "feature_quarter_ends": [
+        "2020-03-31",
+        "2019-12-31",
+        "2019-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2020-06-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.002496175672053391,
+      "lagged_model_prediction": 0.004112298575787346,
+      "static_model_prediction": 0.0006712688613436099,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0005879120879120879,
+        0.012549450549450551,
+        0.016456521739130436
+      ],
+      "feature_quarter_ends": [
+        "2020-06-30",
+        "2020-03-31",
+        "2019-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2020-09-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.0018458885361471754,
+      "lagged_model_prediction": 0.002949666329872649,
+      "static_model_prediction": 0.00076313396005287,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0009260869565217391,
+        0.0005879120879120879,
+        0.012549450549450551
+      ],
+      "feature_quarter_ends": [
+        "2020-09-30",
+        "2020-06-30",
+        "2020-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2020-12-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.001304214219865505,
+      "lagged_model_prediction": 0.00042442305427778534,
+      "static_model_prediction": 0.0007527994609221482,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0008880434782608695,
+        0.0009260869565217391,
+        0.0005879120879120879
+      ],
+      "feature_quarter_ends": [
+        "2020-12-31",
+        "2020-09-30",
+        "2020-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2021-03-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.0010634439790439432,
+      "lagged_model_prediction": 0.0004830337256175016,
+      "static_model_prediction": 0.0007204311534860529,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.000768888888888889,
+        0.0008880434782608695,
+        0.0009260869565217391
+      ],
+      "feature_quarter_ends": [
+        "2021-03-31",
+        "2020-12-31",
+        "2020-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2021-06-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.0009168406336676441,
+      "lagged_model_prediction": 0.00046274289026870287,
+      "static_model_prediction": 0.0006969412497650449,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0006824175824175824,
+        0.000768888888888889,
+        0.0008880434782608695
+      ],
+      "feature_quarter_ends": [
+        "2021-06-30",
+        "2021-03-31",
+        "2020-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2021-09-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.0007936899115126352,
+      "lagged_model_prediction": 0.00045639543254594335,
+      "static_model_prediction": 0.0007560474463632322,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0009,
+        0.0006824175824175824,
+        0.000768888888888889
+      ],
+      "feature_quarter_ends": [
+        "2021-09-30",
+        "2021-06-30",
+        "2021-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2021-12-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.000662731526550743,
+      "lagged_model_prediction": 0.00043436707125099866,
+      "static_model_prediction": 0.0007274061202009463,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0007945652173913043,
+        0.0009,
+        0.0006824175824175824
+      ],
+      "feature_quarter_ends": [
+        "2021-12-31",
+        "2021-09-30",
+        "2021-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2022-03-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.0006501491780648298,
+      "lagged_model_prediction": 0.0005187409339241688,
+      "static_model_prediction": 0.0008414661826703658,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0012144444444444446,
+        0.0007945652173913043,
+        0.0009
+      ],
+      "feature_quarter_ends": [
+        "2022-03-31",
+        "2021-12-31",
+        "2021-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2022-06-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.0009950665825630939,
+      "lagged_model_prediction": 0.001148346167044414,
+      "static_model_prediction": 0.0025946083799401813,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.0,
+      "policy_rates_decimal": [
+        0.0076681318681318675,
+        0.0012144444444444446,
+        0.0007945652173913043
+      ],
+      "feature_quarter_ends": [
+        "2022-06-30",
+        "2022-03-31",
+        "2021-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2022-09-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.002427220699978693,
+      "lagged_model_prediction": 0.0028384386037534444,
+      "static_model_prediction": 0.006441498325278852,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.005642240392394509,
+      "policy_rates_decimal": [
+        0.021829347826086958,
+        0.0076681318681318675,
+        0.0012144444444444446
+      ],
+      "feature_quarter_ends": [
+        "2022-09-30",
+        "2022-06-30",
+        "2022-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2022-12-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.005673763275051608,
+      "lagged_model_prediction": 0.006097321321407054,
+      "static_model_prediction": 0.01043592987500466,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.012994414305437983,
+      "policy_rates_decimal": [
+        0.03653369565217391,
+        0.021829347826086958,
+        0.0076681318681318675
+      ],
+      "feature_quarter_ends": [
+        "2022-12-31",
+        "2022-09-30",
+        "2022-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2023-03-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.009166650970346512,
+      "lagged_model_prediction": 0.010401219738379425,
+      "static_model_prediction": 0.012775338960449325,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.017300344257128807,
+      "policy_rates_decimal": [
+        0.04514555555555556,
+        0.03653369565217391,
+        0.021829347826086958
+      ],
+      "feature_quarter_ends": [
+        "2023-03-31",
+        "2022-12-31",
+        "2022-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2023-06-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.01312281698344188,
+      "lagged_model_prediction": 0.014248321584717229,
+      "static_model_prediction": 0.014061807552277403,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.01966822582001037,
+      "policy_rates_decimal": [
+        0.04988131868131868,
+        0.04514555555555556,
+        0.03653369565217391
+      ],
+      "feature_quarter_ends": [
+        "2023-06-30",
+        "2023-03-31",
+        "2022-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2023-09-30",
+      "sample": "train",
+      "actual_deposit_cost": 0.017963434144966622,
+      "lagged_model_prediction": 0.016485753725422377,
+      "static_model_prediction": 0.014798269593784164,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.02102376213152494,
+      "policy_rates_decimal": [
+        0.05259239130434783,
+        0.04988131868131868,
+        0.04514555555555556
+      ],
+      "feature_quarter_ends": [
+        "2023-09-30",
+        "2023-06-30",
+        "2023-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2023-12-31",
+      "sample": "train",
+      "actual_deposit_cost": 0.021377566479351028,
+      "lagged_model_prediction": 0.01764189299464997,
+      "static_model_prediction": 0.01499049127761559,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.021377566479351028,
+      "policy_rates_decimal": [
+        0.0533,
+        0.05259239130434783,
+        0.04988131868131868
+      ],
+      "feature_quarter_ends": [
+        "2023-12-31",
+        "2023-09-30",
+        "2023-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2024-03-31",
+      "sample": "holdout",
+      "actual_deposit_cost": 0.0230025205695433,
+      "lagged_model_prediction": 0.01823758353919813,
+      "static_model_prediction": 0.01499049127761559,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.021377566479351028,
+      "policy_rates_decimal": [
+        0.0533,
+        0.0533,
+        0.05259239130434783
+      ],
+      "feature_quarter_ends": [
+        "2024-03-31",
+        "2023-12-31",
+        "2023-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2024-06-30",
+      "sample": "holdout",
+      "actual_deposit_cost": 0.023337776868760454,
+      "lagged_model_prediction": 0.018387363839122827,
+      "static_model_prediction": 0.01499049127761559,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.021377566479351028,
+      "policy_rates_decimal": [
+        0.0533,
+        0.0533,
+        0.0533
+      ],
+      "feature_quarter_ends": [
+        "2024-06-30",
+        "2024-03-31",
+        "2023-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2024-09-30",
+      "sample": "holdout",
+      "actual_deposit_cost": 0.023135335850412626,
+      "lagged_model_prediction": 0.01832279343236423,
+      "static_model_prediction": 0.014813328435374645,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.02105147952282929,
+      "policy_rates_decimal": [
+        0.05264782608695653,
+        0.0533,
+        0.0533
+      ],
+      "feature_quarter_ends": [
+        "2024-09-30",
+        "2024-06-30",
+        "2024-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2024-12-31",
+      "sample": "holdout",
+      "actual_deposit_cost": 0.02069539532905824,
+      "lagged_model_prediction": 0.017691940704444065,
+      "static_model_prediction": 0.013137663219179054,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.017967240392394508,
+      "policy_rates_decimal": [
+        0.04647934782608696,
+        0.05264782608695653,
+        0.0533
+      ],
+      "feature_quarter_ends": [
+        "2024-12-31",
+        "2024-09-30",
+        "2024-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2025-03-31",
+      "sample": "holdout",
+      "actual_deposit_cost": 0.019638316165257047,
+      "lagged_model_prediction": 0.017048771299886526,
+      "static_model_prediction": 0.012273994363254452,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.016377566479351027,
+      "policy_rates_decimal": [
+        0.0433,
+        0.04647934782608696,
+        0.05264782608695653
+      ],
+      "feature_quarter_ends": [
+        "2025-03-31",
+        "2024-12-31",
+        "2024-09-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2025-06-30",
+      "sample": "holdout",
+      "actual_deposit_cost": 0.019512895969367425,
+      "lagged_model_prediction": 0.015644976867963747,
+      "static_model_prediction": 0.012273994363254452,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.016377566479351027,
+      "policy_rates_decimal": [
+        0.0433,
+        0.0433,
+        0.04647934782608696
+      ],
+      "feature_quarter_ends": [
+        "2025-06-30",
+        "2025-03-31",
+        "2024-12-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2025-09-30",
+      "sample": "holdout",
+      "actual_deposit_cost": 0.019734066733016004,
+      "lagged_model_prediction": 0.014937993785105083,
+      "static_model_prediction": 0.012180688599674224,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.016205827348916246,
+      "policy_rates_decimal": [
+        0.042956521739130435,
+        0.0433,
+        0.0433
+      ],
+      "feature_quarter_ends": [
+        "2025-09-30",
+        "2025-06-30",
+        "2025-03-31"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    },
+    {
+      "quarter_end": "2025-12-31",
+      "sample": "holdout",
+      "actual_deposit_cost": 0.018199438337660963,
+      "lagged_model_prediction": 0.014530932691014327,
+      "static_model_prediction": 0.011092908748314829,
+      "train_mean_prediction": 0.004337640513989424,
+      "train_end_persistence_prediction": 0.021377566479351028,
+      "fixed_0_5_beta_prediction": 0.014203653435872769,
+      "policy_rates_decimal": [
+        0.03895217391304348,
+        0.042956521739130435,
+        0.0433
+      ],
+      "feature_quarter_ends": [
+        "2025-12-31",
+        "2025-09-30",
+        "2025-06-30"
+      ],
+      "publication_date": null,
+      "availability_status": "Unknown exact filing/publication date; later retrieved vintage"
+    }
+  ],
+  "diagnostics": {
+    "design_rank": 4,
+    "design_columns": 4,
+    "active_bounds": [],
+    "policy_lag_correlations": [
+      {
+        "lags": [
+          0,
+          1
+        ],
+        "correlation": 0.9585437838831056
+      },
+      {
+        "lags": [
+          0,
+          2
+        ],
+        "correlation": 0.8458069194842075
+      },
+      {
+        "lags": [
+          1,
+          2
+        ],
+        "correlation": 0.9508433686384119
+      }
+    ],
+    "training_residual_lag1_correlation": 0.7198039299986966,
+    "expanding_window_estimates": [
+      {
+        "training_end": "2018-12-31",
+        "training_quarters": 16,
+        "total_beta": 0.18575235147784208,
+        "lag_betas": [
+          0.044269102929825874,
+          0.0,
+          0.14148324854801622
+        ],
+        "active_bounds": [
+          "coefficient_2_zero"
+        ]
+      },
+      {
+        "training_end": "2019-12-31",
+        "training_quarters": 20,
+        "total_beta": 0.25045994147500883,
+        "lag_betas": [
+          0.0,
+          0.08587701584084872,
+          0.16458292563416013
+        ],
+        "active_bounds": [
+          "coefficient_1_zero"
+        ]
+      },
+      {
+        "training_end": "2020-12-31",
+        "training_quarters": 24,
+        "total_beta": 0.2507835328313996,
+        "lag_betas": [
+          0.08331530977823494,
+          0.08848519946177968,
+          0.078983023591385
+        ],
+        "active_bounds": []
+      },
+      {
+        "training_end": "2021-12-31",
+        "training_quarters": 28,
+        "total_beta": 0.25579912684518735,
+        "lag_betas": [
+          0.08809017546389306,
+          0.08379252755590536,
+          0.08391642382538897
+        ],
+        "active_bounds": []
+      },
+      {
+        "training_end": "2022-12-31",
+        "training_quarters": 32,
+        "total_beta": 0.2549648245489705,
+        "lag_betas": [
+          0.04349457121896283,
+          0.1283662549757274,
+          0.08310399835428026
+        ],
+        "active_bounds": []
+      },
+      {
+        "training_end": "2023-12-31",
+        "training_quarters": 36,
+        "total_beta": 0.3415362973124882,
+        "lag_betas": [
+          0.09900795702984294,
+          0.030857255903657177,
+          0.21167108437898807
+        ],
+        "active_bounds": []
+      }
+    ],
+    "holdout_best_benchmark": "train_end_persistence",
+    "lagged_model_beats_all_benchmarks": false,
+    "statistical_confidence_interval": null,
+    "confidence_interval_reason": "Serial dependence, proxy measurement error and active constraints; no coverage claim from naive OLS intervals"
+  },
+  "recommended_illustrative_beta": {
+    "value": 0.3415362973124882,
+    "status": "Descriptive sensitivity input only; not approved for automatic production use",
+    "apply_to_engine": false,
+    "holdout_support": false,
+    "rationale": "Fixed 2024\u201325 holdout RMSE is 41.46 bps for the lagged model versus 19.15 bps for train_end_persistence. Retain the separately disclosed engine beta assumption; use this estimate only as a challenge sensitivity. Serial dependence, correlated policy lags and coefficient instability further limit inference.",
+    "interpretation": "Total response to a persistent policy-rate change in the constrained aggregate cost model; not a measured customer beta"
+  },
+  "limitations": [
+    "Quarter-end domestic interest-bearing deposit averages approximate, and do not equal, reported daily or weekly RC-K averages.",
+    "Holdout conditions on realized contemporaneous policy rates and later-revised bank data; this is not an ex-ante or point-in-time forecast.",
+    "Aggregate deposit mix changes can move this beta even without customer-level repricing changes; deposit decay and retention are not identified.",
+    "Nonnegative bounds and a total-beta cap are modeling constraints, not empirical findings. Individual lag coefficients can be weakly identified.",
+    "Only eight holdout quarters and one bank are available in this split. Expanding-window estimates measure instability, not confidence-interval coverage.",
+    "Benchmark rankings are reported after the fixed split; the lag specification and coefficient estimates never use holdout targets.",
+    "The lagged calibration does not beat every transparent benchmark on the holdout. Do not promote it to a validated forecasting model."
+  ]
+}

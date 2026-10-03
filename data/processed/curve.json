@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "as_of": "2025-12-31",
+  "requested_as_of": "2025-12-31",
+  "source": "https://www.federalreserve.gov/data/yield-curve-tables/feds200628.csv",
+  "source_page": "https://www.federalreserve.gov/data/nominal-yield-curve.htm",
+  "source_sha256": "379cae673092e64aea0baa58796b276ebc5c9c7f2c342d66e7b1fe1e52fd0421",
+  "source_captured_at": "2026-10-02T05:46:36.465711+00:00",
+  "raw_archive": "data/raw/fed_curve/feds200628.csv.gz",
+  "selected_observation_sha256": "538cbd4b07f8d166c058d3ef65dca860a6f9d568db2f2be1359d1a9d4572957e",
+  "tenors_years": [
+    0.08333333333333333,
+    0.25,
+    0.5,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    10,
+    15,
+    20,
+    25,
+    30
+  ],
+  "zero_rates": [
+    0.03676878046060116,
+    0.03632502930275005,
+    0.035785930250030115,
+    0.03508249424147645,
+    0.034716893473328854,
+    0.035167229060253026,
+    0.036031475695371906,
+    0.03709176019170137,
+    0.03937370672555646,
+    0.042567965292841736,
+    0.04661541066946219,
+    0.04914701350946749,
+    0.05050949504267322,
+    0.05102514364462201
+  ],
+  "compounding": "annual continuously compounded decimal",
+  "interpolation": "linear in zero rates; flat outside endpoint tenors",
+  "parameters": {
+    "BETA0": 2.32872500773998,
+    "BETA1": 1.37315836124228,
+    "BETA2": -6.39375162780621e-05,
+    "BETA3": 9.12988977599098,
+    "TAU1": 1.2166361080738,
+    "TAU2": 18.086571283358
+  },
+  "max_published_zero_error_bps": 0.004950426732153179,
+  "validation_tolerance_bps": 0.006,
+  "limitations": [
+    "Fitted off-the-run Treasury research curve, not executable prices or a bank funding curve.",
+    "Observation date does not establish historical publication-time availability. This is the revised source vintage captured on 2026-10-02T05:46:36.465711+00:00.",
+    "Sub-one-year fitted rates are model extrapolations; the source excludes Treasury bills. This matters for deposit and funding assumptions."
+  ]
+}

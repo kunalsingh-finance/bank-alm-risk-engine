@@ -1,0 +1,301 @@
+{
+  "schema_version": "bank-alm-snapshot-v1",
+  "bank_name": "Regions Bank",
+  "certificate": 12368,
+  "rssd_id": 233031,
+  "as_of": "2025-12-31",
+  "legal_entity": "FDIC-insured bank and its consolidated subsidiaries; not the bank holding company",
+  "parent_holding_company": "REGIONS FINANCIAL CORP",
+  "headquarters": {
+    "city": "Birmingham",
+    "state": "AL"
+  },
+  "source_units": "USD thousands",
+  "output_units": "USD",
+  "source_records": [
+    {
+      "source_id": "fdic_regions_identity",
+      "publisher": "Federal Deposit Insurance Corporation",
+      "source_url": "https://api.fdic.gov/banks/institutions?filters=CERT%3A12368&fields=CERT%2CNAME%2CCITY%2CSTALP%2CACTIVE%2CCHRTAGNT%2CREGAGNT%2CDATEUPDT%2CNAMEHCR&limit=2&format=json",
+      "final_url": "https://api.fdic.gov/banks/institutions?filters=CERT%3A12368&fields=CERT%2CNAME%2CCITY%2CSTALP%2CACTIVE%2CCHRTAGNT%2CREGAGNT%2CDATEUPDT%2CNAMEHCR&limit=2&format=json",
+      "retrieved_at_utc": "2026-10-02T14:29:43.509966+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "a4f83028371d472a8c75ce947fb1402e692dcbb355fb9faee8370a3aca8c19ec",
+      "bytes": 468,
+      "local_path": "data/raw/fdic_regions_identity__a4f83028371d.json"
+    },
+    {
+      "source_id": "fdic_regions_20251231",
+      "publisher": "Federal Deposit Insurance Corporation",
+      "source_url": "https://api.fdic.gov/banks/financials?filters=CERT%3A12368+AND+REPDTE%3A20251231&fields=CERT%2CRSSDID%2CNAMEFULL%2CREPDTE%2CASSET%2CCHBAL%2CCHBALI%2CSC%2CLNLSNET%2CLNLSGR%2CLIAB%2CEQ%2CEQTOT%2CEQCONSUB%2CDEP%2CDEPDOM%2CDEPFOR%2CDEPI%2CDEPIFOR%2CDEPNI%2CDEPNIFOR%2CFREPO%2CFREPP%2COTHBOR%2COTHBFHLB%2CSUBND%2COA%2CALLOTHL%2CINTINC%2CEINTEXP%2CNIM%2CNIMQ&limit=2&format=json",
+      "final_url": "https://api.fdic.gov/banks/financials?filters=CERT%3A12368+AND+REPDTE%3A20251231&fields=CERT%2CRSSDID%2CNAMEFULL%2CREPDTE%2CASSET%2CCHBAL%2CCHBALI%2CSC%2CLNLSNET%2CLNLSGR%2CLIAB%2CEQ%2CEQTOT%2CEQCONSUB%2CDEP%2CDEPDOM%2CDEPFOR%2CDEPI%2CDEPIFOR%2CDEPNI%2CDEPNIFOR%2CFREPO%2CFREPP%2COTHBOR%2COTHBFHLB%2CSUBND%2COA%2CALLOTHL%2CINTINC%2CEINTEXP%2CNIM%2CNIMQ&limit=2&format=json",
+      "retrieved_at_utc": "2026-10-02T14:29:43.890658+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "7fa0ef18356c75da751dc7035711b14546dc3bba52a49720ea4eebba097d1251",
+      "bytes": 973,
+      "local_path": "data/raw/fdic_regions_20251231__7fa0ef18356c.json"
+    },
+    {
+      "source_id": "fdic_financial_field_definitions",
+      "publisher": "Federal Deposit Insurance Corporation",
+      "source_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+      "final_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+      "retrieved_at_utc": "2026-10-02T14:29:44.626141+00:00",
+      "http_status": 200,
+      "content_type": "text/yaml; charset=UTF-8",
+      "sha256": "b257457e4e821d6a0d9f88ffc4e6e0da80e4ccf67fa394cadb21587b50b23d59",
+      "bytes": 616633,
+      "local_path": "data/raw/fdic_financial_field_definitions__b257457e4e82.yaml"
+    },
+    {
+      "source_id": "fdic_institution_field_definitions",
+      "publisher": "Federal Deposit Insurance Corporation",
+      "source_url": "https://api.fdic.gov/banks/docs/institution_properties.yaml",
+      "final_url": "https://api.fdic.gov/banks/docs/institution_properties.yaml",
+      "retrieved_at_utc": "2026-10-02T14:29:45.147327+00:00",
+      "http_status": 200,
+      "content_type": "text/yaml; charset=UTF-8",
+      "sha256": "6ed1763c66a9e240904a45712b23d825c0f31beaadb6cd0213fc1bf00b2af1b9",
+      "bytes": 94832,
+      "local_path": "data/raw/fdic_institution_field_definitions__6ed1763c66a9.yaml"
+    }
+  ],
+  "source_indexes": {
+    "identity": {
+      "name": "institutions_20261002090007",
+      "createTimestamp": "2026-10-02T11:56:31Z"
+    },
+    "financials": {
+      "name": "risview_20260819185831",
+      "createTimestamp": "2026-08-19T18:58:33Z"
+    }
+  },
+  "balance_sheet_usd": {
+    "cash": 11845000000,
+    "securities": 33894000000,
+    "loans": 94567000000,
+    "other_assets": 17106000000,
+    "noninterest_deposits": 39635000000,
+    "interest_deposits": 92352000000,
+    "wholesale_funding": 3915000000,
+    "other_liabilities": 3379000000,
+    "equity": 18131000000
+  },
+  "totals_usd": {
+    "assets": 157412000000,
+    "liabilities": 139281000000,
+    "deposits": 131987000000,
+    "bank_equity": 18071000000,
+    "total_equity": 18131000000,
+    "noncontrolling_interests": 60000000,
+    "gross_loans": 96123000000,
+    "interest_bearing_cash": 7607000000
+  },
+  "earnings": {
+    "period_start": "2025-01-01",
+    "period_end": "2025-12-31",
+    "period_basis": "Reported year-to-date; full calendar year at December 31",
+    "annual_interest_income_usd": 7057000000,
+    "annual_interest_expense_usd": 1998000000,
+    "annual_nii_usd": 5059000000,
+    "fourth_quarter_nii_usd": 1293000000
+  },
+  "field_mapping": {
+    "cash": "CHBAL * 1000",
+    "securities": "SC * 1000",
+    "loans": "LNLSNET * 1000",
+    "other_assets": "(ASSET - CHBAL - SC - LNLSNET) * 1000",
+    "noninterest_deposits": "DEPNI * 1000",
+    "interest_deposits": "DEPI * 1000",
+    "wholesale_funding": "(FREPP + OTHBOR + SUBND) * 1000",
+    "other_liabilities": "(LIAB - DEP - FREPP - OTHBOR - SUBND) * 1000",
+    "equity": "EQTOT * 1000"
+  },
+  "derived_field_notes": [
+    "EQTOT includes $60 million of noncontrolling interests in consolidated subsidiaries. EQ alone does not balance the consolidated bank statement; both fields are retained.",
+    "Other assets is a residual bucket including every reported asset outside cash, securities and net loans. It is not the narrower FDIC OA field.",
+    "Wholesale funding groups federal funds/repo liabilities, other borrowed money and subordinated notes. It does not reclassify brokered deposits out of deposits.",
+    "OTHBFHLB is included in OTHBOR and is not added again. FREPP is the borrowed-funds liability; FREPO is the sold-funds asset.",
+    "Other liabilities is the residual of reported total liabilities after deposits and defined wholesale funding. It is not a directly reported FDIC field.",
+    "Loan balance is net of allowance; detailed contractual maturity, repricing, duration, deposit behavior and encumbrance are not supplied by these aggregate fields.",
+    "INTINC, EINTEXP and NIM are year-to-date values. December 31 values represent the full year; NIMQ is the fourth quarter only.",
+    "Snapshot is a later retrieved, potentially revised FDIC vintage, not proof of information available on 2025-12-31. It must not be used as a point-in-time backtest without publication/vintage controls."
+  ],
+  "source_field_metadata": {
+    "CERT": {
+      "source_title": "'FDIC Certificate #'",
+      "source_value": 12368,
+      "official_definition_yaml": "      CERT:\n        title: 'FDIC Certificate #'\n        description: >-\n          A unique NUMBER assigned by the FDIC used to identify institutions\n          and for the issuance of insurance certificates.\n        type: number\n        x-source-overwrite: false\n        x-source-mapping:\n          - file: RISVIEW\n            field: CERT\n          - file: RISVIEW_MERGED\n            field: C_CERT\n          - file: VINST_FIN_CUR_SDC\n            field: ORG_CERT_NUM"
+    },
+    "RSSDID": {
+      "source_title": "FEDERAL RESERVE ID NUMBER",
+      "source_value": 233031,
+      "official_definition_yaml": "      RSSDID:\n        title: FEDERAL RESERVE ID NUMBER\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: RSSDID"
+    },
+    "NAMEFULL": {
+      "source_title": "INSTITUTION FULL NAME",
+      "source_value": "REGIONS BANK",
+      "official_definition_yaml": "      NAMEFULL:\n        title: INSTITUTION FULL NAME\n        description:\n        type: string\n        x-elastic-type: keyword\n        x-elastic-analyzer:\n          - variable: raw\n            analyzer: whitespace_analyzer\n          - variable: autocomplete\n            analyzer: autocomplete_analyzer\n        x-source-mapping:\n          - file: RISVIEW\n            field: NAMEFULL"
+    },
+    "REPDTE": {
+      "source_title": "Report Date",
+      "source_value": "20251231",
+      "official_definition_yaml": "      REPDTE:\n        title: Report Date\n        description: The last day of the financial reporting period selected.\n        type: string\n        x-elastic-type: keyword\n        x-source-mapping:\n          - file: RISVIEW\n            field: REPDTE\n          - file: RISVIEW_MERGED\n            field: REPDTE"
+    },
+    "ASSET": {
+      "source_title": "Total assets",
+      "source_value": 157412000,
+      "official_definition_yaml": "      ASSET:\n        type: number\n        title: Total assets\n        description: >-\n          The sum of all assets owned by the institution including cash,\n          loans, securities, bank premises and other assets. This total does\n          not include off-balance-sheet accounts.\n        x-source-mapping:\n          - file: RISVIEW\n            field: ASSET\n          - file: RISVIEW_MERGED\n            field: L_ASSET"
+    },
+    "CHBAL": {
+      "source_title": "CASH & DUE FROM DEPOSITORY INST",
+      "source_value": 11845000,
+      "official_definition_yaml": "      CHBAL:\n        title: CASH & DUE FROM DEPOSITORY INST\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: CHBAL"
+    },
+    "CHBALI": {
+      "source_title": "INTEREST-BEARING CASH & DUE",
+      "source_value": 7607000,
+      "official_definition_yaml": "      CHBALI:\n        title: INTEREST-BEARING CASH & DUE\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: CHBALI"
+    },
+    "SC": {
+      "source_title": "SECURITIES",
+      "source_value": 33894000,
+      "official_definition_yaml": "      SC:\n        title: SECURITIES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SC"
+    },
+    "LNLSNET": {
+      "source_title": "LOANS AND LEASES-NET",
+      "source_value": 94567000,
+      "official_definition_yaml": "      LNLSNET:\n        title: LOANS AND LEASES-NET\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNLSNET"
+    },
+    "LNLSGR": {
+      "source_title": "LOANS AND LEASES-TOTAL",
+      "source_value": 96123000,
+      "official_definition_yaml": "      LNLSGR:\n        title: LOANS AND LEASES-TOTAL\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNLSGR"
+    },
+    "LIAB": {
+      "source_title": "TOTAL LIABILITIES",
+      "source_value": 139281000,
+      "official_definition_yaml": "      LIAB:\n        title: TOTAL LIABILITIES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LIAB"
+    },
+    "EQ": {
+      "source_title": "Equity capital",
+      "source_value": 18071000,
+      "official_definition_yaml": "      EQ:\n        title: Equity capital\n        description: >-\n          Total equity capital (includes preferred and common stock, surplus\n          and undivided profits).\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: EQ"
+    },
+    "EQTOT": {
+      "source_title": "TOTAL EQUITY CAPITAL",
+      "source_value": 18131000,
+      "official_definition_yaml": "      EQTOT:\n        title: TOTAL EQUITY CAPITAL\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: EQTOT"
+    },
+    "EQCONSUB": {
+      "source_title": "MINOR INT IN CONSOL SUBS-EQ",
+      "source_value": 60000,
+      "official_definition_yaml": "      EQCONSUB:\n        title: MINOR INT IN CONSOL SUBS-EQ\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: EQCONSUB"
+    },
+    "DEP": {
+      "source_title": "Total deposits",
+      "source_value": 131987000,
+      "official_definition_yaml": "      DEP:\n        title: Total deposits\n        description: >-\n          The sum of all deposits including demand deposits, money market\n          deposits, other savings deposits, time deposits and deposits in\n          foreign offices.\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: DEP\n          - file: RISVIEW_MERGED\n            field: L_DEP"
+    },
+    "DEPDOM": {
+      "source_title": "Deposits held in domestic offices",
+      "source_value": 131987000,
+      "official_definition_yaml": "      DEPDOM:\n        title: Deposits held in domestic offices\n        description: >-\n          The sum of all domestic office deposits, including demand deposits,\n          money market deposits, other savings deposits and time deposits.\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: DEPDOM"
+    },
+    "DEPFOR": {
+      "source_title": "TOTAL DEPOSITS-FOR",
+      "source_value": 0,
+      "official_definition_yaml": "      DEPFOR:\n        title: TOTAL DEPOSITS-FOR\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: DEPFOR"
+    },
+    "DEPI": {
+      "source_title": "INTEREST-BEARING DEP",
+      "source_value": 92352000,
+      "official_definition_yaml": "      DEPI:\n        title: INTEREST-BEARING DEP\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: DEPI"
+    },
+    "DEPIFOR": {
+      "source_title": "INTEREST-BEARING DEP-FOR",
+      "source_value": 0,
+      "official_definition_yaml": "      DEPIFOR:\n        title: INTEREST-BEARING DEP-FOR\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: DEPIFOR"
+    },
+    "DEPNI": {
+      "source_title": "NONINTEREST-BEARING DEP",
+      "source_value": 39635000,
+      "official_definition_yaml": "      DEPNI:\n        title: NONINTEREST-BEARING DEP\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: DEPNI"
+    },
+    "DEPNIFOR": {
+      "source_title": "NONINTEREST-BEARING DEP-FOR",
+      "source_value": 0,
+      "official_definition_yaml": "      DEPNIFOR:\n        title: NONINTEREST-BEARING DEP-FOR\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: DEPNIFOR"
+    },
+    "FREPO": {
+      "source_title": "FED FUNDS & REPOS SOLD",
+      "source_value": 0,
+      "official_definition_yaml": "      FREPO:\n        title: FED FUNDS & REPOS SOLD\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: FREPO"
+    },
+    "FREPP": {
+      "source_title": "FED FUNDS & REPOS PURCHASED",
+      "source_value": 0,
+      "official_definition_yaml": "      FREPP:\n        title: FED FUNDS & REPOS PURCHASED\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: FREPP"
+    },
+    "OTHBOR": {
+      "source_title": "OTHER BORROWED MONEY",
+      "source_value": 3418000,
+      "official_definition_yaml": "      OTHBOR:\n        title: OTHER BORROWED MONEY\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: OTHBOR"
+    },
+    "OTHBFHLB": {
+      "source_title": "OTHER LIABILITIES-FHLB",
+      "source_value": 1750000,
+      "official_definition_yaml": "      OTHBFHLB:\n        title: OTHER LIABILITIES-FHLB\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: OTHBFHLB"
+    },
+    "SUBND": {
+      "source_title": "SUBORDINATED NOTES & DEBENTURES",
+      "source_value": 497000,
+      "official_definition_yaml": "      SUBND:\n        title: SUBORDINATED NOTES & DEBENTURES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SUBND"
+    },
+    "OA": {
+      "source_title": "OTHER ASSETS",
+      "source_value": 8381000,
+      "official_definition_yaml": "      OA:\n        title: OTHER ASSETS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: OA"
+    },
+    "ALLOTHL": {
+      "source_title": "ALL OTHER LIABILITIES",
+      "source_value": 3379000,
+      "official_definition_yaml": "      ALLOTHL:\n        title: ALL OTHER LIABILITIES\n        description:\n        type: number\n        x-elastic-type: double\n        x-source-mapping:\n          - formula:\n              type: simpleAddition\n              parameters:\n                setField: ALLOTHL\n                additionFields:\n                  - OLMIN\n                  - ACEPT\n                  - LLPFDSTK"
+    },
+    "INTINC": {
+      "source_title": "TOTAL INTEREST INCOME",
+      "source_value": 7057000,
+      "official_definition_yaml": "      INTINC:\n        title: TOTAL INTEREST INCOME\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: INTINC"
+    },
+    "EINTEXP": {
+      "source_title": "TOTAL INTEREST EXPENSE",
+      "source_value": 1998000,
+      "official_definition_yaml": "      EINTEXP:\n        title: TOTAL INTEREST EXPENSE\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: EINTEXP"
+    },
+    "NIM": {
+      "source_title": "NET INTEREST INCOME",
+      "source_value": 5059000,
+      "official_definition_yaml": "      NIM:\n        title: NET INTEREST INCOME\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: NIM"
+    },
+    "NIMQ": {
+      "source_title": "NET INTEREST INCOME QUARTERLY",
+      "source_value": 1293000,
+      "official_definition_yaml": "      NIMQ:\n        title: NET INTEREST INCOME QUARTERLY\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: NIMQ"
+    }
+  },
+  "reconciliations": {
+    "passed": true,
+    "tolerance_usd": 0,
+    "residuals_usd": {
+      "assets_minus_liabilities_and_total_equity_usd": 0,
+      "total_equity_minus_bank_equity_and_noncontrolling_interests_usd": 0,
+      "deposits_minus_interest_and_noninterest_usd": 0,
+      "deposits_minus_domestic_and_foreign_usd": 0,
+      "nii_minus_interest_income_less_expense_usd": 0,
+      "modeled_assets_minus_source_assets_usd": 0,
+      "modeled_funding_and_equity_minus_source_assets_usd": 0
+    }
+  }
+}

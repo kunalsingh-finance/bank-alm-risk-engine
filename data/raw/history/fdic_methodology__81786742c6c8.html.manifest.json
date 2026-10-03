@@ -1,0 +1,11 @@
+{
+  "source_id": "fdic_methodology",
+  "source_url": "https://banks.data.fdic.gov/bankfind-suite/help?helpTopic=disclaimers-and-methodologies",
+  "final_url": "https://banks.data.fdic.gov/bankfind-suite/help?helpTopic=disclaimers-and-methodologies",
+  "retrieved_at_utc": "2026-10-02T15:47:32.821060+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "bytes": 578,
+  "sha256": "81786742c6c8fb9fcae1694660f8ef873065edf49038a053f2a009c3b18f7cd9",
+  "local_path": "data/raw/history/fdic_methodology__81786742c6c8.html"
+}

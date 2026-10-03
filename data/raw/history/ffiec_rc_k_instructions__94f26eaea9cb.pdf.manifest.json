@@ -1,0 +1,11 @@
+{
+  "source_id": "ffiec_rc_k_instructions",
+  "source_url": "https://www.fdic.gov/system/files/2024-08/2017-03-rc-k.pdf",
+  "final_url": "https://www.fdic.gov/system/files/2024-08/2017-03-rc-k.pdf",
+  "retrieved_at_utc": "2026-10-02T15:47:33.265295+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "bytes": 46930,
+  "sha256": "94f26eaea9cb85c3279ad3bba10f8bf81d1efdf29815f5cbd9fac15694b073d6",
+  "local_path": "data/raw/history/ffiec_rc_k_instructions__94f26eaea9cb.pdf"
+}

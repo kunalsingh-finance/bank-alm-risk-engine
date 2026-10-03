@@ -1,0 +1,599 @@
+{
+  "schema_version": "bank-alm-maturity-profile-v1",
+  "bank_name": "REGIONS BANK",
+  "certificate": 12368,
+  "rssd_id": 233031,
+  "as_of": "2025-12-31",
+  "legal_entity": "FDIC-insured Regions Bank and consolidated subsidiaries, not Regions Financial Corporation",
+  "units": "USD; official source amounts in USD thousands multiplied by1000",
+  "source_records": [
+    {
+      "source_id": "fdic_maturity_20251231",
+      "source_url": "https://api.fdic.gov/banks/financials?filters=CERT%3A12368+AND+REPDTE%3A20251231&fields=CERT%2CRSSDID%2CNAMEFULL%2CREPDTE%2CSC%2CLNLS%2CLNLSNET%2CLNLSGR%2CLNLSGRS%2CSC1LES%2CLNATRES%2CLNLSRES%2CUNINC%2CNALNLS%2CNASCDEBT%2CSCEQFV%2CSCEQNFT%2CSCPLEDGE%2CLNPLEDGE%2CNONIX%2CELNATR%2CELNLOS%2CNTLNLS%2CSCNM3LES%2CSCNM3T12%2CSCNM1T3%2CSCNM3T5%2CSCNM5T15%2CSCNMOV15%2CSCPT3LES%2CSCPT3T12%2CSCPT1T3%2CSCPT3T5%2CSCPT5T15%2CSCPTOV15%2CLNOT3LES%2CLNOT3T12%2CLNOT1T3%2CLNOT3T5%2CLNOT5T15%2CLNOTOV15%2CLNRS3LES%2CLNRS3T12%2CLNRS1T3%2CLNRS3T5%2CLNRS5T15%2CLNRSOV15%2CSCO3YLES%2CSCOOV3Y&limit=2&format=json",
+      "final_url": "https://api.fdic.gov/banks/financials?filters=CERT%3A12368+AND+REPDTE%3A20251231&fields=CERT%2CRSSDID%2CNAMEFULL%2CREPDTE%2CSC%2CLNLS%2CLNLSNET%2CLNLSGR%2CLNLSGRS%2CSC1LES%2CLNATRES%2CLNLSRES%2CUNINC%2CNALNLS%2CNASCDEBT%2CSCEQFV%2CSCEQNFT%2CSCPLEDGE%2CLNPLEDGE%2CNONIX%2CELNATR%2CELNLOS%2CNTLNLS%2CSCNM3LES%2CSCNM3T12%2CSCNM1T3%2CSCNM3T5%2CSCNM5T15%2CSCNMOV15%2CSCPT3LES%2CSCPT3T12%2CSCPT1T3%2CSCPT3T5%2CSCPT5T15%2CSCPTOV15%2CLNOT3LES%2CLNOT3T12%2CLNOT1T3%2CLNOT3T5%2CLNOT5T15%2CLNOTOV15%2CLNRS3LES%2CLNRS3T12%2CLNRS1T3%2CLNRS3T5%2CLNRS5T15%2CLNRSOV15%2CSCO3YLES%2CSCOOV3Y&limit=2&format=json",
+      "retrieved_at_utc": "2026-10-02T15:39:00.658179+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "546e6db8c9a7f3e7f8da47fd1c2abbe842f2838e3eb02bbbfe5557741982cace",
+      "bytes": 1508,
+      "local_path": "data/raw/maturity/fdic_maturity_20251231__546e6db8c9a7.json"
+    },
+    {
+      "source_id": "fdic_field_definitions",
+      "source_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+      "final_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+      "retrieved_at_utc": "2026-10-02T15:39:01.798340+00:00",
+      "http_status": 200,
+      "content_type": "text/yaml; charset=UTF-8",
+      "sha256": "b257457e4e821d6a0d9f88ffc4e6e0da80e4ccf67fa394cadb21587b50b23d59",
+      "bytes": 616633,
+      "local_path": "data/raw/maturity/fdic_field_definitions__b257457e4e82.yaml"
+    }
+  ],
+  "download_limitations": [
+    {
+      "source_id": "ffiec_202512_instructions",
+      "source_url": "https://www.ffiec.gov/sites/default/files/data/reporting-forms/FFIEC031_FFIEC041_202512_i.pdf",
+      "status": 403,
+      "note": "Instructions verified through the web research tool; direct PDF byte retrieval unavailable. No PDF hash is claimed. Numerical rebuild depends only on the saved FDIC bytes."
+    }
+  ],
+  "instructions_reference": {
+    "url": "https://www.ffiec.gov/sites/default/files/data/reporting-forms/FFIEC031_FFIEC041_202512_i.pdf",
+    "edition": "December2025",
+    "securities": "RC-B Memorandum2, PDF pages146-156",
+    "loans": "RC-C PartI Memorandum2, PDF pages194-201",
+    "verification": "Read through web research tool; direct PDF download may be unavailable, as recorded in download_limitations."
+  },
+  "bands": [
+    {
+      "id": "SCNM3LES",
+      "source_field": "SCNM3LES",
+      "asset_class": "securities",
+      "group": "other_debt",
+      "scope": "Debt except specified first-lien mortgage pass-throughs and other mortgage-backed securities",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 0,
+      "upper_years_inclusive": 0.25,
+      "reported_balance_usd": 263000000,
+      "field_title": "NONMTG DEBT SEC*3 MONS OR LESS"
+    },
+    {
+      "id": "SCNM3T12",
+      "source_field": "SCNM3T12",
+      "asset_class": "securities",
+      "group": "other_debt",
+      "scope": "Debt except specified first-lien mortgage pass-throughs and other mortgage-backed securities",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 0.25,
+      "upper_years_inclusive": 1,
+      "reported_balance_usd": 316000000,
+      "field_title": "NONMTG DEBT SEC * 3-12 MONTHS"
+    },
+    {
+      "id": "SCNM1T3",
+      "source_field": "SCNM1T3",
+      "asset_class": "securities",
+      "group": "other_debt",
+      "scope": "Debt except specified first-lien mortgage pass-throughs and other mortgage-backed securities",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 1,
+      "upper_years_inclusive": 3,
+      "reported_balance_usd": 1743000000,
+      "field_title": "NONMTG DEBT SEC * 1-3 YEARS"
+    },
+    {
+      "id": "SCNM3T5",
+      "source_field": "SCNM3T5",
+      "asset_class": "securities",
+      "group": "other_debt",
+      "scope": "Debt except specified first-lien mortgage pass-throughs and other mortgage-backed securities",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 3,
+      "upper_years_inclusive": 5,
+      "reported_balance_usd": 2419000000,
+      "field_title": "NONMTG DEBT SEC * 3-5 YEARS"
+    },
+    {
+      "id": "SCNM5T15",
+      "source_field": "SCNM5T15",
+      "asset_class": "securities",
+      "group": "other_debt",
+      "scope": "Debt except specified first-lien mortgage pass-throughs and other mortgage-backed securities",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 5,
+      "upper_years_inclusive": 15,
+      "reported_balance_usd": 4013000000,
+      "field_title": "NONMTG DEBT SEC * 5-15 YEARS"
+    },
+    {
+      "id": "SCNMOV15",
+      "source_field": "SCNMOV15",
+      "asset_class": "securities",
+      "group": "other_debt",
+      "scope": "Debt except specified first-lien mortgage pass-throughs and other mortgage-backed securities",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 15,
+      "upper_years_inclusive": null,
+      "reported_balance_usd": 181000000,
+      "field_title": "NONMTG DEBT SEC * OVER 15 YEARS"
+    },
+    {
+      "id": "SCPT3LES",
+      "source_field": "SCPT3LES",
+      "asset_class": "securities",
+      "group": "mortgage_pass_through",
+      "scope": "Pass-through securities backed by closed-end first-lien 1-4 family mortgages",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 0,
+      "upper_years_inclusive": 0.25,
+      "reported_balance_usd": 10000000,
+      "field_title": "MTG PASS-THRU SEC*3 MON OR LESS"
+    },
+    {
+      "id": "SCPT3T12",
+      "source_field": "SCPT3T12",
+      "asset_class": "securities",
+      "group": "mortgage_pass_through",
+      "scope": "Pass-through securities backed by closed-end first-lien 1-4 family mortgages",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 0.25,
+      "upper_years_inclusive": 1,
+      "reported_balance_usd": 34000000,
+      "field_title": "MTG PASS-THRU SEC * 3-12 MONTHS"
+    },
+    {
+      "id": "SCPT1T3",
+      "source_field": "SCPT1T3",
+      "asset_class": "securities",
+      "group": "mortgage_pass_through",
+      "scope": "Pass-through securities backed by closed-end first-lien 1-4 family mortgages",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 1,
+      "upper_years_inclusive": 3,
+      "reported_balance_usd": 29000000,
+      "field_title": "MTG PASS-THRU SEC * 1-3 YEARS"
+    },
+    {
+      "id": "SCPT3T5",
+      "source_field": "SCPT3T5",
+      "asset_class": "securities",
+      "group": "mortgage_pass_through",
+      "scope": "Pass-through securities backed by closed-end first-lien 1-4 family mortgages",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 3,
+      "upper_years_inclusive": 5,
+      "reported_balance_usd": 29000000,
+      "field_title": "MTG PASS-THRU SEC * 3-5 YEARS"
+    },
+    {
+      "id": "SCPT5T15",
+      "source_field": "SCPT5T15",
+      "asset_class": "securities",
+      "group": "mortgage_pass_through",
+      "scope": "Pass-through securities backed by closed-end first-lien 1-4 family mortgages",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 5,
+      "upper_years_inclusive": 15,
+      "reported_balance_usd": 3748000000,
+      "field_title": "MTG PASS-THRU SEC * 5-15 YEARS"
+    },
+    {
+      "id": "SCPTOV15",
+      "source_field": "SCPTOV15",
+      "asset_class": "securities",
+      "group": "mortgage_pass_through",
+      "scope": "Pass-through securities backed by closed-end first-lien 1-4 family mortgages",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 15,
+      "upper_years_inclusive": null,
+      "reported_balance_usd": 17776000000,
+      "field_title": "MTG PASS-THRU SEC * OVER 15 YRS"
+    },
+    {
+      "id": "LNRS3LES",
+      "source_field": "LNRS3LES",
+      "asset_class": "loans",
+      "group": "residential_first_lien",
+      "scope": "Closed-end first-lien 1-4 family residential loans",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 0,
+      "upper_years_inclusive": 0.25,
+      "reported_balance_usd": 357000000,
+      "field_title": "RE 1-4 FAMILY * 3 MONS OR LESS"
+    },
+    {
+      "id": "LNRS3T12",
+      "source_field": "LNRS3T12",
+      "asset_class": "loans",
+      "group": "residential_first_lien",
+      "scope": "Closed-end first-lien 1-4 family residential loans",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 0.25,
+      "upper_years_inclusive": 1,
+      "reported_balance_usd": 260000000,
+      "field_title": "RE 1-4 FAMILY * 3-12 MONTHS"
+    },
+    {
+      "id": "LNRS1T3",
+      "source_field": "LNRS1T3",
+      "asset_class": "loans",
+      "group": "residential_first_lien",
+      "scope": "Closed-end first-lien 1-4 family residential loans",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 1,
+      "upper_years_inclusive": 3,
+      "reported_balance_usd": 470000000,
+      "field_title": "RE 1-4 FAMILY * 1-3 YEARS"
+    },
+    {
+      "id": "LNRS3T5",
+      "source_field": "LNRS3T5",
+      "asset_class": "loans",
+      "group": "residential_first_lien",
+      "scope": "Closed-end first-lien 1-4 family residential loans",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 3,
+      "upper_years_inclusive": 5,
+      "reported_balance_usd": 1250000000,
+      "field_title": "RE 1-4 FAMILY * 3-5 YEARS"
+    },
+    {
+      "id": "LNRS5T15",
+      "source_field": "LNRS5T15",
+      "asset_class": "loans",
+      "group": "residential_first_lien",
+      "scope": "Closed-end first-lien 1-4 family residential loans",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 5,
+      "upper_years_inclusive": 15,
+      "reported_balance_usd": 4697000000,
+      "field_title": "RE 1-4 FAMILY * 5-15 YEARS"
+    },
+    {
+      "id": "LNRSOV15",
+      "source_field": "LNRSOV15",
+      "asset_class": "loans",
+      "group": "residential_first_lien",
+      "scope": "Closed-end first-lien 1-4 family residential loans",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 15,
+      "upper_years_inclusive": null,
+      "reported_balance_usd": 14322000000,
+      "field_title": "RE 1-4 FAMILY * OVER 15 YEARS"
+    },
+    {
+      "id": "LNOT3LES",
+      "source_field": "LNOT3LES",
+      "asset_class": "loans",
+      "group": "other_loans",
+      "scope": "Other loans and leases",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 0,
+      "upper_years_inclusive": 0.25,
+      "reported_balance_usd": 49958000000,
+      "field_title": "ALL OTHER LNS & LS*3 MO OR LESS"
+    },
+    {
+      "id": "LNOT3T12",
+      "source_field": "LNOT3T12",
+      "asset_class": "loans",
+      "group": "other_loans",
+      "scope": "Other loans and leases",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 0.25,
+      "upper_years_inclusive": 1,
+      "reported_balance_usd": 1865000000,
+      "field_title": "ALL OTHER LNS & LS * 3-12 MONS"
+    },
+    {
+      "id": "LNOT1T3",
+      "source_field": "LNOT1T3",
+      "asset_class": "loans",
+      "group": "other_loans",
+      "scope": "Other loans and leases",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 1,
+      "upper_years_inclusive": 3,
+      "reported_balance_usd": 3790000000,
+      "field_title": "ALL OTHER LNS & LS * 1-3 YEARS"
+    },
+    {
+      "id": "LNOT3T5",
+      "source_field": "LNOT3T5",
+      "asset_class": "loans",
+      "group": "other_loans",
+      "scope": "Other loans and leases",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 3,
+      "upper_years_inclusive": 5,
+      "reported_balance_usd": 4547000000,
+      "field_title": "ALL OTHER LNS & LS * 3-5 YEARS"
+    },
+    {
+      "id": "LNOT5T15",
+      "source_field": "LNOT5T15",
+      "asset_class": "loans",
+      "group": "other_loans",
+      "scope": "Other loans and leases",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 5,
+      "upper_years_inclusive": 15,
+      "reported_balance_usd": 9588000000,
+      "field_title": "ALL OTHER LNS & LS * 5-15 YEARS"
+    },
+    {
+      "id": "LNOTOV15",
+      "source_field": "LNOTOV15",
+      "asset_class": "loans",
+      "group": "other_loans",
+      "scope": "Other loans and leases",
+      "basis": "fixed_remaining_maturity_or_floating_next_repricing",
+      "lower_years_exclusive": 15,
+      "upper_years_inclusive": null,
+      "reported_balance_usd": 4321000000,
+      "field_title": "ALL OTHER LNS & LS * OVER 15 YRS"
+    },
+    {
+      "id": "SCO3YLES",
+      "source_field": "SCO3YLES",
+      "asset_class": "securities",
+      "group": "other_mbs",
+      "scope": "Other mortgage-backed securities, expected weighted average life",
+      "basis": "expected_weighted_average_life",
+      "lower_years_exclusive": 0,
+      "upper_years_inclusive": 3,
+      "reported_balance_usd": 215000000,
+      "field_title": "OTH MORTGAGE SEC * 3 YR OR LESS"
+    },
+    {
+      "id": "SCOOV3Y",
+      "source_field": "SCOOV3Y",
+      "asset_class": "securities",
+      "group": "other_mbs",
+      "scope": "Other mortgage-backed securities, expected weighted average life",
+      "basis": "expected_weighted_average_life",
+      "lower_years_exclusive": 3,
+      "upper_years_inclusive": null,
+      "reported_balance_usd": 2371000000,
+      "field_title": "OTH MORTGAGE SEC * OVER 3 YRS"
+    }
+  ],
+  "totals_usd": {
+    "securities_book": 33894000000,
+    "securities_bands": 33147000000,
+    "equity_securities_residual": 747000000,
+    "nonaccrual_debt_securities": 0,
+    "securities_contractual_maturity_le_one_year": 603000000,
+    "pledged_securities": 20926000000,
+    "unpledged_securities_aggregate": 12968000000,
+    "gross_loans": 96123000000,
+    "loan_bands_accruing": 95425000000,
+    "nonaccrual_loans": 698000000,
+    "allowance_for_loans": 1556000000,
+    "unearned_income": 0,
+    "net_loans": 94567000000,
+    "pledged_loans": 92099000000
+  },
+  "reconciliations": {
+    "passed": true,
+    "tolerance_usd": 1,
+    "residuals_usd": {
+      "securities_bands_plus_nonaccrual_and_equity_minus_total_usd": 0,
+      "loan_bands_plus_nonaccrual_minus_gross_usd": 0,
+      "gross_minus_allowance_minus_net_usd": 0
+    }
+  },
+  "reported_annual_context_usd": {
+    "noninterest_expense": 4166000000,
+    "provision_for_credit_losses": 470000000,
+    "provision_for_loan_lease_losses": 456000000,
+    "net_chargeoffs": 513000000
+  },
+  "field_definitions": {
+    "CERT": {
+      "title": "'FDIC Certificate #'",
+      "definition_yaml": "      CERT:\n        title: 'FDIC Certificate #'\n        description: >-\n          A unique NUMBER assigned by the FDIC used to identify institutions\n          and for the issuance of insurance certificates.\n        type: number\n        x-source-overwrite: false\n        x-source-mapping:\n          - file: RISVIEW\n            field: CERT\n          - file: RISVIEW_MERGED\n            field: C_CERT\n          - file: VINST_FIN_CUR_SDC\n            field: ORG_CERT_NUM\n"
+    },
+    "RSSDID": {
+      "title": "FEDERAL RESERVE ID NUMBER",
+      "definition_yaml": "      RSSDID:\n        title: FEDERAL RESERVE ID NUMBER\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: RSSDID\n"
+    },
+    "NAMEFULL": {
+      "title": "INSTITUTION FULL NAME",
+      "definition_yaml": "      NAMEFULL:\n        title: INSTITUTION FULL NAME\n        description:\n        type: string\n        x-elastic-type: keyword\n        x-elastic-analyzer:\n          - variable: raw\n            analyzer: whitespace_analyzer\n          - variable: autocomplete\n            analyzer: autocomplete_analyzer\n        x-source-mapping:\n          - file: RISVIEW\n            field: NAMEFULL\n"
+    },
+    "REPDTE": {
+      "title": "Report Date",
+      "definition_yaml": "      REPDTE:\n        title: Report Date\n        description: The last day of the financial reporting period selected.\n        type: string\n        x-elastic-type: keyword\n        x-source-mapping:\n          - file: RISVIEW\n            field: REPDTE\n          - file: RISVIEW_MERGED\n            field: REPDTE\n"
+    },
+    "SC": {
+      "title": "SECURITIES",
+      "definition_yaml": "      SC:\n        title: SECURITIES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SC\n"
+    },
+    "LNLS": {
+      "title": "LN&LS + UNEARNED INC",
+      "definition_yaml": "      LNLS:\n        title: LN&LS + UNEARNED INC\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNLS\n"
+    },
+    "LNLSNET": {
+      "title": "LOANS AND LEASES-NET",
+      "definition_yaml": "      LNLSNET:\n        title: LOANS AND LEASES-NET\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNLSNET\n"
+    },
+    "LNLSGR": {
+      "title": "LOANS AND LEASES-TOTAL",
+      "definition_yaml": "      LNLSGR:\n        title: LOANS AND LEASES-TOTAL\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNLSGR\n"
+    },
+    "LNLSGRS": {
+      "title": "LOANS AND LEASES, GROSS",
+      "definition_yaml": "      LNLSGRS:\n        title: LOANS AND LEASES, GROSS\n        description:\n        type: number\n        x-source-mapping:\n          - formula:\n              type: raw\n              parameters:\n                script: |\n                  def LNLSGR = ctx.LNLSGR ?: 0;\n                  def LNCONTRA = ctx.LNCONTRA ?: 0;\n                  def UNINC = ctx.UNINC ?: 0;\n                  def LNLS = ctx.LNLS ?: 0;\n                  if (Integer.parseInt(ctx.REPYEAR) < 1996) {\n                    ctx.LNLSGRS = LNLSGR + LNCONTRA - UNINC;\n                  } else { \n                    ctx.LNLSGRS = LNLS;\n                  }\n"
+    },
+    "SC1LES": {
+      "title": "Fixed and floating rate debt securities (included above) with remaining maturity of one year or less",
+      "definition_yaml": "      SC1LES:\n        title: Fixed and floating rate debt securities (included above) with remaining maturity of one year or less\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SC1LES\n"
+    },
+    "LNATRES": {
+      "title": "ALLOW FOR LOANS LOSS ADJUSTED",
+      "definition_yaml": "      LNATRES:\n        title: ALLOW FOR LOANS LOSS ADJUSTED\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNATRES\n"
+    },
+    "LNLSRES": {
+      "title": "ALLOWANCE FOR LOAN AND LEASES",
+      "definition_yaml": "      LNLSRES:\n        title: ALLOWANCE FOR LOAN AND LEASES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNLSRES\n"
+    },
+    "UNINC": {
+      "title": "UNEARNED INCOME",
+      "definition_yaml": "      UNINC:\n        title: UNEARNED INCOME\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: UNINC\n"
+    },
+    "NALNLS": {
+      "title": "NONACCRUAL-LOANS & LEASES",
+      "definition_yaml": "      NALNLS:\n        title: NONACCRUAL-LOANS & LEASES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: NALNLS\n"
+    },
+    "NASCDEBT": {
+      "title": "NONACCRUAL-DEBT SECURITIES",
+      "definition_yaml": "      NASCDEBT:\n        title: NONACCRUAL-DEBT SECURITIES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: NASCDEBT\n"
+    },
+    "SCEQFV": {
+      "title": "EQ SEC READILY DET FV",
+      "definition_yaml": "      SCEQFV:\n        title: EQ SEC READILY DET FV\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCEQFV\n"
+    },
+    "SCEQNFT": {
+      "title": "EQUITY SECURITIES NOT HELD FOR TRADING",
+      "definition_yaml": "      SCEQNFT:\n        title: EQUITY SECURITIES NOT HELD FOR TRADING\n        description:\n        type: number\n        x-elastic-type: double\n        x-source-mapping:\n          - formula:\n              type: simpleAddition\n              parameters:\n                setField: SCEQNFT\n                additionFields:\n                  - SCEQ\n                  - SCEQFV\n"
+    },
+    "SCPLEDGE": {
+      "title": "PLEDGED SECURITIES",
+      "definition_yaml": "      SCPLEDGE:\n        title: PLEDGED SECURITIES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCPLEDGE\n"
+    },
+    "LNPLEDGE": {
+      "title": "PLEDGED LOANS AND LEASES",
+      "definition_yaml": "      LNPLEDGE:\n        title: PLEDGED LOANS AND LEASES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNPLEDGE\n"
+    },
+    "NONIX": {
+      "title": "TOTAL NONINTEREST EXPENSE",
+      "definition_yaml": "      NONIX:\n        title: TOTAL NONINTEREST EXPENSE\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: NONIX\n"
+    },
+    "ELNATR": {
+      "title": "PROVISIONS FOR CREDIT LOSSES",
+      "definition_yaml": "      ELNATR:\n        title: PROVISIONS FOR CREDIT LOSSES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: ELNATR\n"
+    },
+    "ELNLOS": {
+      "title": "PROVISIONS FOR LN & LEASE LOSSES",
+      "definition_yaml": "      ELNLOS:\n        title: PROVISIONS FOR LN & LEASE LOSSES\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: ELNLOS\n"
+    },
+    "NTLNLS": {
+      "title": "TOTAL LN&LS NET CHARGE-OFFS",
+      "definition_yaml": "      NTLNLS:\n        title: TOTAL LN&LS NET CHARGE-OFFS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: NTLNLS\n"
+    },
+    "SCNM3LES": {
+      "title": "NONMTG DEBT SEC*3 MONS OR LESS",
+      "definition_yaml": "      SCNM3LES:\n        title: NONMTG DEBT SEC*3 MONS OR LESS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCNM3LES\n"
+    },
+    "SCNM3T12": {
+      "title": "NONMTG DEBT SEC * 3-12 MONTHS",
+      "definition_yaml": "      SCNM3T12:\n        title: NONMTG DEBT SEC * 3-12 MONTHS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCNM3T12\n"
+    },
+    "SCNM1T3": {
+      "title": "NONMTG DEBT SEC * 1-3 YEARS",
+      "definition_yaml": "      SCNM1T3:\n        title: NONMTG DEBT SEC * 1-3 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCNM1T3\n"
+    },
+    "SCNM3T5": {
+      "title": "NONMTG DEBT SEC * 3-5 YEARS",
+      "definition_yaml": "      SCNM3T5:\n        title: NONMTG DEBT SEC * 3-5 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCNM3T5\n"
+    },
+    "SCNM5T15": {
+      "title": "NONMTG DEBT SEC * 5-15 YEARS",
+      "definition_yaml": "      SCNM5T15:\n        title: NONMTG DEBT SEC * 5-15 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCNM5T15\n"
+    },
+    "SCNMOV15": {
+      "title": "NONMTG DEBT SEC * OVER 15 YEARS",
+      "definition_yaml": "      SCNMOV15:\n        title: NONMTG DEBT SEC * OVER 15 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCNMOV15\n"
+    },
+    "SCPT3LES": {
+      "title": "MTG PASS-THRU SEC*3 MON OR LESS",
+      "definition_yaml": "      SCPT3LES:\n        title: MTG PASS-THRU SEC*3 MON OR LESS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCPT3LES\n"
+    },
+    "SCPT3T12": {
+      "title": "MTG PASS-THRU SEC * 3-12 MONTHS",
+      "definition_yaml": "      SCPT3T12:\n        title: MTG PASS-THRU SEC * 3-12 MONTHS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCPT3T12\n"
+    },
+    "SCPT1T3": {
+      "title": "MTG PASS-THRU SEC * 1-3 YEARS",
+      "definition_yaml": "      SCPT1T3:\n        title: MTG PASS-THRU SEC * 1-3 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCPT1T3\n"
+    },
+    "SCPT3T5": {
+      "title": "MTG PASS-THRU SEC * 3-5 YEARS",
+      "definition_yaml": "      SCPT3T5:\n        title: MTG PASS-THRU SEC * 3-5 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCPT3T5\n"
+    },
+    "SCPT5T15": {
+      "title": "MTG PASS-THRU SEC * 5-15 YEARS",
+      "definition_yaml": "      SCPT5T15:\n        title: MTG PASS-THRU SEC * 5-15 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCPT5T15\n"
+    },
+    "SCPTOV15": {
+      "title": "MTG PASS-THRU SEC * OVER 15 YRS",
+      "definition_yaml": "      SCPTOV15:\n        title: MTG PASS-THRU SEC * OVER 15 YRS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCPTOV15\n"
+    },
+    "LNOT3LES": {
+      "title": "ALL OTHER LNS & LS*3 MO OR LESS",
+      "definition_yaml": "      LNOT3LES:\n        title: ALL OTHER LNS & LS*3 MO OR LESS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNOT3LES\n"
+    },
+    "LNOT3T12": {
+      "title": "ALL OTHER LNS & LS * 3-12 MONS",
+      "definition_yaml": "      LNOT3T12:\n        title: ALL OTHER LNS & LS * 3-12 MONS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNOT3T12\n"
+    },
+    "LNOT1T3": {
+      "title": "ALL OTHER LNS & LS * 1-3 YEARS",
+      "definition_yaml": "      LNOT1T3:\n        title: ALL OTHER LNS & LS * 1-3 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNOT1T3\n"
+    },
+    "LNOT3T5": {
+      "title": "ALL OTHER LNS & LS * 3-5 YEARS",
+      "definition_yaml": "      LNOT3T5:\n        title: ALL OTHER LNS & LS * 3-5 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNOT3T5\n"
+    },
+    "LNOT5T15": {
+      "title": "ALL OTHER LNS & LS * 5-15 YEARS",
+      "definition_yaml": "      LNOT5T15:\n        title: ALL OTHER LNS & LS * 5-15 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNOT5T15\n"
+    },
+    "LNOTOV15": {
+      "title": "ALL OTHER LNS & LS * OVER 15 YRS",
+      "definition_yaml": "      LNOTOV15:\n        title: ALL OTHER LNS & LS * OVER 15 YRS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNOTOV15\n"
+    },
+    "LNRS3LES": {
+      "title": "RE 1-4 FAMILY * 3 MONS OR LESS",
+      "definition_yaml": "      LNRS3LES:\n        title: RE 1-4 FAMILY * 3 MONS OR LESS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNRS3LES\n"
+    },
+    "LNRS3T12": {
+      "title": "RE 1-4 FAMILY * 3-12 MONTHS",
+      "definition_yaml": "      LNRS3T12:\n        title: RE 1-4 FAMILY * 3-12 MONTHS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNRS3T12\n"
+    },
+    "LNRS1T3": {
+      "title": "RE 1-4 FAMILY * 1-3 YEARS",
+      "definition_yaml": "      LNRS1T3:\n        title: RE 1-4 FAMILY * 1-3 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNRS1T3\n"
+    },
+    "LNRS3T5": {
+      "title": "RE 1-4 FAMILY * 3-5 YEARS",
+      "definition_yaml": "      LNRS3T5:\n        title: RE 1-4 FAMILY * 3-5 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNRS3T5\n"
+    },
+    "LNRS5T15": {
+      "title": "RE 1-4 FAMILY * 5-15 YEARS",
+      "definition_yaml": "      LNRS5T15:\n        title: RE 1-4 FAMILY * 5-15 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNRS5T15\n"
+    },
+    "LNRSOV15": {
+      "title": "RE 1-4 FAMILY * OVER 15 YEARS",
+      "definition_yaml": "      LNRSOV15:\n        title: RE 1-4 FAMILY * OVER 15 YEARS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: LNRSOV15\n"
+    },
+    "SCO3YLES": {
+      "title": "OTH MORTGAGE SEC * 3 YR OR LESS",
+      "definition_yaml": "      SCO3YLES:\n        title: OTH MORTGAGE SEC * 3 YR OR LESS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCO3YLES\n"
+    },
+    "SCOOV3Y": {
+      "title": "OTH MORTGAGE SEC * OVER 3 YRS",
+      "definition_yaml": "      SCOOV3Y:\n        title: OTH MORTGAGE SEC * OVER 3 YRS\n        description:\n        type: number\n        x-source-mapping:\n          - file: RISVIEW\n            field: SCOOV3Y\n"
+    }
+  },
+  "limitations": [
+    "A maturity-or-next-repricing band does not reveal the fixed/floating split or the contractual maturity of floating exposures. Those remain explicit model assumptions.",
+    "Other MBS bands report expected weighted average life, not final contractual maturity. A representative cash-flow reconstruction is an assumption.",
+    "Equity securities and nonaccrual exposures are outside the performing debt band schedule and remain separately identified.",
+    "Public loan bands are gross exposures. Proportional allocation of the total allowance across segments to reproduce net loan book is a modeling bridge, not a reported allowance assignment.",
+    "Pledged securities are reported in aggregate. Proportional allocation of encumbrance across debt bands and exclusion of equity securities from forced sales are additional assumptions. Availability of new borrowing remains separately assumed.",
+    "Retrieved FDIC data can be revised; observation-date alignment is not evidence the data were published on that date."
+  ]
+}

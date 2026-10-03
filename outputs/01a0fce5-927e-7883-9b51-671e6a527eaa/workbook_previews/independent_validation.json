@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "cached_formulas": 2103,
+  "independent_numeric_comparisons": 102,
+  "fixed_scenario_paths": 248,
+  "fixed_events": 3224,
+  "sheet_count": 7,
+  "native_charts": 1,
+  "workbook_sha256": "570508234a506561e0f3fe16f62ee3d5b22d7f09e190df78631cfe0a01e24dd1",
+  "manifest_sha256": "d2cf6dbe493b9fe07a6f5a9c479b446ee8fb872e51de31fd3af27cfb9be07770",
+  "analysis_sha256": "8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a"
+}

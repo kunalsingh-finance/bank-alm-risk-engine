@@ -1,0 +1,11 @@
+{
+  "source_id": "fred_dff_metadata",
+  "source_url": "https://fred.stlouisfed.org/series/DFF",
+  "final_url": "https://fred.stlouisfed.org/series/DFF",
+  "retrieved_at_utc": "2026-10-02T15:43:25.524917+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "bytes": 90213,
+  "sha256": "3406b7ea0d3424e1479a1709622ada1fa773bd504dd1c92cf712ee828ed3ef2b",
+  "local_path": "data/raw/history/fred_dff_metadata__3406b7ea0d34.html"
+}

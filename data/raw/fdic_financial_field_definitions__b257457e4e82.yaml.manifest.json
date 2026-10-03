@@ -1,0 +1,12 @@
+{
+  "source_id": "fdic_financial_field_definitions",
+  "publisher": "Federal Deposit Insurance Corporation",
+  "source_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+  "final_url": "https://api.fdic.gov/banks/docs/risview_properties.yaml",
+  "retrieved_at_utc": "2026-10-02T14:29:44.626141+00:00",
+  "http_status": 200,
+  "content_type": "text/yaml; charset=UTF-8",
+  "sha256": "b257457e4e821d6a0d9f88ffc4e6e0da80e4ccf67fa394cadb21587b50b23d59",
+  "bytes": 616633,
+  "local_path": "data/raw/fdic_financial_field_definitions__b257457e4e82.yaml"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "verified_build",
+  "started_at_utc": "2026-10-02T16:14:25.410713+00:00",
+  "manifest_sha256": "d2cf6dbe493b9fe07a6f5a9c479b446ee8fb872e51de31fd3af27cfb9be07770",
+  "risk_decision": {
+    "selected_policy_id": "prefund_6pct_borrow_first_hedge_10pct",
+    "feasible_count": 14,
+    "candidate_count": 30,
+    "scope": "Model decision within the saved research scenarios and assumptions."
+  }
+}

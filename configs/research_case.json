@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "case_label": "Sourced asset bands, encumbrance and business costs",
+  "starting_deposit_cost": "Latest quarterly domestic interest-bearing deposit cost proxy",
+  "deposit_beta_policy": "Retain the original 0.5 research assumption; show the historical fitted beta as sensitivity because the lagged model loses to the persistence benchmark on holdout",
+  "operating_cost_policy": "Reported 2025 noninterest expense divided by opening total assets; a scale assumption, not a cost forecast",
+  "credit_cost_policy": "Reported 2025 net loan chargeoffs divided by opening net loans; applied to each month beginning net loans as a new noncash asset-loss proxy",
+  "segment_overrides": {},
+  "excluded_income_note": "Noninterest income, taxes, distributions and OCI are outside the modeled earnings objective. Historical provisions are shown as context and are not charged again on top of the credit-loss proxy.",
+  "comparison_note": "The original aggregate, no-business-cost case remains a separately labeled reference. This extended case does not retrospectively overwrite its results."
+}
