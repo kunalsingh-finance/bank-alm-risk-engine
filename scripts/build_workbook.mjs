@@ -1,4 +1,4 @@
-/** Editable interview case, with fixed audited Python reference imports.
+/** Editable research case, with fixed audited Python reference imports.
  * Authoring uses the bundled Artifact Tool runtime; no repository dependencies.
  */
 import fs from 'node:fs/promises';

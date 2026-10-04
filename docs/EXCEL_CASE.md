@@ -1,4 +1,4 @@
-# Editable Excel interview case
+# Editable Excel research case
 
 `Bank_ALM_Case.xlsx` complements the audited Python report. It is an editable calculation case, with one active build, and a fixed import of the Python scenario summaries and aggregate event ledgers. It does not run Python or optimize funding from inside Excel.
 

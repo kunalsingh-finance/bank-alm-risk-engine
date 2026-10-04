@@ -32,7 +32,7 @@ python -S tests/check_workbook.py
 - Dated pay-fixed/receive-floating swaps, locked first fixing, market value, segregated received collateral and a month-12 unwind.
 - Thirty joint hedge/funding candidates under common limits; an unchanged reference case; reverse stress; behavioral sensitivities; 34 additional primary-case challenges with the policy fixed before evaluation.
 - An [editable Excel case](outputs/01a0fce5-927e-7883-9b51-671e6a527eaa/Bank_ALM_Case.xlsx) with live simplified earnings, cash and swap formulas, alongside explicitly fixed engine imports. Read its [formula scope and rebuild instructions](docs/EXCEL_CASE.md).
-- A [decision memo](docs/DECISION_MEMO.md), [five-minute walkthrough](docs/INTERVIEW_WALKTHROUGH.md), [project case study](docs/PROJECT_CASE_STUDY.md) and [release validation record](docs/VALIDATION.md).
+- A [decision memo](docs/DECISION_MEMO.md), [project case study](docs/PROJECT_CASE_STUDY.md) and [release validation record](docs/VALIDATION.md).
 
 ## Evidence and exports
 
@@ -59,7 +59,7 @@ The main case includes operating-expense and credit-loss proxies scaled from rep
 
 Treasury-based swap projection and discounting, monthly ACT/365F payments, collateral terms, funding access, customer behavior, representative asset tenors, unknown fixed/floating shares and treatment of principal from pledged assets are research assumptions. Actual SOFR curves, dealer quotes, customer-level data and contractual encumbrance-release terms are unavailable. Regulatory LCR/NSFR, internal model validation and regulatory approval are outside scope. Technical checks establish source and calculation consistency, not forecast accuracy.
 
-AI assistance contributed to implementation and documentation. Present this as a personal research project, and use only calculations and decisions you understand and can defend. [The completion audit](docs/COMPLETION_AUDIT.md) maps the agreed scope to its evidence.
+AI assistance contributed to implementation and documentation. This is an independent public-data research project. [The completion audit](docs/COMPLETION_AUDIT.md) maps the agreed scope to its evidence.
 
 ## Publishing
 

@@ -1,6 +1,6 @@
 # Bank ALM research: earnings, economic value and liquidity
 
-An AI-assisted personal research project using public data for **Regions Bank, FDIC certificate 12368, at December 31, 2025**. It combines a reproducible source pipeline, a balance-sheet stress engine, a dated swap and collateral ledger, historical deposit-cost analysis and an inspectable local report. It is portfolio research, not employment at the bank or a production treasury system.
+An AI-assisted personal research project using public data for **Regions Bank, FDIC certificate 12368, at December 31, 2025**. It combines a reproducible source pipeline, a balance-sheet stress engine, a dated swap and collateral ledger, historical deposit-cost analysis and an inspectable local report. It is independent research and is not a production treasury system or work commissioned by the bank.
 
 ## Problem
 
@@ -48,4 +48,4 @@ node scripts/check_report.cjs output/report.html
 
 Open `output/report.html` after a successful build. Inspect the source-coverage and calibration sections, compare the primary and original cases, and trace a stressed path from the initial event through terminal settlement. The release audit reconstructs saved accounting independently; source and output tampering must fail verification. The renderer check requires Node.js; the Python analysis uses the standard library.
 
-See [source evidence](SOURCES.md), [calibration](CALIBRATION.md), [cash-flow coverage](CASH_FLOW_COVERAGE.md), [swap conventions](SWAP_CONVENTIONS.md) and the [five-minute walkthrough](INTERVIEW_WALKTHROUGH.md). The project demonstrates source control, financial modeling, numerical testing and clear treatment of uncertainty. It does not demonstrate realized P&L improvement, commercial deployment or complete model validation. AI assistance contributed to implementation and documentation and should be disclosed when discussing authorship.
+See [source evidence](SOURCES.md), [calibration](CALIBRATION.md), [cash-flow coverage](CASH_FLOW_COVERAGE.md) and [swap conventions](SWAP_CONVENTIONS.md). The project demonstrates source control, financial modeling, numerical testing and clear treatment of uncertainty. It does not demonstrate realized P&L improvement, commercial deployment or complete model validation. AI assistance contributed to implementation and documentation.

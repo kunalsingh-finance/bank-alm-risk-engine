@@ -1,5 +1,5 @@
 {
-  "built_at_utc": "2026-10-03T02:39:31.153535+00:00",
+  "built_at_utc": "2026-10-04T14:38:37.207553+00:00",
   "bank_as_of": "2025-12-31",
   "curve_as_of": "2025-12-31",
   "legal_entity": "FDIC-insured bank and its consolidated subsidiaries; not the bank holding company",
@@ -135,7 +135,7 @@
     "pyproject.toml": "3575af729fd977a383575ba12066a0ad4f5a546f593d4ead9c9d3c85da43abfc",
     "requirements.txt": "36dec533c57be90c7c0e6c0edd6cf83d298e582e5e665499ea392607b080128f",
     "scripts/build_report.py": "7ca7b531b325470c91f23ce64f28fcfcdc7945198528dc2e6957bc3f17acad22",
-    "scripts/build_workbook.mjs": "10d7ce554678e520595bb11b771265d98a57812ee06039f1d154d6b89298a299",
+    "scripts/build_workbook.mjs": "49e574ac5ca9624e76e435d3fd4727b89e02fc336bbdcb4616f57bf33d1608db",
     "scripts/check_report.cjs": "3cae73682134fa694428b8573e35a64ad5769770bfec1f717de370fd9b4f5dfa",
     "scripts/fetch_bank_data.py": "f1e39402f6a000214a8c31a70653a42ada6d730628f341c2ba263bd8a0b3341b",
     "scripts/fetch_history.py": "d96d847cf18b19af37b1db3f3814b7355df97cbb75db51ad7ee780a5566785cf",

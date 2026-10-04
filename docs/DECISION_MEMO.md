@@ -76,7 +76,7 @@ The preserved aggregate v2 comparison selected **6% prefunding and a 5% hedge**,
 
 The final primary audit independently checks **248 saved paths and 1,637,045 numerical comparisons**, with maximum accounting residual below **$0.0001**. This establishes arithmetic consistency of the saved results. It does not establish actual coupons, borrower behavior, funding access, execution liquidity, SOFR hedge pricing or intramonth cash sufficiency. Later retrieved source vintages also prevent a publication-time historical-backtest claim.
 
-## Interview walkthrough
+## Review priorities
 
 1. Reconcile the bank legal entity, gross-to-net loan bridge and pledged securities before discussing a hedge.
 2. Explain the negative worst-case earnings and why the EVE constraint makes the higher-earnings zero-hedge alternative infeasible.

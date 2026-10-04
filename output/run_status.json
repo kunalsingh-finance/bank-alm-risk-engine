@@ -1,7 +1,7 @@
 {
   "status": "verified_build",
-  "started_at_utc": "2026-10-03T02:39:31.153535+00:00",
-  "manifest_sha256": "96dbdd26a26dacd5af25440cb5e6286d125cebccea1097ebea635c13d24f6d8c",
+  "started_at_utc": "2026-10-04T14:38:37.207553+00:00",
+  "manifest_sha256": "9042bab1f3bc9d097ef430d7fa733d07a297e58e97dbd592d7679e80fbd96b2e",
   "risk_decision": {
     "selected_policy_id": "prefund_6pct_borrow_first_hedge_10pct",
     "feasible_count": 14,
