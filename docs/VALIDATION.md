@@ -1,6 +1,6 @@
 # Validation record
 
-Date: October 2, 2026 (America/New_York); release verification continued into October 3 UTC. Scope: version 1.0, the Regions Bank December 2025 public research case, its aggregate reference, historical calibration, challenge scenarios and editable Excel case. Technical checks establish source consistency and implementation behavior; they do not establish a bank forecast or customer-behavior model.
+Date: October 4, 2026 (America/New_York); release timestamps below use UTC. Scope: version 1.0, the Regions Bank December 2025 public research case, its aggregate reference, historical calibration, challenge scenarios and editable Excel case. Technical checks establish source consistency and implementation behavior; they do not establish a bank forecast or customer-behavior model.
 
 ## Source controls
 
@@ -38,19 +38,21 @@ Meaningful tampering tests alter balances, derivative marks, collateral, coupons
 
 ## Release and dashboard
 
-The final `python -S scripts/build_report.py` and `python -S scripts/verify_release.py` both passed. Build start: **2026-10-03 02:39:31 UTC**. Manifest SHA-256: `96dbdd26a26dacd5af25440cb5e6286d125cebccea1097ebea635c13d24f6d8c`. The CLI checks current input/code hashes, artifact hashes, source replay, full/compact equivalence, selected-policy consistency, saved research summaries and all four audit groups.
+The final `python -S scripts/build_report.py` and `python -S scripts/verify_release.py` both passed. Build start: **2026-10-04 14:34:30 UTC**. Manifest SHA-256: `dc91d13998b2faa25ea259f772d4f0fbe2dbce07b19be8c2eea853c1ba637f8e`. The CLI checks current input/code hashes, artifact hashes, source replay, full/compact equivalence, selected-policy consistency, saved research summaries and all four audit groups.
 
 `node scripts/check_report.cjs` passed for both primary and reference reports. It covers escaping, selection, chart and ledger rendering, data-download logic and fail-closed output. Chrome verification of the final v3 report confirmed selected/reference switching while preserving the falling-rate scenario, $4.31bn versus $4.76bn bank NII, $1.80bn required/posted collateral, negative $1.74bn modeled earnings, 13 opening/monthly events with 31 displayed account columns, and updated cost/restricted-cash labels. The downloaded combined-case CSV contains 13 events and 69 fields; 884 numeric cells exactly match the saved scenario within 1e-5 USD. The browser download-event listener timed out, but the actual downloaded file was found and independently validated.
 
-The source/calibration cards, eight holdout predictions, encumbrance bridge, cost drivers and expanded failed-challenge table rendered correctly. The original-case link opened its separately labeled 22/30, 6%/5% report. No browser warning/error logs were reported. The blocked-build page was observed while the final build ran. Desktop browser coverage does not establish mobile or assistive-technology coverage.
+The source/calibration cards, eight holdout predictions, encumbrance bridge, cost drivers and expanded failed-challenge table rendered correctly. The original-case link opened its separately labeled 22/30, 6%/5% report. The blocked-build page was observed during a build. The October 4 live browser audit also checked a 390-pixel viewport without page-level horizontal overflow and verified 884 numeric cells in the falling-rate ledger download. Its only console error was a missing browser icon; the report now embeds its own SVG icon. These checks do not establish comprehensive mobile or assistive-technology coverage.
 
 ## Excel
 
 The separate live case does not run the full engine. Fixed engine imports include all 248 aggregate paths / 3,224 opening-and-monthly events; per-band details remain in the authoritative external gzip. The builder tests case selection, representative edits, blank versus zero, invalid assumptions, recalculation and formula errors. The read-only XLSX checker independently reconstructs prices and cash/loan-book rollforwards, verifies source/import hashes and native chart bindings. Deposit expense was corrected to opening balances consistent with month-end withdrawals, and shared input bounds now propagate unavailable values. The authoring gate was observed rejecting both an edited source fingerprint and an in-progress engine build before export.
 
+The October 4 input audit reproduced an intermediate `#VALUE!` in `Earnings!F27` when selected prefunding was blank/negative or the case selector was invalid. Opening cash now requires both its inputs to be numeric and otherwise returns `n.a.`. Authoring regression checks scan all seven sheets while blank, negative and zero prefunding and an invalid selector are active. They verify clean unavailable results, a numeric zero-prefunding case, and exact restoration of the default financial results.
+
 The final production workbook passed rebuild/recalculation, input edits/restoration, **102 independent numeric comparisons**, all **2,103 cached formulas** without errors, seven-sheet coverage and one native-chart binding check. Twelve current preview ranges covering every tab were visually inspected. The final independent XML check was rerun successfully against the saved XLSX. Artifact Tool recalculation was tested; native Microsoft Excel application behavior was not separately exercised.
 
-Workbook SHA-256: `90a391872aea7e6e0759e5c5b2f32132a3856ab023bec5036964e09d59258d64`. Imported analysis SHA-256: `8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a`. Both align with the final manifest above. The adjacent `workbook_previews/independent_validation.json` records those hashes and checks; `validation.json` records edit/recalculation outcomes. Obsolete previews and the exporter inspection sidecar were removed.
+Workbook SHA-256: `e5131423d507cbc0d45cd53829bdb0936014247a342f873a9ca0c92809679443`. Imported analysis SHA-256: `8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a`. Both align with the final manifest above. The adjacent `workbook_previews/independent_validation.json` records those hashes and checks; `validation.json` records edit/recalculation outcomes. Obsolete previews and the exporter inspection sidecar were removed.
 
 ## Interpretation
 

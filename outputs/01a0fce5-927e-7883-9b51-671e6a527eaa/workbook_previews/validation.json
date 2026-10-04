@@ -17,7 +17,7 @@
     "engine_paths": 248,
     "engine_events": 3224,
     "analysis_sha256": "8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a",
-    "built_at_utc": "2026-10-03T02:39:31.153535+00:00"
+    "built_at_utc": "2026-10-04T14:34:30.039317+00:00"
   },
   "observations": [
     {
@@ -51,6 +51,79 @@
       "after": 314.824
     }
   ],
+  "input_validity_regressions": [
+    {
+      "test": "Blank selected prefunding",
+      "input": "E33",
+      "value": null,
+      "observed": {
+        "active_prefunding": "n.a.",
+        "prefunding": "n.a.",
+        "opening_cash": "n.a.",
+        "free_cash": "n.a.",
+        "nii": "n.a."
+      },
+      "formula_error_scan": {
+        "sheet_count": 7,
+        "error_count": 0
+      },
+      "default_restored_exactly": true
+    },
+    {
+      "test": "Negative selected prefunding",
+      "input": "E33",
+      "value": -0.1,
+      "observed": {
+        "active_prefunding": "n.a.",
+        "prefunding": "n.a.",
+        "opening_cash": "n.a.",
+        "free_cash": "n.a.",
+        "nii": "n.a."
+      },
+      "formula_error_scan": {
+        "sheet_count": 7,
+        "error_count": 0
+      },
+      "default_restored_exactly": true
+    },
+    {
+      "test": "Zero selected prefunding",
+      "input": "E33",
+      "value": 0,
+      "observed": {
+        "active_prefunding": 0,
+        "prefunding": 0,
+        "opening_cash": 11845,
+        "free_cash": 10043.458396952205,
+        "nii": 5587.744056477437
+      },
+      "formula_error_scan": {
+        "sheet_count": 7,
+        "error_count": 0
+      },
+      "default_restored_exactly": true
+    },
+    {
+      "test": "Invalid case selector",
+      "input": "E6",
+      "value": "missing",
+      "observed": {
+        "active_prefunding": "n.a.",
+        "prefunding": "n.a.",
+        "opening_cash": "n.a.",
+        "nii": "n.a."
+      },
+      "formula_error_scan": {
+        "sheet_count": 7,
+        "error_count": 0
+      },
+      "default_restored_exactly": true
+    }
+  ],
+  "final_formula_error_scan": {
+    "sheet_count": 7,
+    "error_count": 0
+  },
   "blank_and_zero_inputs_checked": true,
   "source_actuals_unchanged": true
 }

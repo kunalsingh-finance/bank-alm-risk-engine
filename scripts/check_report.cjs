@@ -30,7 +30,10 @@ function boot(html) {
   const runtime=html.match(/<script id="report-runtime">([\s\S]*?)<\/script>/);
   assert(data&&runtime,"Report requires a saved data block and runtime");
   assert(!/<script[^>]+src\s*=/i.test(html),"Report must not load scripts from another file or a CDN");
-  assert(!/<link[^>]+href\s*=/i.test(html),"Report styles must be self-contained");
+  for (const link of html.match(/<link\b[^>]*>/gi) || []) {
+    assert(/\brel\s*=\s*["']icon["']/i.test(link) && /\bhref\s*=\s*["']data:image\/svg\+xml,/i.test(link),
+      "Report linked assets must be embedded SVG icons; styles remain self-contained");
+  }
   const payload=JSON.parse(data[1]),nodes=new Map();
   for(const m of html.matchAll(/\bid="([^"]+)"/g))nodes.set(m[1],new Element());
   nodes.get("report-data").textContent=data[1];
