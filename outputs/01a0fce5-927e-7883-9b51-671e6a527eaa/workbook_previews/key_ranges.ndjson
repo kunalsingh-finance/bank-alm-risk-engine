@@ -51,6 +51,9 @@
 {"sheet": "Assumptions", "address": "G72", "value": 0.02, "formula": "IF(ISNUMBER(E72),IF(AND(E72>=0,E72<=1),E72,\"n.a.\"),\"n.a.\")"}
 {"sheet": "Assumptions", "address": "G73", "value": 1.0, "formula": "IF(ISNUMBER(E73),IF(E73>=0,E73,\"n.a.\"),\"n.a.\")"}
 {"sheet": "Assumptions", "address": "G74", "value": 0.015, "formula": "IF(ISNUMBER(E74),IF(AND(E74>=0,E74<=1),E74,\"n.a.\"),\"n.a.\")"}
+{"sheet": "Earnings", "address": "F18", "value": 9444.72, "formula": "IF(ISNUMBER(Assumptions!E30),Sources!E19/1000000*Assumptions!E30,\"n.a.\")"}
+{"sheet": "Earnings", "address": "F27", "value": 21289.72, "formula": "IF(COUNT(F12,F18)=2,F12+F18,\"n.a.\")"}
+{"sheet": "Earnings", "address": "F56", "value": 19488.178396952204, "formula": "IF(COUNT(F27,F53,F54)=3,F27-F53-F54,\"n.a.\")"}
 {"sheet": "Earnings", "address": "G36", "value": 142.74901482232775, "formula": "IF(COUNT($F$15,G35)=2,$F$15*G35*G10,\"n.a.\")"}
 {"sheet": "Earnings", "address": "H36", "value": 128.93459403307023, "formula": "IF(COUNT(G24,H35)=2,G24*H35*H10,\"n.a.\")"}
 {"sheet": "Earnings", "address": "R56", "value": 20890.038867466465, "formula": "IF(COUNT(R27,R42,R46,R53:R55)=6,R27+R46+R42-R53-R54-R55,\"n.a.\")"}
@@ -84,7 +87,7 @@
 {"sheet": "Sources", "address": "E23", "value": null, "formula": null}
 {"sheet": "Sources", "address": "E24", "value": 46022.0, "formula": null}
 {"sheet": "Sources", "address": "E25", "value": 46022.0, "formula": null}
-{"sheet": "Sources", "address": "E26", "value": 46298.11077723379, "formula": null}
+{"sheet": "Sources", "address": "E26", "value": 46299.60729211805, "formula": null}
 {"sheet": "Sources", "address": "E27", "value": "8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a", "formula": null}
 {"sheet": "Sources", "address": "E28", "value": "0857a3a655d2ffcd58a8408930ca05cf4736a3688370b230dee52fe0add3c972", "formula": null}
 {"sheet": "Sources", "address": "E29", "value": "9e1be92da8388b4e77e3e2e6b51bcad8496fe9211ab19a77dc9fb971f7ea61e6", "formula": null}
@@ -93,11 +96,11 @@
 {"sheet": "Sources", "address": "E77", "value": 470000000.0, "formula": null}
 {"sheet": "Sources", "address": "E78", "value": null, "formula": null}
 {"sheet": "Sources", "address": "E79", "value": null, "formula": null}
-{"sheet": "Engine reference", "address": "C5", "value": "FIXED IMPORT \u2014 audited Python build 2026-10-03T02:39:31.153535+00:00. Analysis SHA-256 8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a.", "formula": null}
+{"sheet": "Engine reference", "address": "C5", "value": "FIXED IMPORT \u2014 audited Python build 2026-10-04T14:34:30.039317+00:00. Analysis SHA-256 8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a.", "formula": null}
 {"sheet": "Engine reference", "address": "C9", "value": "Policy ID", "formula": null}
 {"sheet": "Engine reference", "address": "E9", "value": "Funding order", "formula": null}
 {"sheet": "Engine reference", "address": "G9", "value": "Swap notional USDm", "formula": null}
-{"sheet": "Engine ledgers", "address": "C6", "value": "Engine build 2026-10-03T02:39:31.153535+00:00; analysis SHA-256 8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a. Excel inputs do not modify these rows.", "formula": null}
+{"sheet": "Engine ledgers", "address": "C6", "value": "Engine build 2026-10-04T14:34:30.039317+00:00; analysis SHA-256 8d63dec2804b5a9b681979d84317906723a9bf464e764e181a8f7ff9594b682a. Excel inputs do not modify these rows.", "formula": null}
 {"sheet": "Engine ledgers", "address": "C10", "value": "Unhedged reference", "formula": null}
 {"sheet": "Engine ledgers", "address": "F10", "value": 0.0, "formula": null}
 {"sheet": "Engine ledgers", "address": "J10", "value": 33894000000.0, "formula": null}

@@ -158,7 +158,7 @@ e.getRange('C:C').format.columnWidth=41;e.getRange('D:E').format.columnWidth=3;e
 const publicMap={12:10,13:11,14:12,15:15,16:14,17:16};
 for(const[r,sourceRow]of Object.entries(publicMap)){formula(e,`F${r}`,`=Sources!E${sourceRow}/1000000`);for(let m=1;m<=12;m++)formula(e,`${col(5+m)}${r}`,`=$F$${r}`);}
 formula(e,'F9','=Sources!E24');formula(e,'F10','=0');formula(e,'F18','=IF(ISNUMBER(Assumptions!E30),Sources!E19/1000000*Assumptions!E30,"n.a.")');formula(e,'F19','=Swap!E6');formula(e,'F20','=IF(ISNUMBER(Assumptions!E74),Sources!E19/1000000*Assumptions!E74,"n.a.")');
-formula(e,'F27','=F12+F18');formula(e,'F48','=Swap!E10');formula(e,'F49','=IF(AND(ISNUMBER(F19),ISNUMBER(Assumptions!E72)),F19*Assumptions!E72,"n.a.")');formula(e,'F50','=IF(ISNUMBER(F48),MAX(-F48,0),"n.a.")');formula(e,'F51','=IF(COUNT(F49:F50)=2,SUM(F49:F50),"n.a.")');formula(e,'F52','=IF(ISNUMBER(F48),MAX(F48,0),"n.a.")');formula(e,'F53','=F51');formula(e,'F54','=Swap!E15');formula(e,'F56','=IF(COUNT(F27,F53,F54)=3,F27-F53-F54,"n.a.")');formula(e,'F57','=IF(COUNT(F20,F56)=2,MAX(F20-F56,0),"n.a.")');formula(e,'F58','=IF(ISNUMBER(F54),-F54,"n.a.")');
+formula(e,'F27','=IF(COUNT(F12,F18)=2,F12+F18,"n.a.")');formula(e,'F48','=Swap!E10');formula(e,'F49','=IF(AND(ISNUMBER(F19),ISNUMBER(Assumptions!E72)),F19*Assumptions!E72,"n.a.")');formula(e,'F50','=IF(ISNUMBER(F48),MAX(-F48,0),"n.a.")');formula(e,'F51','=IF(COUNT(F49:F50)=2,SUM(F49:F50),"n.a.")');formula(e,'F52','=IF(ISNUMBER(F48),MAX(F48,0),"n.a.")');formula(e,'F53','=F51');formula(e,'F54','=Swap!E15');formula(e,'F56','=IF(COUNT(F27,F53,F54)=3,F27-F53-F54,"n.a.")');formula(e,'F57','=IF(COUNT(F20,F56)=2,MAX(F20-F56,0),"n.a.")');formula(e,'F58','=IF(ISNUMBER(F54),-F54,"n.a.")');
 for(let m=1;m<=12;m++){const c=col(5+m),p=col(4+m),r=21+m;
   formula(e,`${c}9`,`=Swap!E${r}`);formula(e,`${c}10`,`=Swap!G${r}`);for(const row of[18,19,20])formula(e,`${c}${row}`,`=$F$${row}`);
   formula(e,`${c}22`,`=IF(ISNUMBER(Assumptions!$E$24),$F$15*Assumptions!$E$24*Sources!${col(5+m)}67,"n.a.")`);formula(e,`${c}23`,`=IF(ISNUMBER(Assumptions!$E$24),$F$16*Assumptions!$E$24*Sources!${col(5+m)}67,"n.a.")`);
@@ -235,9 +235,20 @@ val(sum,'C63','Fixed engine baseline NII, USDm');val(sum,'E63',analysis.baseline
 await fs.mkdir(path.dirname(OUT),{recursive:true});await fs.mkdir(PREVIEW,{recursive:true});
 const numberAt=(s,c)=>{const v=s.getRange(c).values[0][0];if(typeof v!=='number'||!Number.isFinite(v))throw new Error(`${s.name||'sheet'}!${c} is not finite: ${v}`);return v;};
 const assert=(ok,msg)=>{if(!ok)throw new Error(msg);};
+const formulaErrorPattern=/^#(?:REF!|DIV\/0!|VALUE!|NAME\?|N\/A|NUM!|NULL!|SPILL!|CALC!)$/;
+const formulaErrors=()=>Object.entries(ss).flatMap(([sheet,s])=>{
+  const errors=[];
+  s.getUsedRange(true).values.forEach((row,r)=>row.forEach((value,c)=>{
+    if(typeof value==='string'&&formulaErrorPattern.test(value))errors.push({sheet,used_range_row:r+1,used_range_column:c+1,error:value});
+  }));
+  return errors;
+});
+const assertNoFormulaErrors=label=>{const errors=formulaErrors();assert(errors.length===0,`${label}: ${JSON.stringify(errors.slice(0,10))}`);return{sheet_count:names.length,error_count:errors.length};};
 wb.recalculate();
 const observations=[];
-const initialNII=numberAt(sum,'E9'),initialMargin=numberAt(sum,'E15'),initialCash=numberAt(sum,'E16');
+const inputValidityRegressions=[];
+const initialNII=numberAt(sum,'E9'),initialMargin=numberAt(sum,'E15'),initialCash=numberAt(sum,'E16'),initialEarnings=numberAt(sum,'E14'),initialOpeningCash=numberAt(e,'F27');
+const assertDefaultRestored=label=>assert(numberAt(sum,'E9')===initialNII&&numberAt(sum,'E15')===initialMargin&&numberAt(sum,'E16')===initialCash&&numberAt(sum,'E14')===initialEarnings&&numberAt(e,'F27')===initialOpeningCash,`${label}: restored default changed`);
 const publicBefore=JSON.stringify(src.getRange('E10:E21').values);
 const costFactsBefore=JSON.stringify(src.getRange('E75:E79').values);
 const editRestore=(address,value,metric,expectedChange,label)=>{const old=a.getRange(address).values[0][0],before=numberAt(sum,metric);val(a,address,value);wb.recalculate();const after=numberAt(sum,metric);assert(expectedChange(before,after),label);observations.push({test:label,input:address,before,after});val(a,address,old);wb.recalculate();assert(Math.abs(numberAt(sum,metric)-before)<1e-6,`${label}: restore failed`);};
@@ -251,7 +262,22 @@ val(a,'E6',2);wb.recalculate();assert(numberAt(e,'G24')<numberAt(e,'F15'),'Runof
 for(const[address,invalid]of[['E72',-0.02],['E62',1.2],['E61',-0.01]]){const old=a.getRange(address).values[0][0];val(a,address,invalid);wb.recalculate();assert(sum.getRange('E9').values[0][0]==='n.a.'||sum.getRange('E14').values[0][0]==='n.a.',`Invalid shared ${address} must propagate unavailable`);val(a,address,old);wb.recalculate();}
 const creditBefore=a.getRange('E45').values[0][0],cashBefore=numberAt(e,'R56'),bookBefore=numberAt(e,'R69');val(a,'E45',0.01);wb.recalculate();assert(Math.abs(numberAt(e,'R56')-cashBefore)<1e-6,'Noncash credit-loss change must not use free cash');assert(numberAt(e,'R69')<bookBefore,'Noncash loss must reduce modeled net loan book');val(a,'E45',creditBefore);wb.recalculate();
 const oldShock=a.getRange('E15').values[0][0];val(a,'E15',null);wb.recalculate();assert(sum.getRange('E9').values[0][0]==='n.a.','Blank active shock must remain unavailable');val(a,'E15',0);wb.recalculate();assert(typeof sum.getRange('E9').values[0][0]==='number','Zero shock must be numeric');val(a,'E15',oldShock);wb.recalculate();
-val(a,'E6','missing');wb.recalculate();assert(sum.getRange('E9').values[0][0]==='n.a.','Nonnumeric selector must remain unavailable');val(a,'E6',3);wb.recalculate();
+const oldPrefunding=a.getRange('E33').values[0][0];
+for(const[label,value]of[['Blank selected prefunding',null],['Negative selected prefunding',-0.1],['Zero selected prefunding',0]]){
+  val(a,'E33',value);wb.recalculate();
+  const state={active_prefunding:a.getRange('E30').values[0][0],prefunding:e.getRange('F18').values[0][0],opening_cash:e.getRange('F27').values[0][0],free_cash:e.getRange('F56').values[0][0],nii:sum.getRange('E9').values[0][0]};
+  if(value===0){assert(state.active_prefunding===0&&state.prefunding===0&&state.opening_cash===numberAt(e,'F12')&&typeof state.nii==='number','Zero prefunding must remain numeric');}
+  else assert(Object.values(state).every(x=>x==='n.a.'),`${label} must propagate unavailable without formula errors`);
+  const scan=assertNoFormulaErrors(label);
+  val(a,'E33',oldPrefunding);wb.recalculate();assertDefaultRestored(label);
+  inputValidityRegressions.push({test:label,input:'E33',value,observed:state,formula_error_scan:scan,default_restored_exactly:true});
+}
+val(a,'E6','missing');wb.recalculate();
+const invalidSelectorState={active_prefunding:a.getRange('E30').values[0][0],prefunding:e.getRange('F18').values[0][0],opening_cash:e.getRange('F27').values[0][0],nii:sum.getRange('E9').values[0][0]};
+assert(Object.values(invalidSelectorState).every(x=>x==='n.a.'),'Nonnumeric selector must propagate unavailable');
+const invalidSelectorScan=assertNoFormulaErrors('Invalid case selector');
+val(a,'E6',3);wb.recalculate();assertDefaultRestored('Invalid case selector');
+inputValidityRegressions.push({test:'Invalid case selector',input:'E6',value:'missing',observed:invalidSelectorState,formula_error_scan:invalidSelectorScan,default_restored_exactly:true});
 const oldHedge=a.getRange('E39').values[0][0];val(a,'E39',0);wb.recalculate();assert(Math.abs(numberAt(sum,'E15'))<1e-8,'Zero hedge must have zero collateral');assert(Math.abs(numberAt(sum,'E11'))<1e-8,'Zero hedge must have zero coupons');val(a,'E39',oldHedge);wb.recalculate();
 assert(JSON.stringify(src.getRange('E10:E21').values)===publicBefore,'Public historical actuals changed');
 assert(JSON.stringify(src.getRange('E75:E79').values)===costFactsBefore,'Reported cost context changed');
@@ -259,14 +285,13 @@ assert(Math.abs(numberAt(swap,'E13'))<1e-6,'Par inception value is not zero');
 for(const row of swap.getRange('Z22:Z81').values)assert(Math.abs(row[0])<1e-6,'Swap conditional PV identity failed');
 for(const row of e.getRange('G60:R60').values)for(const v of row)assert(Math.abs(v)<1e-6,'Cash rollforward identity failed');
 assert(Math.abs(numberAt(sum,'E9')-initialNII)<1e-6&&Math.abs(numberAt(sum,'E15')-initialMargin)<1e-6&&Math.abs(numberAt(sum,'E16')-initialCash)<1e-6,'Final case does not match restored original');
-const errorScan=wb.inspect({kind:'match',searchTerm:'#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A|#NUM!|#NULL!|#SPILL!|#CALC!',options:{useRegex:true,maxResults:100},summary:'Formula error scan'});
-await fs.writeFile(path.join(PREVIEW,'formula_errors.ndjson'),errorScan.ndjson||'');
-assert(!(errorScan.ndjson||'').includes('"address"'),'Formula error scan found errors');
+const finalFormulaErrorScan=assertNoFormulaErrors('Restored final workbook');
+await fs.writeFile(path.join(PREVIEW,'formula_errors.ndjson'),formulaErrors().map(x=>JSON.stringify(x)).join('\n'));
 for(const [name,range]of [['Summary','C1:R41'],['Assumptions','C1:R34'],['Assumptions','C35:R84'],['Earnings','C1:R40'],['Earnings','C40:R79'],['Swap','C1:Z34'],['Swap','C70:Z81'],['Sources','C1:R45'],['Sources','C48:R83'],['Engine reference','C1:Q39'],['Engine reference','C42:Q62'],['Engine ledgers','C1:S21']]){
   const img=await wb.render({sheetName:name,range,scale:1.4,format:'png'});await fs.writeFile(path.join(PREVIEW,`${name.replaceAll(' ','_')}_${range.replaceAll(':','_')}.png`),new Uint8Array(await img.arrayBuffer()));
 }
 const metrics={case:a.getRange('E7').values[0][0],nii_usdm:numberAt(sum,'E9'),noncash_credit_loss_usdm:numberAt(sum,'E10'),operating_expense_usdm:numberAt(sum,'E20'),case_earnings_usdm:numberAt(sum,'E14'),peak_collateral_usdm:numberAt(sum,'E15'),minimum_cash_usdm:numberAt(sum,'E16'),funding_gap_usdm:numberAt(sum,'E17'),ending_net_loan_book_usdm:numberAt(e,'R69'),par_fixed_rate:numberAt(swap,'E7'),first_fixing:numberAt(swap,'E8'),opening_swap_value_usdm:numberAt(swap,'E10'),terminal_closeout_usdm:numberAt(swap,'E11'),engine_paths:paths.length,engine_events:events.length,analysis_sha256:analysisHash,built_at_utc:provenance.built_at_utc};
-await fs.writeFile(path.join(PREVIEW,'validation.json'),JSON.stringify({passed:true,metrics,observations,blank_and_zero_inputs_checked:true,source_actuals_unchanged:true},null,2));
+await fs.writeFile(path.join(PREVIEW,'validation.json'),JSON.stringify({passed:true,metrics,observations,input_validity_regressions:inputValidityRegressions,final_formula_error_scan:finalFormulaErrorScan,blank_and_zero_inputs_checked:true,source_actuals_unchanged:true},null,2));
 await fs.writeFile(path.join(PREVIEW,'key_ranges.ndjson'),[wb.inspect({kind:'table',range:'Summary!C9:E19',include:'values,formulas',tableMaxRows:11,tableMaxCols:3,maxChars:10000}).ndjson,wb.inspect({kind:'table',range:'Swap!C22:Z23',include:'values,formulas',tableMaxRows:2,tableMaxCols:24,maxChars:12000}).ndjson].join('\n'));
 // No edits after this final recalc; exported cells retain cached results.
 wb.recalculate();const xlsx=await SpreadsheetFile.exportXlsx(wb);await xlsx.save(OUT);
